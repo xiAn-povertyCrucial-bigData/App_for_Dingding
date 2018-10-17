@@ -1,0 +1,73 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>帮扶责任人信息</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+</head>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <form class="personContent">
+        <ul class="perInfo bgColor">
+            <li style="line-height: 2.5rem;overflow: hidden;position:relative;">帮扶责任人照片：<div style="width:40px;height:40px;border-radius: 50%;overflow: hidden;display: inline-block;position:absolute;top:50%;transform: translateY(-50%)"><img src="../img/default.png" alt="" id="photo" style="width:40px;height:40px;"></div></li>
+            <li>帮扶责任人姓名：<span id="con1"></span></li>
+            <li>帮扶责任人性别：<span id="con2"></span></li>
+            <li>派出单位名称：<span id="con3"></span></li>
+            <li>派出单位职务：<span id="con4"></span></li>
+            <li>证件号码：<span id="con5"></span></li>
+            <li>联系电话：<span id="con6"></span></li>
+            <li>政治面貌：<span id="con7"></span></li>
+            <li>学历：<span id="con8"></span></li>
+            <li>技术特长：<span id="con9"></span></li>
+            <li>开始时间：<span id="con10"></span></li>
+            <li>结束时间：<span id="con11"></span></li>
+            <a href="assistInformUpdate.html" class="update_btn">修改</a>
+        </ul>
+    </form>
+</section>
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    dd.ready(function(){
+        var url=config.url;
+        var object=localStorage.getItem("object");
+        var item=JSON.parse(object);
+        var povertyNumber=item.objnumber;
+        var helpNumber=item.cadnumber;
+        $.ajax({
+            url: url+"/helpUser/detail1",
+            data: {"aak110": helpNumber,"aac001":povertyNumber},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    $("#photo").attr("src",data.data.AAK999);
+                    $("#con1").text(data.data.AAB002);
+                    $("#con2").text(data.data.AAB003);
+                    $("#con3").text(data.data.AAP001);
+                    $("#con4").text(data.data.AAK888);
+                    $("#con5").text(data.data.AAB004);
+                    $("#con6").text(data.data.AAR012);
+                    $("#con7").text(data.data.AAK033);
+                    $("#con8").text(data.data.AAK036);
+                    $("#con9").text(data.data.AAK037);
+                    $("#con10").text(data.data.AAR020);
+                    $("#con11").text(data.data.AAR021);
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>

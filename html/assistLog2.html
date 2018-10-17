@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>发表帮扶日志</title>
+    <style type="text/css">
+        body {
+        background-color: #F2F6F9 !important;
+    }</style>
+    <link type="text/css" href="../css/common.css" rel="stylesheet">
+    <link type="text/css" href="../css/povDyna.css" rel="stylesheet">
+    <link type="text/css" href="../css/personInfo.css" rel="stylesheet">
+    <link type="text/css" href="../css/font-awesome.min.css" rel="stylesheet">
+</head>
+<style>
+    .field .upload{
+        position:absolute;
+        left:0;
+        bottom:0;
+        width:60px;
+        height:60px;
+        z-index:-1;
+        background: url("../img/addImg.png") no-repeat center/cover;
+        border:1px solid #ccc;;
+    }
+    .imgBox img{width:60px;height:60px;float:left;margin-right:4px;}
+</style>
+<body>
+
+<!--<div class="cardMiddle">-->
+    <!--<div class="cardRecord">-->
+        <!--<p class="addressP">记录签到位置</p>-->
+        <!--<p>-->
+            <!--<i class="Coloricon fa fa-clock-o" aria-hidden="true"></i>-->
+            <!--<span class="timeColor dakaTime"></span>-->
+        <!--</p>-->
+        <!--&lt;!&ndash;<div id="mapRecord" class="mapRecord"></div>&ndash;&gt;-->
+        <!--<div id="allmap" style="width: 100%;height:170px;"></div>-->
+        <!--<p class="addressP">-->
+            <!--<i class="Coloricon fa fa-location-arrow" aria-hidden="true"></i>-->
+            <!--<span>西安市周至县新红村新湖社45号</span>-->
+        <!--</p>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;扶贫打卡圆形按钮&ndash;&gt;-->
+    <!--<div class="recordButton">-->
+        <!--<p class="addressP">记录签到时间</p>-->
+        <!--<div class="recordCircular" id="recordCircular">-->
+            <!--<span>签到</span>-->
+            <!--<br><br>-->
+            <!--<span class="currentTime">14:10:35</span>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<div class="wrapperhovertree">
+    <div class="conMain" id="logForm">
+        <!--**********************************************文本输入**********************************************-->
+        <div class="editor-content">
+            <label for="" style="margin-bottom: 10px;">日志内容：</label>
+            <textarea id="editorContent" autofocus="autofocus" placeholder="编辑内容..."></textarea>
+        </div>
+   <!--**************************照片添加***************************************************************-->
+        <div class="bodyContainer">
+            <ul>
+                <li>
+                    <p></p>
+                </li>
+            </ul>
+            <div id="z_photo" class="z_photo">
+                <label for=""style="float:left;margin-right: 14px;">选择图片</label>
+                <!--<div class="z_file">-->
+                    <!--<input type="file" name="file" id="file" value="" accept="image/*" multiple onchange="imgChange('z_photo');"/>-->
+                <div class="field" style="position: relative;display: inline-block;float:left;">
+                    <input type="file"id="bimg" value="" multiple style="opacity: 0;width:60px;height:60px;position:absolute;top:0;left:0;margin-right:4px;">
+                    <div class="upload" style="display: inline-block;"></div>
+                    <input type="hidden" name="bimg" id="bimage" value="" multiple>
+                    <div class="imgBox" style="width:192px;height:60px;"></div>
+                </div>
+                </div>
+            </div>
+            <!--遮罩层-->
+            <!--<div class="z_mask">-->
+                <!--&lt;!&ndash; 弹出框 &ndash;&gt;-->
+                <!--<div class="z_alert">-->
+                    <!--<p>确定要删除这张图片吗？</p>-->
+                    <!--<p>-->
+                        <!--<span class="z_cancel">取消</span>-->
+                        <!--<span class="z_sure">确定</span>-->
+                    <!--</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <!--**********************************************确定上传按钮**********************************************-->
+        <button id="btnSubmit" class="btnSubmit" style="margin-bottom: 20px;">
+            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+            发表日志
+        </button>
+
+    </div>
+</div>
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/common.js"></script>
+<!--<script src="../js/filePop.js"></script>-->
+<script type="text/javascript" src="../js/dd.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=3B0b1LsQgqzKb6Puv0LtP6u7N1Oj9Y1l"></script>
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+<script src="../js/povSign.js"></script>
+<script type="text/javascript">
+    // 百度地图API功能
+    /*ip定位*/
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.331398,39.897445);
+    map.centerAndZoom(point,16);
+    map.enableScrollWheelZoom();
+    function myFun(result){
+        var cityName = result.name;
+        map.setCenter(cityName);
+        let lng=result.center.lng,lat=result.center.lat;
+        var data= {"lng":lng,"lat":lat};//要存储的json对象
+        var point=JSON.stringify(data);//将json对象转化成字符串
+        localStorage.setItem("object",point);//把选择的数据存储在localstorage中
+    }
+    var pointData=localStorage.getItem("object");
+    var item=JSON.parse(pointData);
+    point.lng=item.lng;point.lat=item.lat;
+    console.log(point)
+    var myCity = new BMap.LocalCity();
+    myCity.get(myFun);
+    var marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);               // 将标注添加到地图中
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    /*浏览器定位*/
+    // var map = new BMap.Map("allmap");
+    // var point = new BMap.Point(116.331398,39.897445);
+    // map.centerAndZoom(point,18);
+    //
+    // var geolocation = new BMap.Geolocation();
+    // geolocation.getCurrentPosition(function(r){
+    //     if(this.getStatus() == BMAP_STATUS_SUCCESS){
+    //         var mk = new BMap.Marker(r.point);
+    //         map.addOverlay(mk);
+    //         map.panTo(r.point);
+    //         console.log('您的位置：'+r.point.lng+','+r.point.lat);
+    //     }
+    //     else {
+    //         alert('failed'+this.getStatus());
+    //     }
+    // },{enableHighAccuracy: true})
+    /*h5定位*/
+    // 使用html5获取当前手机的经纬度，并接入百度地图API，查询出当前位置
+    /*var map = new BMap.Map("allmap");
+    var longitude, latitude;
+    navigator.geolocation.getCurrentPosition(function (position) {
+        longitude = position.coords.longitude;
+        latitude = position.coords.latitude;
+    });
+    setTimeout(function () {
+        var gpsPoint = new BMap.Point(longitude, latitude);
+        BMap.Convertor.translate(gpsPoint, 0, function (point) {
+            var geoc = new BMap.Geocoder();
+            geoc.getLocation(point, function (rs) {
+                var addComp = rs.addressComponents;
+                console.log(addComp)
+                alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+            });
+        });
+    }, 3000);*/
+</script>
+<script>
+    $(document).ready(function(){
+        let dakaTime=$("#dakaTime").text();
+        let place=$("#place").text();
+        // let lng=r.point.lng;
+        // let lat=r.point.lat;
+        let editorContent=$("#editorContent").val();
+        let method=$("input[type='radio']:checked").val();
+        $("#btnSubmit").click(function(){
+            $.ajax({
+                url: "http://192.168.1.195:9999/poverty-web-1.0-SNAPSHOT/poverty/basic",
+                data: {"dakaTime":dakaTime,"place":place,"editorContent":editorContent,"method":method},
+                method: "post",
+                dataType: "json",
+                success: function (data) {
+                    if (data.code == 2000) {
+                        //console.log("ok");
+                        console.log(data)
+                    }
+                }
+            })
+        })
+    })
+</script>
+<script>
+    let upload=document.querySelector('#bimg');
+    let image=document.querySelector('#bimage');
+    let imgType=['png','gif','jpeg','jpg'];
+    let size=20*1024*1024;
+    upload.onchange=function(){
+        [...this.files].forEach((element,index)=>{
+            let eType=element.type.split('/')[1];
+            if(!(element.size<=size && imgType.includes(eType))){
+                alert('请检查图片类型和大小')
+            }
+            let reader=new FileReader();
+            // //读取文件
+            reader.readAsDataURL(element);
+            reader.onload=function (e){
+                let imgs=new Image();
+                imgs.width=200;
+                imgs.height=200;
+                imgs.src=e.target.result;
+                let imgBox=document.querySelector('.imgBox');
+                imgBox.appendChild(imgs);
+                console.log($(imgBox).children)
+            }
+            let data=new FormData();
+            data.append('file',element);
+            console.log(data.get('file'));
+            let xml=new XMLHttpRequest();
+            xml.open('post','http://192.168.1.102:8080/picture/upload',true);
+            xml.send(data);
+            xml.onload=function () {
+                image.value+=xml.response;
+            }
+        })
+    }
+
+</script>
+</body>
+</html>

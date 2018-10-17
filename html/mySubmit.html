@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" style="width:100%;height:100%;">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>我提交的</title>
+    <style type="text/css">
+        body {
+            background-color: #F2F6F9 !important;
+        }</style>
+    <link type="text/css" href="../css/common.css" rel="stylesheet">
+    <link type="text/css" href="../css/povDyna.css" rel="stylesheet">
+    <link type="text/css" href="../css/personInfo.css" rel="stylesheet">
+    <link type="text/css" href="../css/font-awesome.min.css" rel="stylesheet">
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .container{
+        width:100%;
+        height:100%;
+        padding-top:10px;
+    }
+    .container .items{
+        width:100%;
+        height:52px;
+        background: #fff;
+        border-bottom:1px solid #E5E5E5;
+        padding:8px 10px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .container .items li{
+        border-right:2px solid #E5E5E5;
+        width:33.333333%;
+        text-align: center;
+        line-height: 40px;
+        cursor:pointer;
+    }
+    .container .items li img{
+        width:18px;
+        height:18px;
+        margin-top:-4px;
+        margin-right:10px;
+    }
+    .container .items li:last-child{
+        border-right:0;
+    }
+    .container .grids{
+        width:100%;
+        height:auto;
+        background: #fff;
+    }
+    .container .grids .boxes{
+        width:100%;
+        height:auto;
+        display: none;
+    }
+    .container .grids .boxes li{
+        width:100%;
+        height:50px;
+        line-height: 50px;
+        padding:0 2%;
+        display: flex;
+        justify-content: space-between;
+        border-bottom:1px solid #e5e5e5;
+    }
+    .container .grids .boxes li span{
+        width:25%;
+        height:100%;
+        display: inline-block;
+        line-height: 50px;
+        text-align: center;
+    }
+    .container .grids .boxes li span:nth-child(2){
+        color:#3EACFE;
+    }
+    .container .grids .boxes li span:nth-child(3){
+        width:35%;
+        color:#A1A1A1;
+    }
+    .container .grids .boxes li span:last-child{
+        width:60px;
+        height:20px;
+        border-radius:12px;
+        line-height: 22px;
+        margin-top: 15px;
+        color:#fff;
+    }
+    .container .grids .boxes1 li span:last-child{
+        color:#D7D7D7;
+    }
+    .container .grids .boxes2 li span:last-child{
+        /*background: #03FFA3;*/
+    }
+    .container .grids .boxes3 li span:last-child{
+        background: #FA6669;
+    }
+</style>
+<body style="width:100%;height:100%;">
+<div class="container">
+    <ul class="items">
+        <li style="width:50%;">
+            <span>贫困户信息</span>
+        </li>
+        <li style="width:50%;">
+            <span>八个一批</span>
+        </li>
+    </ul>
+    <div class="grids">
+        <ul class="boxes boxes1" style="display: block">
+
+        </ul>
+        <ul class="boxes boxes2">
+
+        </ul>
+    </div>
+</div>
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".modules div").click(function(){
+            var index=$(this).index();
+            $(".container").eq(index).show().siblings().hide();
+        })
+        $(".btn_details").click(function(){
+            $(this).next().slideToggle("fast");
+        })
+    })
+</script>
+<script>
+    $(document).ready(function(){
+        $(".items li").click(function(){
+            var index=$(this).index();
+            $(".boxes").eq(index).show().siblings(".boxes").hide();
+        })
+    })
+</script>
+<script>
+    dd.ready(function(){
+        var url=config.url;
+        var object=localStorage.getItem("objects");
+        var item=JSON.parse(object);
+        var helpNumber=item.cadreNum;
+        var box1=$(".boxes1");
+        var box2=$(".boxes2");
+        $.ajax({
+            url: url+"/submit/dataview",
+            data: {"helpNumber": helpNumber,"year":201808},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000){
+                    showMessage(box1,data.data);
+                }
+            }
+        })
+        $.ajax({
+            url: url+"/submit/eight",
+            data: {"helpNumber": helpNumber,"year":201808},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000){
+                    showMessage2(box2,data.data)
+                }
+            }
+        })
+        function showMessage(obj,data){
+            obj.empty();
+            var str="";
+            for(var i=0;i<data.length;i++){
+                str += '<li><span>' + data[i]['AAC029'] + '</span><span>' + data[i]['MODIFY_TYPE'] + '</span><span>' + data[i]['DATA_REVIEW_TIME'] + '</span><span><a href="mySubmitDetail.html?id=' + data[i]['ID'] + '&modifyType=' + data[i]['MODIFY_TYPE'] + '">></a> </span></li>';
+            }
+            obj.html(str);
+        }
+        function showMessage2(obj,data){
+            obj.empty();
+            var str2="";
+            for(var i=0;i<data.length;i++){
+                str2 += '<li><span>' + data[i]['name'] + '</span><span>' + data[i]['MODIFY_TYPE'] + '</span><span>' + data[i]['DATA_REVIEW_TIME'] + '</span><span><a href="mySubmitDetail.html?id=' + data[i]['ID'] + '&modifyType=' + data[i]['MODIFY_TYPE'] + '">></a> </span></li>';
+            }
+            obj.html(str2);
+        }
+    })
+</script>
+</body>
+</html>

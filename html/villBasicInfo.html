@@ -1,0 +1,790 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>基本信息</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+</head>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <div class="color" style="background: #fff;border-bottom: 1px solid #e8e8e8;padding:0 1rem;line-height: 2rem;text-align: center;">
+        <div class="blue" style="color: #9b9b9b;display: inline-block;margin-right: 8px;"><span style="display:inline-block;width:16px;height:10px;background: blue;margin-right: 4px;"></span>待初审</div>
+        <div class="blue" style="color: #9b9b9b;display: inline-block;margin-right: 8px;"><span style="display:inline-block;width:16px;height:10px;background: yellow;margin-right: 4px;"></span>待复审</div>
+        <div class="blue" style="color: #9b9b9b;display: inline-block;"><span style="display:inline-block;width:16px;height:10px;background: red;margin-right: 4px;"></span>待终审</div>
+    </div>
+    <form class="personContent">
+        <div class="perInfo bgColor">
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">基本情况<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: block;">
+                <li>所在县：<input type="text" placeholder="" readonly id="con1"/></li>
+                <li>所在乡：<input type="text" placeholder="" readonly id="con2"/></li>
+                <li>所在村：<input type="text" placeholder="" readonly id="con3"/></li>
+                <li>村负责人：<input type="text" placeholder="" readonly id="con4"/></li>
+                <li>职务：<input type="text" placeholder="" readonly id="con5"/></li>
+                <li>村办公电话：<input type="text" placeholder="" readonly id="con6"/></li>
+                <li>村属性：<input type="text" placeholder="" readonly id="con7"/></li>
+                <li>发展方向：<input type="text" placeholder="" readonly id="con8"/></li>
+                <li>村官人数：<input type="text" placeholder="" readonly id="con9"/></li>
+                <li>中共党员人数：<input type="text" placeholder="" readonly id="con10"/></li>
+                <li>地形地貌：<input type="text" placeholder="" readonly id="con11"/></li>
+                <li>经度：<input type="text" placeholder="" readonly id="con66"/></li>
+                <li>纬度：<input type="text" placeholder="" readonly id="con67"/></li>
+                <li>计划脱贫退出年份：<input type="text" placeholder="" readonly id="con68"/></li>
+                <li>牲畜存栏数(头)：<input type="text" placeholder="" readonly id="con69"/></li>
+                <li>高程：<input type="text" placeholder="" readonly id="con70"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">土地信息 <i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>耕地面积（亩）：<input type="text" placeholder="" readonly id="con12"/></li>
+                <li>有效灌溉面积（亩）：<input type="text" placeholder="" readonly class="small_input" id="con13"/></li>
+                <li>林地面积（亩）：<input type="text" placeholder="" readonly id="con14"/></li>
+                <li>退耕还林面积（亩）：<input type="text" placeholder="" readonly class="small_input" id="con15"/></li>
+                <li>林果面积（亩）：<input type="text" placeholder="" readonly id="con16"/></li>
+                <li>牧草地面积（亩）：<input type="text" placeholder="" readonly id="con17"/></li>
+                <li>水域面积（亩）：<input type="text" placeholder="" readonly id="con18"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">人口信息<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>总户数：<input type="text" placeholder="" readonly id="con19"/></li>
+                <li>自然村（村民小组）数：<input type="text" placeholder="" readonly class="small_input" id="con20"/></li>
+                <li>低保户数：<input type="text" placeholder="" readonly id="con21"/></li>
+                <li>五保户数：<input type="text" placeholder="" readonly id="con22"/></li>
+                <li>总人口数：<input type="text" placeholder="" readonly id="con23"/></li>
+                <li>低保人口数：<input type="text" placeholder="" readonly id="con24"/></li>
+                <li>五保人口数：<input type="text" placeholder="" readonly id="con25"/></li>
+                <li>低保贫困户数：<input type="text" placeholder="" readonly id="con58"/></li>
+                <li>五保贫困户数：<input type="text" placeholder="" readonly id="con59"/></li>
+                <li>贫困户数：<input type="text" placeholder="" readonly id="con60"/></li>
+                <li>一般贫困户数：<input type="text" placeholder="" readonly id="con61"/></li>
+                <li>低保贫困人口数：<input type="text" placeholder="" readonly id="con62"/></li>
+                <li>五保贫困人口数：<input type="text" placeholder="" readonly id="con63"/></li>
+                <li>贫困人口数：<input type="text" placeholder="" readonly id="con64"/></li>
+                <li>一般贫困人口数：<input type="text" placeholder="" readonly id="con65"/></li>
+                <li>残疾贫困人口数：<input type="text" placeholder="" readonly id="con71"/></li>
+                <li>少数民族人口数：<input type="text" placeholder="" readonly id="con26"/></li>
+                <li>妇女人口数：<input type="text" placeholder="" readonly id="con27"/></li>
+                <li>残疾人口数：<input type="text" placeholder="" readonly id="con28"/></li>
+                <li>劳动力人数：<input type="text" placeholder="" readonly id="con29"/></li>
+                <li>外出务工人数：<input type="text" placeholder="" readonly id="con30"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">收入信息<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>农民人均纯收入(元)：<input type="text" placeholder="" readonly id="con31"/></li>
+                <li>村级集体经济收入(万元)：<input type="text" placeholder="" readonly id="con32"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">社会保障信息<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>参加新型农村合作医疗人数：<input type="text" placeholder="" readonly class="small_input" id="con33"/></li>
+                <li>参加城乡居民基本养老保险人数：<input type="text" placeholder="" readonly class="small_input" id="con34"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">村级道路畅通<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>到乡镇是否通沥青（水泥）路：<input type="text" placeholder="" class="small_input" readonly id="con35"/></li>
+                <li>是否通客运班车：<input type="text" placeholder="" readonly id="con36"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">饮水安全<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>未实现饮水安全户数：<input type="text" placeholder="" readonly class="small_input" id="con37"/></li>
+                <li>饮水困难户数：<input type="text" placeholder="" readonly id="con38"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">农村电力保障<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>已通生产用电自然村（20户以上）数（个）：<input type="text" placeholder="" class="min_input" readonly class="small_input" id="con39"/></li>
+                <li>未通生活用电的户数：<input type="text" placeholder="" id="con55"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">危房改造<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>危房户数：<input type="text" placeholder="" readonly id="con40"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">特色产业增收<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>农民产业合作社个数：<input type="text" placeholder="" readonly class="small_input" id="con41"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">乡村旅游<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>开展乡村旅游的户数：<input type="text" placeholder="" readonly class="small_input" id="con42"/></li>
+                <li>乡村旅游从业人员数：<input type="text" placeholder="" readonly class="small_input" id="con43"/></li>
+                <li>经营农家乐的户数：<input type="text" placeholder="" readonly id="con44"/></li>
+                <li>经营农家乐户年均收入：<input type="text" placeholder="" readonly class="small_input" id="con45"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">卫生和计划生育<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>卫生室个数(个)：<input type="text" placeholder="" readonly id="con46"/></li>
+                <li>公共卫生厕所个数（个）：<input type="text" placeholder="" readonly class="small_input" id="con47"/></li>
+                <li>执业（助理）医师数（人）：<input type="text" placeholder="" readonly class="small_input" id="con48"/></li>
+                <li>垃圾集中堆放点个数（个）：<input type="text" placeholder="" readonly class="small_input" id="con49"/></li>
+                <li>行政村卫生室面积（平方米）：<input type="text" placeholder="" class="small_input" id="con56"/></li>
+                <li>是否有诊断室治疗室公共卫生室和药房：<input type="text" placeholder="" class="small_input" id="con57"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">文化建设<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>行政村文化（图书）室个数 （个）：<input type="text" placeholder="" class="small_input" readonly id="con50"/></li>
+            </ul>
+            <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">贫困村信息化<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>通宽带户数（户）：<input type="text" placeholder="" readonly class="small_input" id="con51"/></li>
+                <li>能用手机上网的户数（户）：<input type="text" placeholder="" readonly class="small_input" id="con52"/></li>
+                <li>通宽带的村小学个数（个）：<input type="text" placeholder="" readonly class="small_input" id="con53"/></li>
+                <li>行政村信息员（人）：<input type="text" placeholder="" readonly class="small_input" id="con54"/></li>
+            </ul>
+          <!--  <p style="line-height:3rem;padding:0 1rem;border-bottom: 1px solid #e8e8e8;" class="detail">变更年度<i class="fa fa-sort-down fa4" style="float:right;line-height:42px;"></i></p>
+            <ul class="container" style="display: none;">
+                <li>变更年度：<input type="text" placeholder="" readonly id="con51"/></li>
+            </ul>-->
+            <a href="villBasicInfoUpdate.html" class=" update_btn" style="display: none;">修改</a>
+        </div>
+    </form>
+    </form>
+</section>
+<div class="pagination"></div>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    dd.ready(function(){
+        var url=config.url;
+        var object=localStorage.getItem("objects");
+        var item=JSON.parse(object);
+        var helpNumber=item.cadreNum;
+        $.ajax({
+            url: url+"/village/basic",
+            data: {"helpNumber": helpNumber,"year":201808},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    if(data.data.isUpdate!=0){
+                        $(".update_btn").show();
+                    }
+                    /*行政区划*/
+                    $("#con1").val(data.data['county']['A']);
+                    $("#con2").val(data.data['county']['B']);
+                    $("#con3").val(data.data['county']['C']);
+                    /*基本情况*/
+                    $("#con4").val(data.data['PovertyVillageBasic']['aar011']);
+                    $("#con5").val(data.data['PovertyVillageBasic']['aaf031']);
+                    $("#con6").val(data.data['PovertyVillageBasic']['aar012']);
+                    $("#con7").val(data.data['PovertyVillageBasic']['aad004']);
+                    $("#con8").val(data.data['PovertyVillageBasic']['aad035']);
+                    $("#con9").val(data.data['PovertyVillageBasic']['aad038']);
+                    $("#con10").val(data.data['PovertyVillageBasic']['aad037']);
+                    $("#con11").val(data.data['PovertyVillageBasic']['aad036']);
+                    $("#con66").val(data.data['PovertyVillageBasic']['aar101']);
+                    $("#con67").val(data.data['PovertyVillageBasic']['aar102']);
+                    $("#con68").val(data.data['PovertyVillageBasic']['ada007']);
+                    $("#con69").val(data.data['PovertyVillageBasic']['aad026']);
+                    $("#con70").val(data.data['PovertyVillageBasic']['aar103']);
+                    /*土地信息*/
+                    $("#con12").val(data.data['PovertyVillageBasic']['aad019']);
+                    $("#con13").val(data.data['PovertyVillageBasic']['aad027']);
+                    $("#con14").val(data.data['PovertyVillageBasic']['aad021']);
+                    $("#con15").val(data.data['PovertyVillageBasic']['aad022']);
+                    $("#con16").val(data.data['PovertyVillageBasic']['aad023']);
+                    $("#con17").val(data.data['PovertyVillageBasic']['aad024']);
+                    $("#con18").val(data.data['PovertyVillageBasic']['aad025']);
+                    /*人口信息*/
+                    $("#con19").val(data.data['PovertyVillageBasic']['aad005']);
+                    $("#con20").val(data.data['PovertyVillageBasic']['aad006']);
+                    $("#con21").val(data.data['PovertyVillageBasic']['aad008']);
+                    $("#con22").val(data.data['PovertyVillageBasic']['aad009']);
+                    $("#con23").val(data.data['PovertyVillageBasic']['aad010']);
+                    $("#con24").val(data.data['PovertyVillageBasic']['aad012']);
+                    $("#con25").val(data.data['PovertyVillageBasic']['aad013']);
+                    $("#con26").val(data.data['PovertyVillageBasic']['aad014']);
+                    $("#con27").val(data.data['PovertyVillageBasic']['aad015']);
+                    $("#con28").val(data.data['PovertyVillageBasic']['aad016']);
+                    $("#con29").val(data.data['PovertyVillageBasic']['aad017']);
+                    $("#con30").val(data.data['PovertyVillageBasic']['aad018']);
+
+                    $("#con58").val(data.data['PovertyVillageBasic']['ada003']);
+                    $("#con59").val(data.data['PovertyVillageBasic']['ada005']);
+                    $("#con60").val(data.data['PovertyVillageBasic']['aad007']);
+                    $("#con61").val(data.data['PovertyVillageBasic']['ada001']);
+                    $("#con62").val(data.data['PovertyVillageBasic']['ada004']);
+                    $("#con63").val(data.data['PovertyVillageBasic']['ada006']);
+                    $("#con64").val(data.data['PovertyVillageBasic']['aad011']);
+                    $("#con65").val(data.data['PovertyVillageBasic']['ada002']);
+                    $("#con71").val(data.data['PovertyVillageBasic']['ada024']);
+
+                    /*收入信息*/
+                    $("#con31").val(data.data['PovertyVillageBasic']['aad301']);
+                    $("#con32").val(data.data['PovertyVillageBasic']['aad302']);
+                    /*社会保障信息(卫计委审核)*/
+                    $("#con33").val(data.data['PovertyVillageBasic']['aad311']);
+                    /*社会保障信息(人设)*/
+                    $("#con34").val(data.data['PovertyVillageBasic']['aad313']);
+                    /*村级道路通畅*/
+                    $("#con35").val(data.data['PovertyVillageBasic']['aad328']);
+                    $("#con36").val(data.data['PovertyVillageBasic']['aad323']);
+                    /*饮水安全*/
+                    $("#con37").val(data.data['PovertyVillageBasic']['aad331']);
+                    $("#con38").val(data.data['PovertyVillageBasic']['aad332']);
+                    /*农村电力保障*/
+                    $("#con39").val(data.data['PovertyVillageBasic']['aad358']);
+                    $("#con55").val(data.data['PovertyVillageBasic']['aad356']);
+                    /*危房改造*/
+                    $("#con40").val(data.data['PovertyVillageBasic']['aad361']);
+                    /*特色产业增收*/
+                    $("#con41").val(data.data['PovertyVillageBasic']['aad371']);
+                    /*乡村旅游*/
+                    $("#con42").val(data.data['PovertyVillageBasic']['aad381']);
+                    $("#con43").val(data.data['PovertyVillageBasic']['aad383']);
+                    $("#con44").val(data.data['PovertyVillageBasic']['aad382']);
+                    $("#con45").val(data.data['PovertyVillageBasic']['aad384']);
+                    /*卫生和计划教育*/
+                    $("#con46").val(data.data['PovertyVillageBasic']['aad391']);
+                    $("#con47").val(data.data['PovertyVillageBasic']['aad392']);
+                    $("#con48").val(data.data['PovertyVillageBasic']['aad393']);
+                    $("#con49").val(data.data['PovertyVillageBasic']['aad394']);
+                    $("#con56").val(data.data['PovertyVillageBasic']['ada014']);
+                    $("#con57").val(data.data['PovertyVillageBasic']['ada015']);
+                    /*文化建设*/
+                    $("#con50").val(data.data['PovertyVillageBasic']['aad401']);
+                    /*贫困村信息化*/
+                    $("#con51").val(data.data['PovertyVillageBasic']['aad411']);
+                    $("#con52").val(data.data['PovertyVillageBasic']['aad413']);
+                    $("#con53").val(data.data['PovertyVillageBasic']['aad412']);
+                    $("#con54").val(data.data['PovertyVillageBasic']['aad414']);
+
+                    /*修改状态的渲染*/
+                    var status=data.data.status;
+                    var html1="<span style='width:16px;height:10px;display:inline-block;background: blue;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    var html2="<span style='width:16px;height:10px;display:inline-block;background: yellow;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    var html3="<span style='width:16px;height:10px;display:inline-block;background: red;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    /*行政区划*/
+                    if(status.A==1){
+                        $("#con1").parent().append(html1)
+                    }else if(status.A==2){
+                        $("#con1").parent().append(html2)
+                    }else if(status.A==3){
+                        $("#con1").parent().append(html3)
+                    }
+                    if(status.B==1){
+                        $("#con2").parent().append(html1)
+                    }else if(status.B==2){
+                        $("#con2").parent().append(html2)
+                    }else if(status.B==3){
+                        $("#con2").parent().append(html3)
+                    }
+                    if(status.C==1){
+                        $("#con3").parent().append(html1)
+                    }else if(status.C==2){
+                        $("#con3").parent().append(html2)
+                    }else if(status.C==3){
+                        $("#con3").parent().append(html3)
+                    }
+                    /*基本情况*/
+                    if(status.aar011==1){
+                        $("#con4").parent().append(html1)
+                    }else if(status.aar011==2){
+                        $("#con4").parent().append(html2)
+                    }else if(status.aar011==3){
+                        $("#con4").parent().append(html3)
+                    }
+                    if(status.aaf031==1){
+                        $("#con5").parent().append(html1)
+                    }else if(status.aaf031==2){
+                        $("#con5").parent().append(html2)
+                    }else if(status.aaf031==3){
+                        $("#con5").parent().append(html3)
+                    }
+                    if(status.aar012==1){
+                        $("#con6").parent().append(html1)
+                    }else if(status.aar012==2){
+                        $("#con6").parent().append(html2)
+                    }else if(status.aar012==3){
+                        $("#con6").parent().append(html3)
+                    }
+                    if(status.aad004==1){
+                        $("#con7").parent().append(html1)
+                    }else if(status.aad004==2){
+                        $("#con7").parent().append(html2)
+                    }else if(status.aad004==3){
+                        $("#con7").parent().append(html3)
+                    }
+                    if(status.aad035==1){
+                        $("#con8").parent().append(html1)
+                    }else if(status.aad035==2){
+                        $("#con8").parent().append(html2)
+                    }else if(status.aad035==3){
+                        $("#con8").parent().append(html3)
+                    }
+                    if(status.aad038==1){
+                        $("#con9").parent().append(html1)
+                    }else if(status.aad038==2){
+                        $("#con9").parent().append(html2)
+                    }else if(status.aad038==3){
+                        $("#con9").parent().append(html3)
+                    }
+                    if(status.aad037==1){
+                        $("#con10").parent().append(html1)
+                    }else if(status.aad037==2){
+                        $("#con10").parent().append(html2)
+                    }else if(status.aad037==3){
+                        $("#con10").parent().append(html3)
+                    }
+                    if(status.aad036==1){
+                        $("#con11").parent().append(html1)
+                    }else if(status.aad036==2){
+                        $("#con11").parent().append(html2)
+                    }else if(status.aad036==3){
+                        $("#con11").parent().append(html3)
+                    }
+                    if(status.aar101==1){
+                        $("#con66").parent().append(html1)
+                    }else if(status.aar101==2){
+                        $("#con66").parent().append(html2)
+                    }else if(status.aar101==3){
+                        $("#con66").parent().append(html3)
+                    }
+                    if(status.aar102==1){
+                        $("#con67").parent().append(html1)
+                    }else if(status.aar102==2){
+                        $("#con67").parent().append(html2)
+                    }else if(status.aar102==3){
+                        $("#con67").parent().append(html3)
+                    }
+                    if(status.ada007==1){
+                        $("#con68").parent().append(html1)
+                    }else if(status.ada007==2){
+                        $("#con68").parent().append(html2)
+                    }else if(status.ada007==3){
+                        $("#con68").parent().append(html3)
+                    }
+                    if(status.aad026==1){
+                        $("#con69").parent().append(html1)
+                    }else if(status.aad026==2){
+                        $("#con69").parent().append(html2)
+                    }else if(status.aad026==3){
+                        $("#con69").parent().append(html3)
+                    }
+                    if(status.aar103==1){
+                        $("#con70").parent().append(html1)
+                    }else if(status.aar103==2){
+                        $("#con70").parent().append(html2)
+                    }else if(status.aar103==3){
+                        $("#con70").parent().append(html3)
+                    }
+
+                    /*土地信息*/
+                    if(status.aad019==1){
+                        $("#con12").parent().append(html1)
+                    }else if(status.aad019==2){
+                        $("#con12").parent().append(html2)
+                    }else if(status.aad019==3){
+                        $("#con12").parent().append(html3)
+                    }
+                    if(status.aad027==1){
+                        $("#con13").parent().append(html1)
+                    }else if(status.aad027==2){
+                        $("#con13").parent().append(html2)
+                    }else if(status.aad027==3){
+                        $("#con13").parent().append(html3)
+                    }
+                    if(status.aad021==1){
+                        $("#con14").parent().append(html1)
+                    }else if(status.aad021==2){
+                        $("#con14").parent().append(html2)
+                    }else if(status.aad021==3){
+                        $("#con14").parent().append(html3)
+                    }
+                    if(status.aad022==1){
+                        $("#con15").parent().append(html1)
+                    }else if(status.aad022==2){
+                        $("#con15").parent().append(html2)
+                    }else if(status.aad022==3){
+                        $("#con15").parent().append(html3)
+                    }
+                    if(status.aad023==1){
+                        $("#con16").parent().append(html1)
+                    }else if(status.aad023==2){
+                        $("#con16").parent().append(html2)
+                    }else if(status.aad023==3){
+                        $("#con16").parent().append(html3)
+                    }
+                    if(status.aad024==1){
+                        $("#con17").parent().append(html1)
+                    }else if(status.aad024==2){
+                        $("#con17").parent().append(html2)
+                    }else if(status.aad024==3){
+                        $("#con17").parent().append(html3)
+                    }
+                    if(status.aad025==1){
+                        $("#con18").parent().append(html1)
+                    }else if(status.aad025==2){
+                        $("#con18").parent().append(html2)
+                    }else if(status.aad025==3){
+                        $("#con18").parent().append(html3)
+                    }
+                    /*人口信息*/
+                    if(status.aad005==1){
+                        $("#con19").parent().append(html1)
+                    }else if(status.aad005==2){
+                        $("#con19").parent().append(html2)
+                    }else if(status.aad005==3){
+                        $("#con19").parent().append(html3)
+                    }
+                    if(status.aad006==1){
+                        $("#con20").parent().append(html1)
+                    }else if(status.aad006==2){
+                        $("#con20").parent().append(html2)
+                    }else if(status.aad006==3){
+                        $("#con20").parent().append(html3)
+                    }
+                    if(status.aad008==1){
+                        $("#con21").parent().append(html1)
+                    }else if(status.aad008==2){
+                        $("#con21").parent().append(html2)
+                    }else if(status.aad008==3){
+                        $("#con21").parent().append(html3)
+                    }
+                    if(status.aad009==1){
+                        $("#con22").parent().append(html1)
+                    }else if(status.aad009==2){
+                        $("#con22").parent().append(html2)
+                    }else if(status.aad009==3){
+                        $("#con22").parent().append(html3)
+                    }
+                    if(status.aad010==1){
+                        $("#con23").parent().append(html1)
+                    }else if(status.aad010==2){
+                        $("#con23").parent().append(html2)
+                    }else if(status.aad010==3){
+                        $("#con23").parent().append(html3)
+                    }
+                    if(status.aad012==1){
+                        $("#con24").parent().append(html1)
+                    }else if(status.aad012==2){
+                        $("#con24").parent().append(html2)
+                    }else if(status.aad012==3){
+                        $("#con24").parent().append(html3)
+                    }
+                    if(status.aad013==1){
+                        $("#con25").parent().append(html1)
+                    }else if(status.aad013==2){
+                        $("#con25").parent().append(html2)
+                    }else if(status.aad013==3){
+                        $("#con25").parent().append(html3)
+                    }
+                    if(status.aad014==1){
+                        $("#con26").parent().append(html1)
+                    }else if(status.aad014==2){
+                        $("#con26").parent().append(html2)
+                    }else if(status.aad014==3){
+                        $("#con26").parent().append(html3)
+                    }
+                    if(status.aad015==1){
+                        $("#con27").parent().append(html1)
+                    }else if(status.aad015==2){
+                        $("#con27").parent().append(html2)
+                    }else if(status.aad015==3){
+                        $("#con27").parent().append(html3)
+                    }
+                    if(status.aad016==1){
+                        $("#con28").parent().append(html1)
+                    }else if(status.aad016==2){
+                        $("#con28").parent().append(html2)
+                    }else if(status.aad016==3){
+                        $("#con28").parent().append(html3)
+                    }
+                    if(status.aad017==1){
+                        $("#con29").parent().append(html1)
+                    }else if(status.aad017==2){
+                        $("#con29").parent().append(html2)
+                    }else if(status.aad017==3){
+                        $("#con29").parent().append(html3)
+                    }
+                    if(status.aad018==1){
+                        $("#con30").parent().append(html1)
+                    }else if(status.aad018==2){
+                        $("#con30").parent().append(html2)
+                    }else if(status.aad018==3){
+                        $("#con30").parent().append(html3)
+                    }
+                    if(status.ada003==1){
+                        $("#con58").parent().append(html1)
+                    }else if(status.ada003==2){
+                        $("#con58").parent().append(html2)
+                    }else if(status.ada003==3){
+                        $("#con58").parent().append(html3)
+                    }
+                    if(status.ada005==1){
+                        $("#con59").parent().append(html1)
+                    }else if(status.ada005==2){
+                        $("#con59").parent().append(html2)
+                    }else if(status.ada005==3){
+                        $("#con59").parent().append(html3)
+                    }
+                    if(status.aad007==1){
+                        $("#con60").parent().append(html1)
+                    }else if(status.aad007==2){
+                        $("#con60").parent().append(html2)
+                    }else if(status.aad007==3){
+                        $("#con60").parent().append(html3)
+                    }
+                    if(status.ada001==1){
+                        $("#con61").parent().append(html1)
+                    }else if(status.ada001==2){
+                        $("#con61").parent().append(html2)
+                    }else if(status.ada001==3){
+                        $("#con61").parent().append(html3)
+                    }
+                    if(status.ada004==1){
+                        $("#con62").parent().append(html1)
+                    }else if(status.ada004==2){
+                        $("#con62").parent().append(html2)
+                    }else if(status.ada004==3){
+                        $("#con62").parent().append(html3)
+                    }
+                    if(status.ada006==1){
+                        $("#con63").parent().append(html1)
+                    }else if(status.ada006==2){
+                        $("#con63").parent().append(html2)
+                    }else if(status.ada006==3){
+                        $("#con63").parent().append(html3)
+                    }
+                    if(status.aad011==1){
+                        $("#con64").parent().append(html1)
+                    }else if(status.aad011==2){
+                        $("#con64").parent().append(html2)
+                    }else if(status.aad011==3){
+                        $("#con64").parent().append(html3)
+                    }
+                    if(status.ada002==1){
+                        $("#con65").parent().append(html1)
+                    }else if(status.ada002==2){
+                        $("#con65").parent().append(html2)
+                    }else if(status.ada002==3){
+                        $("#con65").parent().append(html3)
+                    }
+                    if(status.ada024==1){
+                        $("#con71").parent().append(html1)
+                    }else if(status.ada024==2){
+                        $("#con71").parent().append(html2)
+                    }else if(status.ada024==3){
+                        $("#con71").parent().append(html3)
+                    }
+
+                    /*收入信息*/
+                    if(status.aad301==1){
+                        $("#con31").parent().append(html1)
+                    }else if(status.aad301==2){
+                        $("#con31").parent().append(html2)
+                    }else if(status.aad301==3){
+                        $("#con31").parent().append(html3)
+                    }
+                    if(status.aad302==1){
+                        $("#con32").parent().append(html1)
+                    }else if(status.aad302==2){
+                        $("#con32").parent().append(html2)
+                    }else if(status.aad302==3){
+                        $("#con32").parent().append(html3)
+                    }
+                    /*社会保障信息*/
+                    if(status.aad311==1){
+                        $("#con33").parent().append(html1)
+                    }else if(status.aad311==2){
+                        $("#con33").parent().append(html2)
+                    }else if(status.aad311==3){
+                        $("#con33").parent().append(html3)
+                    }
+                    if(status.aad313==1){
+                        $("#con34").parent().append(html1)
+                    }else if(status.aad313==2){
+                        $("#con34").parent().append(html2)
+                    }else if(status.aad313==3){
+                        $("#con34").parent().append(html3)
+                    }
+                    /*村级道路通畅*/
+                    if(status.aad328==1){
+                        $("#con35").parent().append(html1)
+                    }else if(status.aad328==2){
+                        $("#con35").parent().append(html2)
+                    }else if(status.aad328==3){
+                        $("#con35").parent().append(html3)
+                    }
+                    if(status.aad323==1){
+                        $("#con36").parent().append(html1)
+                    }else if(status.aad323==2){
+                        $("#con36").parent().append(html2)
+                    }else if(status.aad323==3){
+                        $("#con36").parent().append(html3)
+                    }
+                    /*饮水安全*/
+                    if(status.aad331==1){
+                        $("#con37").parent().append(html1)
+                    }else if(status.aad331==2){
+                        $("#con37").parent().append(html2)
+                    }else if(status.aad331==3){
+                        $("#con37").parent().append(html3)
+                    }
+                    if(status.aad332==1){
+                        $("#con38").parent().append(html1)
+                    }else if(status.aad332==2){
+                        $("#con38").parent().append(html2)
+                    }else if(status.aad332==3){
+                        $("#con38").parent().append(html3)
+                    }
+                    /*农村电力保障*/
+                    if(status.aad358==1){
+                        $("#con39").parent().append(html1)
+                    }else if(status.aad358==2){
+                        $("#con39").parent().append(html2)
+                    }else if(status.aad358==3){
+                        $("#con39").parent().append(html3)
+                    }
+                    if(status.aad356==1){
+                        $("#con55").parent().append(html1)
+                    }else if(status.aad356==2){
+                        $("#con55").parent().append(html2)
+                    }else if(status.aad356==3){
+                        $("#con55").parent().append(html3)
+                    }
+                    /*危房改造*/
+                    if(status.aad361==1){
+                        $("#con40").parent().append(html1)
+                    }else if(status.aad361==2){
+                        $("#con40").parent().append(html2)
+                    }else if(status.aad361==3){
+                        $("#con40").parent().append(html3)
+                    }
+                    /*特色产业增收*/
+                    if(status.aad371==1){
+                        $("#con41").parent().append(html1)
+                    }else if(status.aad371==2){
+                        $("#con41").parent().append(html2)
+                    }else if(status.aad371==3){
+                        $("#con41").parent().append(html3)
+                    }
+                    /*乡村旅游*/
+                    if(status.aad381==1){
+                        $("#con42").parent().append(html1)
+                    }else if(status.aad381==2){
+                        $("#con42").parent().append(html2)
+                    }else if(status.aad381==3){
+                        $("#con42").parent().append(html3)
+                    }
+                    if(status.aad383==1){
+                        $("#con43").parent().append(html1)
+                    }else if(status.aad383==2){
+                        $("#con43").parent().append(html2)
+                    }else if(status.aad383==3){
+                        $("#con43").parent().append(html3)
+                    }
+                    if(status.aad382==1){
+                        $("#con44").parent().append(html1)
+                    }else if(status.aad382==2){
+                        $("#con44").parent().append(html2)
+                    }else if(status.aad382==3){
+                        $("#con44").parent().append(html3)
+                    }
+                    if(status.aad384==1){
+                        $("#con45").parent().append(html1)
+                    }else if(status.aad384==2){
+                        $("#con45").parent().append(html2)
+                    }else if(status.aad384==3){
+                        $("#con45").parent().append(html3)
+                    }
+                    /*卫生和计划教育*/
+                    if(status.aad391==1){
+                        $("#con46").parent().append(html1)
+                    }else if(status.aad391==2){
+                        $("#con46").parent().append(html2)
+                    }else if(status.aad391==3){
+                        $("#con46").parent().append(html3)
+                    }
+                    if(status.aad392==1){
+                        $("#con47").parent().append(html1)
+                    }else if(status.aad392==2){
+                        $("#con47").parent().append(html2)
+                    }else if(status.aad392==3){
+                        $("#con47").parent().append(html3)
+                    }
+                    if(status.aad393==1){
+                        $("#con48").parent().append(html1)
+                    }else if(status.aad393==2){
+                        $("#con48").parent().append(html2)
+                    }else if(status.aad393==3){
+                        $("#con48").parent().append(html3)
+                    }
+                    if(status.aad394==1){
+                        $("#con49").parent().append(html1)
+                    }else if(status.aad394==2){
+                        $("#con49").parent().append(html2)
+                    }else if(status.aad394==3){
+                        $("#con49").parent().append(html3)
+                    }
+                    if(status.ada014==1){
+                        $("#con56").parent().append(html1)
+                    }else if(status.ada014==2){
+                        $("#con56").parent().append(html2)
+                    }else if(status.ada014==3){
+                        $("#con56").parent().append(html3)
+                    }
+                    if(status.ada015==1){
+                        $("#con57").parent().append(html1)
+                    }else if(status.ada015==2){
+                        $("#con57").parent().append(html2)
+                    }else if(status.ada015==3){
+                        $("#con57").parent().append(html3)
+                    }
+                    /*文化建设*/
+                    if(status.aad401==1){
+                        $("#con50").parent().append(html1)
+                    }else if(status.aad401==2){
+                        $("#con50").parent().append(html2)
+                    }else if(status.aad401==3){
+                        $("#con50").parent().append(html3)
+                    }
+                    /*贫困村信息化*/
+                    if(status.aad411==1){
+                        $("#con51").parent().append(html1)
+                    }else if(status.aad411==2){
+                        $("#con51").parent().append(html2)
+                    }else if(status.aad411==3){
+                        $("#con51").parent().append(html3)
+                    }
+                    if(status.aad413==1){
+                        $("#con52").parent().append(html1)
+                    }else if(status.aad413==2){
+                        $("#con52").parent().append(html2)
+                    }else if(status.aad413==3){
+                        $("#con52").parent().append(html3)
+                    }
+                    if(status.aad412==1){
+                        $("#con53").parent().append(html1)
+                    }else if(status.aad412==2){
+                        $("#con53").parent().append(html2)
+                    }else if(status.aad412==3){
+                        $("#con53").parent().append(html3)
+                    }
+                    if(status.aad414==1){
+                        $("#con54").parent().append(html1)
+                    }else if(status.aad414==2){
+                        $("#con54").parent().append(html2)
+                    }else if(status.aad414==3){
+                        $("#con54").parent().append(html3)
+                    }
+
+                }
+            }
+        })
+        $(".detail").on("click",function(){
+            if(!$(".container").is(":animated")){
+                $(this).next().siblings(".container").slideUp();
+                $(this).next().slideToggle();
+            }
+        })
+    })
+</script>
+</body>
+</html>

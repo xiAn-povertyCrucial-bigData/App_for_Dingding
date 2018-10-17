@@ -1,0 +1,237 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>帮扶责任人信息修改</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <!--<link rel="stylesheet" href="../css/povDyna.css" />-->
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+</head>
+<style>
+    /*确定上传按钮样式*/
+    .btnSubmit {
+        width: 5.5rem;
+        height: 2rem;
+        border-radius: 0.2rem;
+        background-color: #39ACFE;
+        border: 0;
+        font-size: 0.8rem;
+        color: white;
+        float: right;
+        margin-right: 1.2rem;
+    }
+    .btnSubmit:focus{
+        outline: none;
+    }
+    .btnSubmit i{
+        color: white;
+    }
+    .field .upload{
+        position:absolute;
+        left:0;
+        bottom:0;
+        width:60px;
+        height:60px;
+        z-index:-1;
+        background: url("../img/addImg.png") no-repeat center/cover;
+        border:1px solid #ccc;;
+    }
+    .imgBox{margin-left: 65px;}
+    .imgBox img{width:60px;height:60px;float:left;margin-right:4px;}
+</style>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <!--<div class="wrapperhovertree" style="height:9rem;width:100%;">
+        <div class="conMain bgColor" id="logForm" style="height:5rem;width:100%;background: none;">
+            &lt;!&ndash;**************************照片添加***************************************************************&ndash;&gt;
+            <div class="bodyContainer">
+                <div id="z_photo" class="z_photo" style="height:5rem;padding: 0.3rem 4%;">
+                    &lt;!&ndash;<label for="" style="float:left;margin-right: 14px;">选择图片:</label>&ndash;&gt;
+                    <div class="field" style="position: relative;display: inline-block;float:left;">
+                        <input type="file" id="bimg" value="" multiple style="opacity: 0;width:192px;height:60px;position:absolute;top:0;left:0;margin-right:4px;" name="files">
+                        <div class="upload" style="display: inline-block;position:absolute;top:0;"></div>
+                        <input type="hidden" name="files" id="bimage" value="" multiple>
+                        <div id="imgBox" class="imgBox" style="width:192px;height:60px;"></div>
+                    </div>
+                </div>
+            </div>
+            &lt;!&ndash;****************************确定上传按钮***********************&ndash;&gt;
+            <button id="btnSubmit" class="btnSubmit" style="margin-bottom: 20px;height:2rem;">
+                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                上传
+            </button>
+            &lt;!&ndash;</form>&ndash;&gt;
+        </div>
+    </div>-->
+    <form class="personContent">
+        <ul class="perInfo bgColor">
+            <li style="width:100%;">帮扶责任人照片采集：<a href="assistUpload.html" style="color:deepskyblue;display:inline-block;">前往</a></li>
+            <li style="width:100%;">帮扶责任人姓名：<input type="text" placeholder="" id="con1" readonly/></li>
+            <li>帮扶责任人性别：
+                <input type="radio" name="1" value="男"><label for="">男</label>
+                <input type="radio" name="1" value="女"><label for="">女</label>
+            </li>
+            <li>派出单位名称：<input type="text" placeholder="" id="con2"/></li>
+            <li>派出单位职务：<input type="text" placeholder="" id="con3"/></li>
+            <li>证件号码：<input type="text" placeholder="" id="con4"/></li>
+            <li>联系电话：<input type="text" placeholder="" id="con5" readonly/></li>
+            <li>政治面貌：
+                <select name="" id="con6">
+                    <option value="中共党员">中共党员</option>
+                    <option value="中共预备党员">中共预备党员</option>
+                    <option value="共青团员">共青团员</option>
+                    <option value="民革会员">民革会员</option>
+                    <option value="民盟盟员">民盟盟员</option>
+                    <option value="民建会员">民建会员</option>
+                    <option value="民进会员">民进会员</option>
+                    <option value="农民工党员">农民工党员</option>
+                    <option value="致公党党员">致公党党员</option>
+                    <option value="九三学社社员">九三学社社员</option>
+                    <option value="台盟盟员">台盟盟员</option>
+                    <option value="无党派民主人士">无党派民主人士</option>
+                    <option value="群众">群众</option>
+                </select>
+            </li>
+            <li>学历：
+                <select name="" id="con7">
+                    <option value="研究生及以上">研究生及以上</option>
+                    <option value="博士研究生">博士研究生</option>
+                    <option value="硕士研究生">硕士研究生</option>
+                    <option value="大学本科">大学本科</option>
+                    <option value="大学专科">大学专科</option>
+                    <option value="中专技校">中专技校</option>
+                    <option value="中等专科">中等专科</option>
+                    <option value="职业高中">职业高中</option>
+                    <option value="技工学校">技工学校</option>
+                    <option value="普通高中">普通高中</option>
+                    <option value="初中">初中</option>
+                    <option value="小学">小学</option>
+                    <option value="其他">其他</option>
+                </select>
+            </li>
+            <li>技术特长：
+                <select name="" id="con8">
+                    <option value="种植">种植</option>
+                    <option value="养殖">养殖</option>
+                    <option value="林果">林果</option>
+                    <option value="服务">服务</option>
+                </select>
+            </li>
+            <li>开始时间：<input type="date" placeholder="" id="con9"/></li>
+            <li>结束时间：<input type="date" placeholder="" id="con10"/></li>
+            <a class="update_btn submit">提交</a>
+        </ul>
+    </form>
+</section>
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/povSign3.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    dd.ready(function(){
+        var url=config.url;
+        var object=localStorage.getItem("object");
+        var item=JSON.parse(object);
+        var povertyNumber=item.objnumber;
+        var helpNumber=item.cadnumber;
+        var photo="";
+        $.ajax({
+            url: url+"/helpUser/detail1",
+            data: {"aak110": helpNumber,"aac001":povertyNumber},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    photo=data.data.AAK999;
+                    $("#con1").val(data.data.AAB002);
+                    var box1 = document.getElementsByName("1");
+                    for(var i=0;i<box1.length;i++){
+                        if(box1[i].value == data.data.AAB003){
+                            box1[i].checked = true;
+                            break
+                        }else{
+                            // box1.value="否"
+                        }
+                    }
+                    $("#con2").val(data.data.AAP001);
+                    $("#con3").val(data.data.AAK888);
+                    $("#con4").val(data.data.AAB004);
+                    $("#con5").val(data.data.AAR012);
+                    $("#con6").val(data.data.AAK033);
+                    $("#con7").val(data.data.AAK036);
+                    $("#con8").val(data.data.AAK037);
+                    if(data.data.AAR020){
+                        $("#con9").val(data.data.AAR020.toString().substring(0,4)+"-"+data.data.AAR020.toString().substring(4,6)+"-"+data.data.AAR020.toString().substring(6,8));
+                    }
+                    if(data.data.AAR021){
+                        $("#con10").val(data.data.AAR021.toString().substring(0,4)+"-"+data.data.AAR021.toString().substring(4,6)+"-"+data.data.AAR021.toString().substring(6,8));
+                    }
+
+
+                    /*点击提交*/
+                    $(".submit").click(function(){
+                        var AAB002=$("#con1").val();
+                        var AAB003=$("input[name='1']:checked").val();
+                        var AAP001=$("#con2").val();
+                        var AAK888=$("#con3").val();
+                        var AAB004=$("#con4").val();
+                        var AAR012=$("#con5").val();
+                        var AAK033=$("#con6").val();
+                        var AAK036=$("#con7").val();
+                        var AAK037=$("#con8").val();
+                        var AAR020=$("#con9").val().replace(/-/g,'');
+                        var AAR021=$("#con10").val().replace(/-/g,'');
+                        if(photo!="null" && photo!=null){
+                            $.ajax({
+                                url: url+"/helpUser/update",
+                                data: {"AAB002":AAB002,"AAB003":AAB003,"AAP001":AAP001,"AAK888":AAK888,"AAB004":AAB004,"AAR012":AAR012,"AAK033":AAK033,"AAK036":AAK036,"AAK037":AAK037,"AAR020":AAR020,"AAR021":AAR021,"AAC001":povertyNumber,"AAK110":helpNumber},
+                                method: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    if (data.code == 2000) {
+                                        dd.device.notification.alert({
+                                            message: "修改成功",
+                                            title: "提示",//可传空
+                                            buttonName: "确定",
+                                            onSuccess : function() {
+                                                //onSuccess将在点击button之后回调
+                                                /*回调*/
+                                                location.href="../index.html";
+                                            },
+                                            onFail : function(err) {}
+                                        });
+                                    }
+                                }
+                            })
+                        }else{
+                            dd.device.notification.alert({
+                                message: "请先前往照片采集",
+                                title: "提示",//可传空
+                                buttonName: "确定",
+                                onSuccess : function() {
+                                    //onSuccess将在点击button之后回调
+                                    /*回调*/
+                                    // location.href="../index.html";
+                                },
+                                onFail : function(err) {}
+                            });
+                        }
+                    })
+                }
+            }
+        })
+
+
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>驻村队员列表</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+</head>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <ul class="perInfo elsePerInfo bgColor header" id="familyInfo">
+        <!--<li>-->
+            <!--<a href="elseNumber.html?number=111">-->
+                <!--<span>胡新军</span>-->
+                <!--<span>53岁</span>-->
+                <!--<span>户主</span>-->
+                <!--<span>男</span>-->
+                <!--<i class="fa-1x fa fa-angle-right"></i>-->
+            <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<a href="elseNumber2.html">-->
+                <!--<span>杨红</span>-->
+                <!--<span>48岁</span>-->
+                <!--<span>妻子</span>-->
+                <!--<span>女</span>-->
+                <!--<i class="fa-1x fa fa-angle-right"></i>-->
+            <!--</a>-->
+        <!--</li>-->
+        <!--<li>-->
+            <!--<a href="elseNumber3.html">-->
+                <!--<span>胡阳阳</span>-->
+                <!--<span>23岁</span>-->
+                <!--<span>子女</span>-->
+                <!--<span>女</span>-->
+                <!--<i class="fa-1x fa fa-angle-right"></i>-->
+            <!--</a>-->
+        <!--</li>-->
+    </ul>
+</section>
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/dd.js"></script>
+<script>
+    dd.ready(function(){
+        var url=config.url;
+        var object=localStorage.getItem("objects");
+        var item=JSON.parse(object);
+        // var povertyNumber=item.objnumber;
+        var helpNumber=item.cadreNum;
+        var familyMember=$("#familyInfo");
+        var isUpdate="";
+
+        $.ajax({
+            url: url+"/village/four",
+            data: {"helpNumber": helpNumber},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    showFamily(familyMember,data.data);
+                    for(var i=0;i<$("#familyInfo li span").length;i++){
+                        if($("#familyInfo li span").eq(i).text()=="null"){
+                            $("#familyInfo li span").eq(i).text("");
+                        }
+                    }
+                    isUpdate=data.data.isUpdate;
+                }
+            }
+        })
+        function showFamily(obj,data){
+            obj.empty();
+            var str='<li><a><span style="color:deepskyblue">' + '姓名' + '</span><span style="display:block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;color:deepskyblue;">' + '职务' + '</span></a></li>';
+            if(data.first.length){
+                str+='<li>第一书记</li>';
+            }
+            for(var i=0;i<data.first.length;i++){
+                str += '<li class="sign"><a><span>' + data.first[i]['AAB002'] + '</span><span style="display:block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">' + data.first[i]['AAK888'] + '</span><i class="fa-1x fa fa-angle-right"></i></a></li> ';
+            }
+            if(data.leader.length){
+                str+='<li>队长</li>';
+            }
+            for(var i=0;i<data.leader.length;i++){
+                str += '<li class="sign"><a><span>' + data.leader[i]['AAB002'] + '</span><span style="display:block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">' + data.leader[i]['AAK888'] + '</span><i class="fa-1x fa fa-angle-right"></i></a></li> ';
+            }
+            if(data.fuLeader.length){
+                str+='<li>副队长</li>';
+            }
+            for(var i=0;i<data.fuLeader.length;i++){
+                str += '<li class="sign"><a><span>' + data.fuLeader[i]['AAB002'] + '</span><span style="display:block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">' + data.fuLeader[i]['AAK888'] + '</span><i class="fa-1x fa fa-angle-right"></i></a></li> ';
+            }
+            if(data.fufirst.length){
+                str+='<li>包村干部</li>';
+            }
+            for(var i=0;i<data.fufirst.length;i++){
+                str += '<li class="sign"><a><span>' + data.fufirst[i]['AAB002'] + '</span><span style="display:block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">' + data.fufirst[i]['AAK888'] + '</span><i class="fa-1x fa fa-angle-right"></i></a></li> ';
+            }
+            if(data.team.length){
+                str+='<li>队员</li>';
+            }
+            for(var i=0;i<data.team.length;i++){
+                str += '<li class="sign"><a><span>' + data.team[i]['AAB002'] + '</span><span style="display:block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">' + data.team[i]['AAK888'] + '</span><i class="fa-1x fa fa-angle-right"></i></a></li> ';
+            }
+            obj.html(str);
+        }
+        /*点击跳转*/
+        setTimeout(function(){
+            $("#familyInfo li").click(function(){
+                var index=$(this).index("li.sign");
+                window.location.href="villBasicInfoDetails.html?index="+index + "&isUpdate="+isUpdate;
+            })
+        },1000)
+    })
+</script>
+</body>
+</html>

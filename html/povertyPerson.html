@@ -1,0 +1,108 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>帮扶对象</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+    <script type="text/javascript" src="../js/dd.js"></script>
+</head>
+<body>
+<section>
+    <div class="personTop"></div>
+
+    <div class="personContent">
+        <div class="personBasic">
+            <p>
+                <strong id="povertyName"><i class="fa fa-user-circle-o Coloricon"></i></strong>
+                <!--<span class="txtCenter">未脱贫</span>-->
+                <span class="txtRight" id="status"></span>
+            </p>
+            <ul class="povertyReason">
+                <li style="background: #fff;color:#9b9b9b">致贫原因：</li>
+                <li id="povertyReason"></li>
+            </ul>
+        </div>
+        <ul class="perInfo bgColor">
+            <li>所在县：<span id="dis"></span></li>
+            <li>所在乡：<span id="town"></span></li>
+            <li>所在村：<span id="vill"></span></li>
+            <li>户编号：<span id="number"></span></li>
+            <li>户主证件号：<span id="icard"></span></li>
+            <li>联系电话：<span id="phone"></span></li>
+            <li style="border-bottom: 0;">家庭成员数：<span id="familyNum"></span></li>
+        </ul>
+        <ul class="personAll clearfix iconBottom">
+            <li class="borderRight borderBottom"><a href="basicInfo.html"><i class="fa-3x fa fa-address-card-o Coloricon"></i><br/>基本信息</a></li>
+            <li class="borderBottom"><a href="productCondition.html"><i class="fa-3x fa fa-universal-access Coloricon"></i><br/>生产生活条件</a></li>
+            <li class="borderRight borderBottom"><a id="income"><i class="fa-3x fa fa-superpowers Coloricon"></i><br/>上年度收入信息</a></li>
+            <li class="borderBottom"><a href="assistInform.html"><i class="fa-3x fa fa-credit-card-alt Coloricon"></i><br/>帮扶责任人信息</a></li>
+            <li class="borderRight borderBottom"><a href="elseFamily.html"><i class="fa-3x fa fa-users Coloricon"></i><br/>家庭成员</a></li>
+            <li class="borderBottom"><a href="povertystatus.html"><i class="fa-3x fa fa-sitemap Coloricon"></i><br/>脱贫状态</a></li>
+            <li class="borderRight"><a href="eightBatches.html"><i class="fa-3x fa fa-handshake-o Coloricon"></i><br/>八个一批</a></li>
+            <li class="borderBottom"><a href="supportUpload.html"><i class="fa-3x fa fa-picture-o Coloricon"></i><br/>佐证上传</a></li>
+        </ul>
+    </div>
+</section>
+
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    dd.ready(function(){
+        /*截取地址栏参数*/
+        var params=(function(){
+            var search=location.search;	//获取location的search属性，保存在search中
+            var params={};		//创建空对象params
+            if(search!=""){		//如果search不是空字符串
+                search.slice(1).split("&").forEach(	//?username=zhangdong&pwd=123456;//search去开头?，按&切割为数组，forEach
+                    function(val){
+                        var arr=val.split("=");		//将当前元素值按=切割，保存在arr中
+                        params[arr[0]]=arr[1];		//向params中添加一个元素,属性名为arr[0],值为arr[1]
+                    }
+                );
+            }
+            return params;		//返回params
+        })();
+        var object=JSON.stringify(params);
+        localStorage.setItem("object",object);
+        var url=config.url;
+        var povertyNumber=params.objnumber;
+        $.ajax({
+            url:  url+"/poverty/detail",
+            data: {"povertyNumber":povertyNumber},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    $("#povertyReason").text(data.data['POVERTYDETAIL']['aac007']);
+                    $("#povertyName").text(data.data['POVERTYDETAIL']['aac029']);
+                    $("#status").text(data.data['POVERTYDETAIL']['aac006']);
+                    $("#number").text(data.data['POVERTYDETAIL']['aac001']);
+                    $("#icard").text(data.data['POVERTYDETAIL']['aac031']);
+                    $("#place").text(data.data['POVERTYDETAIL']['aad001']);
+                    $("#phone").text(data.data['POVERTYDETAIL']['aar012']);
+                    $("#dis").text(data.data['POVERTYDETAIL']['dis']);
+                    $("#town").text(data.data['POVERTYDETAIL']['town']);
+                    $("#vill").text(data.data['POVERTYDETAIL']['vill']);
+                    $("#familyNum").text(data.data['POVERTYDETAIL']['aac017']);
+                }
+            }
+        })
+
+        $("#income").click(function(){
+            var family=$("#familyNum").html();
+            location.href="income_ill.html?family="+family;
+        })
+    });
+</script>
+</body>
+</html>

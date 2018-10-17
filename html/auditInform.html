@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html lang="en" style="width:100%;height:100%;">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>信息审核</title>
+    <style type="text/css">
+        body {
+            background-color: #F2F6F9 !important;
+        }</style>
+    <link type="text/css" href="../css/common.css" rel="stylesheet">
+    <link type="text/css" href="../css/povDyna.css" rel="stylesheet">
+    <link type="text/css" href="../css/personInfo.css" rel="stylesheet">
+    <link type="text/css" href="../css/font-awesome.min.css" rel="stylesheet">
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .container{
+        width:100%;
+        height:100%;
+        padding-top:10px;
+    }
+    .container .items{
+        width:100%;
+        height:44px;
+        background: #fff;
+        border-bottom:1px solid #E5E5E5;
+        display: flex;
+        justify-content: space-between;
+    }
+    .container .items li{
+        border-right:1px solid #E5E5E5;
+        width:50%;
+        text-align: center;
+        line-height: 44px;
+        cursor:pointer;
+    }
+    .containerLeft .leftItem{
+        display: flex;
+        justify-content: space-between;
+        border-bottom:1px solid #E5E5E5;
+    }
+    .containerLeft .leftItems{
+        display: flex;
+        justify-content: space-between;
+        border-bottom:1px solid #E5E5E5;
+    }
+    .containerLeft .leftItem li{
+        border-right:1px solid #E5E5E5;
+        width:50%;
+        text-align: center;
+        line-height: 40px;
+        cursor:pointer;
+    }
+    .containerLeft .leftItems li{
+        border-right:1px solid #E5E5E5;
+        width:50%;
+        text-align: center;
+        line-height: 40px;
+        cursor:pointer;
+    }
+    .containerLeft .leftItems li:first-child{
+        background: #f5f5f5;
+    }
+    .containerLeft .leftItem li:first-child{
+        background: #f5f5f5;
+    }
+    .containerRight .rightItem li:first-child{
+        /*background: #f5f5f5;*/
+    }
+    .containerRight .rightItem{
+        display: flex;
+        justify-content: space-between;
+        border-bottom:1px solid #E5E5E5;
+    }
+    .containerRight .rightItem li{
+        border-right:1px solid #E5E5E5;
+        width:50%;
+        text-align: center;
+        line-height: 40px;
+        cursor:pointer;
+    }
+    .containerLeft p{
+        padding:3px 14px;
+        text-align: center;
+    }
+    .containerRight p{
+        padding:3px 14px;
+        text-align: center;
+    }
+    .containerLeft p select{
+        appearance:none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+        border: none;
+        outline: none;
+    }
+    .containerRight p select{
+        appearance:none;
+        -moz-appearance:none;
+        -webkit-appearance:none;
+        border: none;
+        outline: none;
+    }
+    .containerLeft .boxes .boxesCon{
+        display: none;
+    }
+    .containerLeft .boxes .boxesCons .tablediv{
+        display: none;
+    }
+    .containerRight .boxes .boxesCon{
+        display: none;
+    }
+    .container .items li img{
+        width:18px;
+        height:18px;
+        margin-top:-4px;
+        margin-right:10px;
+    }
+    .container .items li:last-child{
+        border-right:0;
+    }
+    .container .grids{
+        width:100%;
+        height:auto;
+        background: #fff;
+    }
+    .container .grids .boxes{
+        width:100%;
+        height:auto;
+        display: none;
+    }
+    .container .grids ul{
+        display: none;
+    }
+    .container .grids .boxes #povertyList{
+        width:100%;
+    }
+    .container .grids .boxes #povertyLists{
+        width:100%;
+    }
+    .container .grids .boxes #povertyList2{
+        width:100%;
+    }
+    .container .grids .boxes #povertyList3{
+        width:100%;
+    }
+    .container .grids .boxes #povertyList tr th{
+        padding:4px;
+    }
+    .container .grids .boxes #povertyList tr td{
+        text-align: center;
+        padding:4px;
+    }
+    .container .grids .boxes #povertyList2 tr th{
+        padding:4px;
+    }
+    .container .grids .boxes #povertyList2 tr td{
+        text-align: center;
+        padding:4px;
+    }
+    .container .grids .boxes #povertyList3 tr th{
+        padding:4px;
+    }
+    .container .grids .boxes #povertyList3 tr td{
+        text-align: center;
+        padding:4px;
+    }
+    .container .grids .boxes #povertyLists tr th{
+        padding:4px;
+    }
+    .container .grids .boxes #povertyLists tr td{
+        text-align: center;
+        padding:4px;
+    }
+    .container .grids .boxes #villageList{
+        width:100%;
+    }
+    .container .grids .boxes #villageList tr th{
+        padding:4px;
+    }
+    .container .grids .boxes #villageList tr td{
+        text-align: center;
+        padding:4px;
+    }
+    .container .grids .boxes #eightLists{
+        width:100%;
+    }
+    .container .grids .boxes #eightLists2{
+        width:100%;
+    }
+    .container .grids .boxes #eightLists tr th{
+        padding:4px;
+    }
+    .container .grids .boxes #eightLists tr td{
+        text-align: center;
+        padding:4px;
+    }
+    .container .grids .boxes #eightLists2 tr th{
+        padding:4px;
+    }
+    .container .grids .boxes #eightLists2 tr td{
+        text-align: center;
+        padding:4px;
+    }
+    .container .grids .boxes li{
+        width:100%;
+        height:50px;
+        line-height: 50px;
+        padding:0 2%;
+        display: flex;
+        justify-content: space-between;
+        border-bottom:1px solid #e5e5e5;
+    }
+    .container .grids .boxes li span{
+        width:25%;
+        height:100%;
+        display: inline-block;
+        line-height: 50px;
+        text-align: center;
+    }
+    .boxDetail table{
+        width:100%;
+    }
+    .boxDetail table tr{
+        text-align: center;
+    }
+    .boxDetail table tr th{
+        padding:4px;
+    }
+    .boxDetail table tr td{
+        padding:4px;
+    }
+    .container .grids .boxes li span:nth-child(2){
+        color:#3EACFE;
+    }
+    .container .grids .boxes li span:nth-child(3){
+        width:35%;
+        color:#A1A1A1;
+    }
+    .container .grids .boxes li span:last-child{
+        width:60px;
+        height:20px;
+        border-radius:12px;
+        line-height: 22px;
+        margin-top: 15px;
+        color:#fff;
+    }
+    .container .grids .boxes2 .tablediv{
+        display: none;
+    }
+    .container .grids .boxes1 li span:last-child{
+        color:#D7D7D7;
+    }
+    .container .grids .boxes2 li span:last-child{
+        background: #03FFA3;
+    }
+    .container .grids .boxes3 li span:last-child{
+        background: #FA6669;
+    }
+    .boxs .haha{
+        display: none;
+    }
+    /*加载动画*/
+    .spinner {
+        position:fixed;
+        margin: 0 auto;
+        width: 36px;
+        height: 36px;
+        background: rgba(0,0,0,0.3);
+        box-shadow: 0 0 40px 1000px rgba(0,0,0,0.3);
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        z-index: 999;
+    }
+
+    .container1 > div, .container2 > div, .container3 > div {
+        width: 8px;
+        height: 8px;
+        background-color: #404040;
+        border-radius: 100%;
+        position: absolute;
+        -webkit-animation: bouncedelay 1.2s infinite ease-in-out;
+        animation: bouncedelay 1.2s infinite ease-in-out;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+    .spinner .spinner-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .container2 {
+        -webkit-transform: rotateZ(45deg);
+        transform: rotateZ(45deg);
+    }
+
+    .container3 {
+        -webkit-transform: rotateZ(90deg);
+        transform: rotateZ(90deg);
+    }
+
+    .circle1 { top: 0; left: 0; }
+    .circle2 { top: 0; right: 0; }
+    .circle3 { right: 0; bottom: 0; }
+    .circle4 { left: 0; bottom: 0; }
+
+    .container2 .circle1 {
+        -webkit-animation-delay: -1.1s;
+        animation-delay: -1.1s;
+    }
+
+    .container3 .circle1 {
+        -webkit-animation-delay: -1.0s;
+        animation-delay: -1.0s;
+    }
+
+    .container1 .circle2 {
+        -webkit-animation-delay: -0.9s;
+        animation-delay: -0.9s;
+    }
+
+    .container2 .circle2 {
+        -webkit-animation-delay: -0.8s;
+        animation-delay: -0.8s;
+    }
+
+    .container3 .circle2 {
+        -webkit-animation-delay: -0.7s;
+        animation-delay: -0.7s;
+    }
+
+    .container1 .circle3 {
+        -webkit-animation-delay: -0.6s;
+        animation-delay: -0.6s;
+    }
+
+    .container2 .circle3 {
+        -webkit-animation-delay: -0.5s;
+        animation-delay: -0.5s;
+    }
+
+    .container3 .circle3 {
+        -webkit-animation-delay: -0.4s;
+        animation-delay: -0.4s;
+    }
+
+    .container1 .circle4 {
+        -webkit-animation-delay: -0.3s;
+        animation-delay: -0.3s;
+    }
+
+    .container2 .circle4 {
+        -webkit-animation-delay: -0.2s;
+        animation-delay: -0.2s;
+    }
+
+    .container3 .circle4 {
+        -webkit-animation-delay: -0.1s;
+        animation-delay: -0.1s;
+    }
+
+    @-webkit-keyframes bouncedelay {
+        0%, 80%, 100% { -webkit-transform: scale(0.0) }
+        40% { -webkit-transform: scale(1.0) }
+    }
+
+    @keyframes bouncedelay {
+        0%, 80%, 100% {
+            transform: scale(0.0);
+            -webkit-transform: scale(0.0);
+        } 40% {
+              transform: scale(1.0);
+              -webkit-transform: scale(1.0);
+          }
+    }
+
+</style>
+<body style="width:100%;height:100%;">
+<div class="spinner" style="display: none;">
+    <div class="spinner-container container1">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+    </div>
+    <div class="spinner-container container2">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+    </div>
+    <div class="spinner-container container3">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+        <div class="circle4"></div>
+    </div>
+</div>
+<div class="container">
+    <ul class="items" style="background: #d3ffff;">
+        <li>我提交的 (<span id="submitNum"> </span>)</li>
+        <li style="position:relative;">我审核的 (<span id="auditNum"> </span>) <strong id="myNum" style="width:20px;height:20px;background: red;display:block;color:#fff;border-radius: 50%;position:absolute;top:5px;right:5%;text-align: center;line-height: 20px;"></strong></li>
+    </ul>
+    <div class="grids">
+        <ul class="containerLeft" style="display: block;">
+            <div class="leftItem">
+                <li>户信息</li>
+                <li>村信息</li>
+            </div>
+            <div class="leftItems">
+                <li>贫困户</li>
+                <li>八个一批</li>
+                <li>八个一批添加</li>
+            </div>
+            <div class="boxes" style="display: block">
+                <div class="boxesCon boxesCons" style="display: block">
+                    <div class="tablediv" style="display: block">
+                        <p style="line-height: 30px;">筛选条件:
+                            <select name="" id="select1" style="font-size: 14px;border:1px solid #c0c0c0">
+                                <option value="noOk">未通过</option>
+                                <option value="okAduit">审核中</option>
+                                <option value="ok">已通过</option>
+                            </select>
+                        </p>
+                        <table id="povertyList">
+
+                        </table>
+                        <div style="line-height: 40px;width:100%;text-align: center;display: none;" class="moreData">加载更多</div>
+                        <p class="more" style="display: none;text-align: center;"><span style="display: inline-block; width:75px;height:20px;border-radius: 4px;background: #3EACFE;line-height: 20px;font-size: 12px;color:#fff;">展开更多</span></p>
+                    </div>
+                    <div class="tablediv">
+                        <p style="line-height: 30px;">筛选条件:
+                            <select name="" id="select2" style="font-size: 14px;border:1px solid #c0c0c0">
+                                <option value="noOk">未通过</option>
+                                <option value="okAduit">审核中</option>
+                                <option value="ok">已通过</option>
+                            </select>
+                        </p>
+                        <table id="povertyList2">
+
+                        </table>
+                        <div style="line-height: 40px;width:100%;text-align: center;display: none;" class="moreData">加载更多</div>
+                        <p class="more" style="display: none;text-align: center;"><span style="display: inline-block; width:75px;height:20px;border-radius: 4px;background: #3EACFE;line-height: 20px;font-size: 12px;color:#fff;">展开更多</span></p>
+                    </div>
+                    <div class="tablediv">
+                        <p style="line-height: 30px;">筛选条件:
+                            <select name="" id="select3" style="font-size: 14px;border:1px solid #c0c0c0">
+                                <option value="noOk">未通过</option>
+                                <option value="okAduit">审核中</option>
+                                <option value="ok">已通过</option>
+                            </select>
+                        </p>
+                        <table id="povertyList3">
+
+                        </table>
+                        <div style="line-height: 40px;width:100%;text-align: center;display: none;" class="moreData">加载更多</div>
+                        <p class="more" style="display: none;text-align: center;"><span style="display: inline-block; width:75px;height:20px;border-radius: 4px;background: #3EACFE;line-height: 20px;font-size: 12px;color:#fff;">展开更多</span></p>
+                    </div>
+                </div>
+                <div class="boxesCon">
+                    <p style="line-height: 30px;">筛选条件:
+                        <select name="" id="select4" style="font-size: 14px;border:1px solid #c0c0c0">
+                            <option value="okAduit">审核中</option>
+                            <option value="ok">已通过</option>
+                            <option value="noOk">未通过</option>
+                        </select>
+                    </p>
+                    <table id="villageList">
+
+                    </table>
+                    <div style="line-height: 40px;width:100%;text-align: center;display: none;" class="moreData">加载更多</div>
+                    <p class="more" style="display: none;text-align: center;"><span style="display: inline-block; width:75px;height:20px;border-radius: 4px;background: #3EACFE;line-height: 20px;font-size: 12px;color:#fff;">展开更多</span></p>
+                </div>
+
+            </div>
+        </ul>
+
+        <ul class="containerRight">
+            <div class="rightItem">
+                <li>贫困户</li>
+                <li>八个一批</li>
+                <li>八个一批添加</li>
+            </div>
+            <div class="boxes boxes2" style="display: block">
+                <div class="tablediv">
+                    <p style="line-height: 30px;">筛选条件:
+                        <select name="" id="select5" style="font-size: 14px;border:1px solid #c0c0c0">
+                            <option value="me">待审核</option>
+                            <option value="okAduit">审核中</option>
+                            <option value="ok">已通过</option>
+                            <option value="noOk">未通过</option>
+                        </select>
+                    </p>
+                    <table id="povertyLists">
+
+                    </table>
+                    <div style="line-height: 40px;width:100%;text-align: center;display: none;" class="moreData">加载更多</div>
+                    <p class="more" style="display: none;text-align: center;"><span style="display: inline-block; width:75px;height:20px;border-radius: 4px;background: #3EACFE;line-height: 20px;font-size: 12px;color:#fff;">展开更多</span></p>
+                </div>
+                <div class="tablediv">
+                    <p style="line-height: 30px;">筛选条件:
+                        <select name="" id="select6" style="font-size: 14px;border:1px solid #c0c0c0">
+                            <option value="me">待审核</option>
+                            <option value="okAduit">审核中</option>
+                            <option value="ok">已通过</option>
+                            <option value="noOk">未通过</option>
+                        </select>
+                    </p>
+                    <table id="eightLists">
+
+                    </table>
+                    <div style="line-height: 40px;width:100%;text-align: center;display: none;" class="moreData">加载更多</div>
+                    <p class="more" style="display: none;text-align: center;"><span style="display: inline-block; width:75px;height:20px;border-radius: 4px;background: #3EACFE;line-height: 20px;font-size: 12px;color:#fff;">展开更多</span></p>
+                </div>
+                <div class="tablediv">
+                    <p style="line-height: 30px;">筛选条件:
+                        <select name="" id="select7" style="font-size: 14px;border:1px solid #c0c0c0">
+                            <option value="me">待审核</option>
+                            <option value="okAduit">审核中</option>
+                            <option value="ok">已通过</option>
+                            <option value="noOk">未通过</option>
+                        </select>
+                    </p>
+                    <table id="eightLists2">
+
+                    </table>
+                    <div style="line-height: 40px;width:100%;text-align: center;display: none;" class="moreData">加载更多</div>
+                    <p class="more" style="display: none;text-align: center;"><span style="display: inline-block; width:75px;height:20px;border-radius: 4px;background: #3EACFE;line-height: 20px;font-size: 12px;color:#fff;">展开更多</span></p>
+                </div>
+            </div>
+        </ul>
+
+        <div class="boxDetail" style="display: none;padding:10px 0;background: #eeeeee;margin-top:6px;">
+            <div class="tabledetail">
+                <p style="text-align: center;line-height: 30px;background: #f0efee;">---审核详情---</p>
+                <table id="tableDetail">
+
+                </table>
+                <p id="audit" style="display: none;"><a class="update_btn submit">审核通过</a><a class="update_btn submit">审核不通过</a></p>
+            </div>
+            <div class="tabledetail">
+                <p style="text-align: center;line-height: 30px;background:#f0efee;">---审核流程---</p>
+                <table id="tableProcess">
+
+                </table>
+                <div id="reason" style="width:100%;height:auto;padding:1rem 1rem;display: none;">
+                    <p style="text-align: center;line-height: 30px;color:red;margin-bottom:10px;">---未通过原因---</p>
+                    <div class="reasonCon" style="line-height: 16px;font-size: 14px;text-align: center;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    dd.ready(function(){
+        var urls=config.urls;
+        var superid="";
+        var supertype="";
+        $(".modules div").click(function(){
+            var index=$(this).index();
+            $(".container").eq(index).show().siblings().hide();
+        })
+        $(".btn_details").click(function(){
+            $(this).next().slideToggle("fast");
+        })
+
+        /*我提交的户信息-贫困户列表点击查看详情和审核流程*/
+        setTimeout(function(){
+            $(".boxDetail").hide();
+            $("#povertyList").on("click","tr:gt(0)",function(){
+                var index=$(this).index()
+                $(this).show().siblings("tr:gt(0)").slideUp(200);
+                $(".boxDetail").show();
+                $(".more").show();
+                $(".more").click(function(){
+                    $("#povertyList tr:not(index)").slideDown(200);
+                    $(".more").hide();
+                })
+
+                var id=$(this).attr("hrefs1");
+                var modifyType=$(this).attr("hrefs2");
+                showDetails(id,modifyType,1)
+            })
+        },1000)
+        /*我提交的户信息-八个一批列表点击查看详情和审核流程*/
+        setTimeout(function(){
+            $("#povertyList2").on("click","tr:gt(0)",function(){
+                var index=$(this).index()
+                $(this).show().siblings("tr:gt(0)").slideUp(200);
+                $(".boxDetail").show();
+                $(".more").show();
+                $(".more").click(function(){
+                    $("#povertyList2 tr:not(index)").slideDown(200);
+                    $(".more").hide();
+                })
+
+                var id=$(this).attr("hrefs1");
+                var modifyType=$(this).attr("hrefs2");
+                showDetails(id,modifyType,2)
+            })
+        },2000)
+        /*我提交的户信息-八个一批添加列表点击查看详情和审核流程*/
+        setTimeout(function(){
+            $("#povertyList3").on("click","tr:gt(0)",function(){
+                var index=$(this).index()
+                $(this).show().siblings("tr:gt(0)").slideUp(200);
+                $(".boxDetail").show();
+                $(".more").show();
+                $(".more").click(function(){
+                    $("#povertyList3 tr:not(index)").slideDown(200);
+                    $(".more").hide();
+                })
+
+                var id=$(this).attr("hrefs1");
+                var modifyType=$(this).attr("hrefs2");
+                showDetails2(id,modifyType,3)
+
+            })
+        },1000)
+        /*我提交的村信息列表点击查看详情和审核流程*/
+        setTimeout(function(){
+            $("#villageList").on("click","tr:gt(0)",function(){
+                var index=$(this).index()
+                $(this).show().siblings("tr:gt(0)").slideUp(200);
+                $(".boxDetail").show();
+                $(".more").show();
+                $(".more").click(function(){
+                    $("#villageList tr:not(index)").slideDown(200);
+                    $(".more").hide();
+                })
+
+                var id=$(this).attr("hrefs1");
+                var modifyType=$(this).attr("hrefs2");
+                showDetails3(id,modifyType,4)
+            })
+        },1000)
+        /*我审核的贫困户信息列表点击查看详情和审核流程*/
+        setTimeout(function(){
+            $("#povertyLists").on("click","tr:gt(0)",function(){
+                var index=$(this).index()
+                $(this).show().siblings("tr:gt(0)").slideUp(200);
+                $(".boxDetail").show();
+                if($(this).find("td:last").text()=="待审核"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\">\u5BA1\u6838\u901A\u8FC7</a><a class=\"update_btn submit\">\u5BA1\u6838\u4E0D\u901A\u8FC7</a>";
+                    $("#audit").append(audit);
+                }else if($(this).find("td:last").text()=="审核中"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\" style='background: #c2c2c2'>审核中</a>";
+                    $("#audit").append(audit);
+                }else if($(this).find("td:last").text()=="已通过"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\" style='background: #35cb30'>已通过</a>";
+                    $("#audit").append(audit);
+                }else if($(this).find("td:last").text()=="未通过"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\" style='background: red'>未通过</a>";
+                    $("#audit").append(audit);
+                }
+                $(".more").show();
+                $(".more").click(function(){
+                    $("#povertyLists tr:not(index)").slideDown(200);
+                    $(".more").hide();
+                })
+
+                var id=$(this).attr("hrefs1");
+                var modifyType=$(this).attr("hrefs2");
+                superid=id;
+                supertype=modifyType;
+                showDetails(id,modifyType)
+            })
+        },1000)
+        /*我审核的八个一批信息列表点击查看详情和审核流程*/
+        setTimeout(function(){
+            $("#eightLists").on("click","tr:gt(0)",function(){
+                var index=$(this).index()
+                $(this).show().siblings("tr:gt(0)").slideUp(200);
+                $(".boxDetail").show();
+                if($(this).find("td:last").text()=="待审核"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\">\u5BA1\u6838\u901A\u8FC7</a><a class=\"update_btn submit\">\u5BA1\u6838\u4E0D\u901A\u8FC7</a>";
+                    $("#audit").append(audit);
+                }else if($(this).find("td:last").text()=="审核中"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\" style='background: #c2c2c2'>审核中</a>";
+                    $("#audit").append(audit);
+                }else if($(this).find("td:last").text()=="已通过"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\" style='background: #35cb30'>已通过</a>";
+                    $("#audit").append(audit);
+                }else if($(this).find("td:last").text()=="未通过"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\" style='background: red'>未通过</a>";
+                    $("#audit").append(audit);
+                }
+                $(".more").show();
+                $(".more").click(function(){
+                    $("#eightLists tr:not(index)").slideDown(200);
+                    $(".more").hide();
+                })
+
+                var id=$(this).attr("hrefs1");
+                var modifyType=$(this).attr("hrefs2");
+                superid=id;
+                supertype=modifyType;
+                showDetails(id,modifyType)
+            })
+        },1000)
+        /*我审核的八个一批添加信息列表点击查看详情和审核流程*/
+        setTimeout(function(){
+            $("#eightLists2").on("click","tr:gt(0)",function(){
+                var index=$(this).index()
+                $(this).show().siblings("tr:gt(0)").slideUp(200);
+                $(".boxDetail").show();
+                if($(this).find("td:last").text()=="待审核"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\">\u5BA1\u6838\u901A\u8FC7</a><a class=\"update_btn submit\">\u5BA1\u6838\u4E0D\u901A\u8FC7</a>";
+                    $("#audit").append(audit);
+                }else if($(this).find("td:last").text()=="审核中"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\" style='background: #c2c2c2'>审核中</a>";
+                    $("#audit").append(audit);
+                }else if($(this).find("td:last").text()=="已通过"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\" style='background: #35cb30'>已通过</a>";
+                    $("#audit").append(audit);
+                }else if($(this).find("td:last").text()=="未通过"){
+                    $("#audit").empty();
+                    var audit = "<a class=\"update_btn submit\" style='background: red'>未通过</a>";
+                    $("#audit").append(audit);
+                }
+                $(".more").show();
+                $(".more").click(function(){
+                    $("#eightLists2 tr:not(index)").slideDown(200);
+                    $(".more").hide();
+                })
+
+                var id=$(this).attr("hrefs1");
+                var modifyType=$(this).attr("hrefs2");
+                superid=id;
+                supertype=modifyType;
+                showDetails2(id,modifyType)
+            })
+        },1000)
+
+        function showDetails(id,modifyType,field){
+            var table1=$("#tableDetail");
+            var table2=$("#tableProcess")
+            $.ajax({
+                url: urls+"/aduit/detail",
+                data: {"id": id,"modifyType":modifyType},
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        details(table1,data.data.AduitDetail)
+                        process(table2,data.data.status)
+                        for(var i=0;i<$("#tableProcess tr td").length;i++){
+                            if($("#tableProcess tr td").eq(i).text()=="null"){
+                                $("#tableProcess tr td").eq(i).text("");
+                                $("#reason").hide()
+                            }else if($("#tableProcess tr td").eq(i).text()=="0"){
+                                $("#tableProcess tr td").eq(i).text("待审核")
+                                $("#reason").hide()
+                            }else if($("#tableProcess tr td").eq(i).text()=="1"){
+                                $("#tableProcess tr td").eq(i).text("已通过")
+                                $("#reason").hide()
+                            }else if($("#tableProcess tr td").eq(i).text()=="4"){
+                                $("#tableProcess tr td").eq(i).text("未通过")
+                            }
+                        }
+                        for(var j=0;j<$("#tableProcess tr td").length;j++){
+                            if($("#tableProcess tr td").eq(j).text()=="未通过"){
+                                $.ajax({
+                                    url:urls+"/newAduit/noOkCause",
+                                    data:{"id":id,"field":field},
+                                    method:"post",
+                                    dataType:"json",
+                                    beforeSend:function(request){
+                                        ShowLoading();
+                                    },
+                                    success: function (data) {
+                                        if (data.code == 2000){
+                                            HideLoading();
+                                            $("#reason").show().find(".reasonCon").text(data.data);
+                                            /*dd.device.notification.alert({
+                                                message: data.data,
+                                                title: "未通过原因",//可传空
+                                                buttonName: "确定",
+                                                onSuccess : function() {
+                                                    //onSuccess将在点击button之后回调
+                                                    /!*回调*!/
+                                                },
+                                                onFail : function(err) {}
+                                            });*/
+                                        }
+                                    },
+                                    complete:function(){
+                                        HideLoading();
+                                    }
+                                })
+                            }
+                        }
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        }
+        function showDetails2(id,modifyType,field){
+            var table1=$("#tableDetail");
+            var table2=$("#tableProcess")
+            $.ajax({
+                url: urls+"/eight/insert/aduit/detail",
+                data: {"id": id,"type":modifyType},
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        details2(table1,data.data.detail)
+                        process(table2,data.data.status)
+                        for(var i=0;i<$("#tableProcess tr td").length;i++){
+                            if($("#tableProcess tr td").eq(i).text()=="null"){
+                                $("#tableProcess tr td").eq(i).text("")
+                            }else if($("#tableProcess tr td").eq(i).text()=="0"){
+                                $("#tableProcess tr td").eq(i).text("待审核")
+                            }else if($("#tableProcess tr td").eq(i).text()=="1"){
+                                $("#tableProcess tr td").eq(i).text("已通过")
+                            }else if($("#tableProcess tr td").eq(i).text()=="4"){
+                                $("#tableProcess tr td").eq(i).text("未通过")
+                            }
+                        }
+                        for(var j=0;j<$("#tableProcess tr td").length;j++){
+                            if($("#tableProcess tr td").eq(j).text()=="未通过"){
+                                $.ajax({
+                                    url:urls+"/newAduit/noOkCause",
+                                    data:{"id":id,"table":modifyType,"field":field},
+                                    method:"post",
+                                    dataType:"json",
+                                    beforeSend:function(request){
+                                        ShowLoading();
+                                    },
+                                    success: function (data) {
+                                        if (data.code == 2000){
+                                            HideLoading();
+                                            $("#reason").show().find(".reasonCon").text(data.data);
+                                            /*dd.device.notification.alert({
+                                                message: data.data,
+                                                title: "未通过原因",//可传空
+                                                buttonName: "确定",
+                                                onSuccess : function() {
+                                                    //onSuccess将在点击button之后回调
+                                                    /!*回调*!/
+                                                },
+                                                onFail : function(err) {}
+                                            });*/
+                                        }
+                                    },
+                                    complete:function(){
+                                        HideLoading();
+                                    }
+                                })
+                            }
+                        }
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        }
+        function showDetails3(id,modifyType,field){
+            var table1=$("#tableDetail");
+            var table2=$("#tableProcess")
+            $.ajax({
+                url: urls+"/newAduit/villageDetail",
+                data: {"id": id},
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        details3(table1,data.data.detail)
+                        process(table2,data.data.status)
+                        for(var i=0;i<$("#tableProcess tr td").length;i++){
+                            if($("#tableProcess tr td").eq(i).text()=="null"){
+                                $("#tableProcess tr td").eq(i).text("")
+                            }else if($("#tableProcess tr td").eq(i).text()=="0"){
+                                $("#tableProcess tr td").eq(i).text("待审核")
+                            }else if($("#tableProcess tr td").eq(i).text()=="1"){
+                                $("#tableProcess tr td").eq(i).text("已通过")
+                            }else if($("#tableProcess tr td").eq(i).text()=="4"){
+                                $("#tableProcess tr td").eq(i).text("未通过")
+                            }
+                        }
+                        for(var j=0;j<$("#tableProcess tr td").length;j++){
+                            if($("#tableProcess tr td").eq(j).text()=="未通过"){
+                                $("#tableProcess tr td").eq(j).click(function(){
+                                    $.ajax({
+                                        url:urls+"/newAduit/noOkCause",
+                                        data:{"id":id,"field":field},
+                                        method:"post",
+                                        dataType:"json",
+                                        beforeSend:function(request){
+                                            ShowLoading();
+                                        },
+                                        success: function (data) {
+                                            if (data.code == 2000){
+                                                HideLoading();
+                                                dd.device.notification.alert({
+                                                    message: data.data,
+                                                    title: "未通过原因",//可传空
+                                                    buttonName: "确定",
+                                                    onSuccess : function() {
+                                                        //onSuccess将在点击button之后回调
+                                                        /*回调*/
+                                                    },
+                                                    onFail : function(err) {}
+                                                });
+                                            }
+                                        },
+                                        complete:function(){
+                                            HideLoading();
+                                        }
+                                    })
+                                })
+                            }
+                        }
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        }
+        function details(obj,data){
+            obj.empty();
+            var str = "<tr><th>\u4FEE\u6539\u6307\u6807</th><th>\u4FEE\u6539\u524D</th><th>\u4FEE\u6539\u540E</th></tr>";
+            for(var i=0;i<data.length;i++){
+                if(data[i]['infoName'].length>8){
+                    data[i]['infoName']=data[i]['infoName'].substring(0,8)+"<br>"+data[i]['infoName'].substring(8,data[i]['infoName'].length)
+                }
+                str += '<tr><td>' + data[i]['infoName'] + '</td><td>' + data[i]['updateBefore'] + '</td><td>' + data[i]['updateAfter'] + '</td></tr>';
+            }
+            obj.html(str);
+        }
+        function details2(obj,data){
+            obj.empty();
+            var str = "<tr><td>\u4FEE\u6539\u6307\u6807</td><td>\u4FEE\u6539\u5185\u5BB9</td></tr>";
+            for(var i=0;i<data.length;i++){
+                if(data[i]['COMMENTS'].length>8){
+                    data[i]['COMMENTS']=data[i]['COMMENTS'].substring(0,8)+"<br>"+data[i]['COMMENTS'].substring(8,data[i]['COMMENTS'].length)
+                }
+                str += '<tr><td>' + data[i]['COMMENTS'] + '</td><td>' + data[i]['Field'] + '</td></tr>';
+            }
+            obj.html(str);
+
+        }
+        function details3(obj,data){
+            obj.empty();
+            var str = "<tr><th>\u4FEE\u6539\u6307\u6807</th><th>\u4FEE\u6539\u524D</th><th>\u4FEE\u6539\u540E</th></tr>";
+            for(var i=0;i<data.length;i++){
+                if(data[i]['REAL_NAME'].length>8){
+                    data[i]['REAL_NAME']=data[i]['REAL_NAME'].substring(0,8)+"<br>"+data[i]['REAL_NAME'].substring(8,data[i]['REAL_NAME'].length)
+                }
+                str += '<tr><td>' + data[i]['REAL_NAME'] + '</td><td>' + data[i]['UPDATE_BEFORE'] + '</td><td>' + data[i]['UPDATE_AFTER'] + '</td></tr>';
+            }
+            obj.html(str);
+
+        }
+        function process(obj,data){
+            obj.empty();
+            var str = "<tr><th>\u5BA1\u6838\u90E8\u95E8</th><th>\u5BA1\u6838\u72B6\u6001</th><th>\u65E5\u671F\u65F6\u95F4</th></tr>";
+            for(var i=0;i<data.length;i++){
+                if(data[i]['time']!=null){
+                    data[i]['time']=data[i]['time'].toString().substring(0,4)+"-"+data[i]['time'].toString().substring(4,6)+"-"+data[i]['time'].toString().substring(6,8)+" "+data[i]['time'].toString().substring(8,10)+":"+data[i]['time'].toString().substring(10,12)+":"+data[i]['time'].toString().substring(12,14);
+                }else{
+                    data[i]['time']="";
+                }
+                str += '<tr><td>' + data[i]['people'] + '</td><td>' + data[i]['AduitStatus'] + '</td><td>' + data[i]['time'] + '</td></tr>';
+                if(data[i]['AduitStatus']=="4"){
+                    break;
+                }
+            }
+            obj.html(str);
+        }
+
+        function ShowLoading() {
+            $(".spinner").show();
+        }
+        function HideLoading() {
+            $(".spinner").hide();
+        }
+
+        $(document).ready(function(){
+            $(".items li").click(function(){
+                var index=$(this).index();
+                if(index==0){
+                    $("#audit").hide()
+                }else if(index==1){
+                    $("#audit").show();
+                }
+                $(".boxDetail").hide();
+                $(".more").hide();
+                $(this).css({"background":"#0084E7","color":"#fff"}).siblings("li").css({"background":"#d3ffff","color":"#000"});
+                $(this).find("span").css({"background":"#0084E7","color":"#fff"}).parent().siblings("li").find("span").css({"background":"#d3ffff","color":"#000"})
+                // $(this).find("span").css("fontSize","16px");
+                $(".grids ul").eq(index).show().siblings("ul").hide();
+            })
+            $(".leftItem li").click(function(){
+                var index=$(this).index();
+                if(index==0){
+                    $(".leftItems").show();
+                }else if(index==1){
+                    $(".leftItems").hide();
+                }
+                $(".boxDetail").hide();
+                $(this).css("background","#f5f5f5").siblings("li").css("background","none");
+                $(".boxes .boxesCon").eq(index).show().siblings(".boxesCon").hide();
+            })
+            $(".leftItems li").click(function(){
+                var index=$(this).index();
+                $(".boxDetail").hide();
+                $(this).css("background","#f5f5f5").siblings("li").css("background","none");
+                $(".boxes .boxesCon .tablediv").eq(index).show().siblings(".tablediv").hide();
+            })
+            $(".rightItem li").click(function(){
+                var index=$(this).index();
+                $(".boxDetail").hide();
+                $(this).css("background","#f5f5f5").siblings("li").css("background","none");
+                $(".boxes2 .tablediv").eq(index).show().siblings(".tablediv").hide();
+
+                /*审核*/
+
+                if(index==0 || index==1){
+                    $("#audit").on("click","a",function(){
+                        var number=0;
+                        if($(this).text()=="审核通过"){
+                            number=1;
+                            $.ajax({
+                                url:urls+"/aduit/aduitId",
+                                data:{"dataId":superid,"type":supertype,"first":number},
+                                method:"post",
+                                dataType:"json",
+                                success:function(data){
+                                    if(data.code==2000){
+                                        if(number==1){
+                                            $("#audit .submit").eq(0).text("已通过").siblings(".submit").hide();
+                                        }else if(number==4){
+                                            $("#audit .submit").eq(0).text("未通过").css({"background":"red"}).siblings(".submit").hide();
+                                        }
+                                    }
+                                }
+                            })
+                        }else if($(this).text()=="审核不通过"){
+                            var con=prompt("请填写未通过原因");
+                            number=4;
+                            if(con!="null" && con!=null && con!=""){
+                                $.ajax({
+                                    url:urls+"/aduit/aduitId",
+                                    data:{"dataId":superid,"type":supertype,"first":number,noContent:con},
+                                    method:"post",
+                                    dataType:"json",
+                                    success:function(data){
+                                        if(data.code==2000){
+                                            if(number==1){
+                                                $("#audit .submit").eq(0).text("已通过").siblings(".submit").hide();
+                                            }else if(number==4){
+                                                $("#audit .submit").eq(0).text("未通过").css({"background":"red"}).siblings(".submit").hide();
+                                            }
+                                        }
+                                    }
+                                })
+                            }else{
+                                dd.device.notification.alert({
+                                    message: "未通过原因不能为空",
+                                    title: "提示",//可传空
+                                    buttonName: "确定",
+                                    onSuccess : function() {
+                                        //onSuccess将在点击button之后回调
+                                        /*回调*/
+                                    },
+                                    onFail : function(err) {}
+                                });
+                            }
+                        }
+                    })
+                }else if(index==2){
+                    $("#audit").on("click","a",function(){
+                        var number=0;
+                        if($(this).text()=="审核通过"){
+                            number=1;
+                            $.ajax({
+                                url:urls+"/eight/insert/aduit/first",
+                                data:{"id":superid,"type":supertype,"isAduit":number,noContent:con},
+                                method:"post",
+                                dataType:"json",
+                                success:function(data){
+                                    if(data.code==2000){
+                                        if(number==1){
+                                            $("#audit .submit").eq(0).text("已通过").siblings(".submit").hide();
+                                        }else if(number==4){
+                                            $("#audit .submit").eq(0).text("未通过").css({"background":"red"}).siblings(".submit").hide();
+                                        }
+                                    }
+                                }
+                            })
+                        }else if($(this).text()=="审核不通过"){
+                            var con=prompt("请填写未通过原因");
+                            number=4;
+                            if(con!="null" && con!=null && con!=""){
+                                $.ajax({
+                                    url:urls+"/eight/insert/aduit/first",
+                                    data:{"id":superid,"type":supertype,"isAduit":number,noContent:con},
+                                    method:"post",
+                                    dataType:"json",
+                                    success:function(data){
+                                        if(data.code==2000){
+                                            if(number==1){
+                                                $("#audit .submit").eq(0).text("已通过").siblings(".submit").hide();
+                                            }else if(number==4){
+                                                $("#audit .submit").eq(0).text("未通过").css({"background":"red"}).siblings(".submit").hide();
+                                            }
+                                        }
+                                    }
+                                })
+                            }else{
+                                dd.device.notification.alert({
+                                    message: "未通过原因不能为空",
+                                    title: "提示",//可传空
+                                    buttonName: "确定",
+                                    onSuccess : function() {
+                                        //onSuccess将在点击button之后回调
+                                        /*回调*/
+                                    },
+                                    onFail : function(err) {}
+                                });
+                            }
+                        }
+                    })
+                }
+            })
+        })
+
+    })
+</script>
+<script>
+    dd.ready(function(){
+        // var url=config.url;
+        var urls=config.urls;
+        var object=localStorage.getItem("objects");
+        var item=JSON.parse(object);
+        var helpNumber=item.cadreNum;
+        var box1=$("#povertyList");
+        var box2=$("#villageList");
+        var box3=$("#povertyList2");
+        var box4=$("#povertyList3");
+        var box5=$("#povertyLists");
+        var box6=$("#eightLists");
+        var box7=$("#eightLists2");
+
+        /*提示信息数量展示*/
+        $.ajax({
+            url:urls+"/newAduit/numAduit",
+            data:{"aar040":201808,"aak110":helpNumber,"aduit":1},
+            method:"post",
+            dataType:"json",
+            beforeSend:function(request){
+                ShowLoading();
+            },
+            success: function (data) {
+                if (data.code == 2000){
+                    HideLoading();
+                    $("#submitNum").text(data.data.submit);
+                    $("#auditNum").text(data.data.aduit);
+                    $("#myNum").text(data.data.me);
+                }
+            },
+            complete:function(){
+                HideLoading();
+            }
+        })
+
+        /*我提交的户信息-贫困户*/
+        $.ajax({
+            url: urls+"/newAduit/submitPoverty",
+            data: {"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"noOk":1},
+            method: "post",
+            dataType: "json",
+            beforeSend:function(request){
+                ShowLoading();
+            },
+            success: function (data) {
+                if (data.code == 2000){
+                    HideLoading();
+                    showMessage(box1,data.data.list)
+                    for(var i=0;i<$("#povertyList tr td").length;i++){
+                        if($("#povertyList tr td").eq(i).text()=="未通过"){
+                            $("#povertyList tr td").eq(i).css("color","red");
+                        }else if($("#povertyList tr td").eq(i).text()=="审核中"){
+                            $("#povertyList tr td").eq(i).css("color","#5f5f5f");
+                        }else if($("#povertyList tr td").eq(i).text()=="已通过"){
+                            $("#povertyList tr td").eq(i).css("color","#09bf09");
+                        }
+                    }
+                }
+            },
+            complete:function(){
+                HideLoading();
+            }
+        })
+        /*我提交的户信息-贫困户(加载更多)*/
+        var datanum=1;
+        $("#povertyList").siblings(".moreData").click(function(){
+            datanum++;
+            $.ajax({
+                url: urls+"/newAduit/submitPoverty",
+                data: {"aak110": helpNumber,"aar040":"201808","pageNum":datanum,"pageSize":20,"list":1,"okAduit":1},
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage11(box1,data.data.list)
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+
+        /*我提交的户信息-八个一批*/
+        $.ajax({
+            url: urls+"/newAduit/submitEight",
+            data: {"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"noOk":1},
+            method: "post",
+            dataType: "json",
+            beforeSend:function(request){
+                ShowLoading();
+            },
+            success: function (data) {
+                if (data.code == 2000){
+                    HideLoading();
+                    showMessage3(box3,data.data.list)
+                    for(var i=0;i<$("#povertyList2 tr td").length;i++){
+                        if($("#povertyList2 tr td").eq(i).text()=="未通过"){
+                            $("#povertyList2 tr td").eq(i).css("color","red");
+                        }else if($("#povertyList2 tr td").eq(i).text()=="审核中"){
+                            $("#povertyList2 tr td").eq(i).css("color","#5f5f5f");
+                        }else if($("#povertyList2 tr td").eq(i).text()=="已通过"){
+                            $("#povertyList2 tr td").eq(i).css("color","#09bf09");
+                        }
+                    }
+
+                }
+            },
+            complete:function(){
+                HideLoading();
+            }
+        })
+        /*我提交的户信息-八个一批(加载更多)*/
+        var datanum2=1;
+        $("#povertyList2").siblings(".moreData").click(function(){
+            datanum2++;
+            $.ajax({
+                url: urls+"/newAduit/submitEight",
+                data: {"aak110": helpNumber,"aar040":"201808","pageNum":datanum2,"pageSize":20,"list":1,"okAduit":1},
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage33(box3,data.data.list)
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+
+        /*我提交的户信息-八个一批添加*/
+        $.ajax({
+            url: urls+"/newAduit/submitEightInsert",
+            data: {"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"noOk":1},
+            method: "post",
+            dataType: "json",
+            beforeSend:function(request){
+                ShowLoading();
+            },
+            success: function (data) {
+                if (data.code == 2000){
+                    HideLoading();
+                    showMessage4(box4,data.data.list)
+                    for(var i=0;i<$("#povertyList3 tr td").length;i++){
+                        if($("#povertyList3 tr td").eq(i).text()=="未通过"){
+                            $("#povertyList3 tr td").eq(i).css("color","red");
+                        }else if($("#povertyList3 tr td").eq(i).text()=="审核中"){
+                            $("#povertyList3 tr td").eq(i).css("color","#5f5f5f");
+                        }else if($("#povertyList3 tr td").eq(i).text()=="已通过"){
+                            $("#povertyList3 tr td").eq(i).css("color","#09bf09");
+                        }
+                    }
+                }
+            },
+            complete:function(){
+                HideLoading();
+            }
+        })
+        /*我提交的户信息-八个一批添加(加载更多)*/
+        var datanum3=1;
+        $("#povertyList3").siblings(".moreData").click(function(){
+            datanum3++;
+            $.ajax({
+                url: urls+"/newAduit/submitEightInsert",
+                data: {"aak110": helpNumber,"aar040":"201808","pageNum":datanum3,"pageSize":20,"list":1,"okAduit":1},
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage44(box4,data.data.list)
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+
+        /*我提交的村信息*/
+        $.ajax({
+            url: urls+"/newAduit/submitVillage",
+            data: {"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"noOk":1},
+            method: "post",
+            dataType: "json",
+            beforeSend:function(request){
+                ShowLoading();
+            },
+            success: function (data) {
+                if (data.code == 2000){
+                    HideLoading();
+                    showMessage2(box2,data.data.list)
+                    for(var i=0;i<$("#villageList tr td").length;i++){
+                        if($("#villageList tr td").eq(i).text()=="未通过"){
+                            $("#villageList tr td").eq(i).css("color","red");
+                        }else if($("#villageList tr td").eq(i).text()=="审核中"){
+                            $("#villageList tr td").eq(i).css("color","#5f5f5f");
+                        }else if($("#villageList tr td").eq(i).text()=="已通过"){
+                            $("#villageList tr td").eq(i).css("color","#09bf09");
+                        }
+                    }
+                }
+            },
+            complete:function(){
+                HideLoading();
+            }
+        })
+        /*我提交的村信息(加载更多)*/
+        var datanum4=1;
+        $("#villageList").siblings(".moreData").click(function(){
+            datanum4++;
+            $.ajax({
+                url: urls+"/newAduit/submitVillage",
+                data: {"aak110": helpNumber,"aar040":"201808","pageNum":datanum4,"pageSize":20,"list":1,"okAduit":1},
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage22(box2,data.data.list)
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+
+        /*我审核的贫困户信息*/
+        $.ajax({
+            url: urls+"/newAduit/aduitPoverty",
+            data: {"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"me":1},
+            method: "post",
+            dataType: "json",
+            beforeSend:function(request){
+                ShowLoading();
+            },
+            success: function (data) {
+                if (data.code == 2000){
+                    HideLoading();
+                    showMessage5(box5,data.data.list)
+                    for(var i=0;i<$("#povertyLists tr td").length;i++){
+                        if($("#povertyLists tr td").eq(i).text()=="未通过"){
+                            $("#povertyLists tr td").eq(i).css("color","red");
+                        }else if($("#povertyLists tr td").eq(i).text()=="审核中"){
+                            $("#povertyLists tr td").eq(i).css("color","#5f5f5f");
+                        }else if($("#povertyLists tr td").eq(i).text()=="已通过"){
+                            $("#povertyLists tr td").eq(i).css("color","#09bf09");
+                        }else if($("#povertyLists tr td").eq(i).text()=="待审核"){
+                            $("#povertyLists tr td").eq(i).css("color","blue");
+                        }
+                    }
+                }
+            },
+            complete:function(){
+                HideLoading();
+            }
+        })
+        /*我审核的贫困户信息(加载更多)*/
+        var datanum5=1;
+        $("#povertyLists").siblings(".moreData").click(function(){
+            datanum5++;
+            $.ajax({
+                url: urls+"/newAduit/aduitPoverty",
+                data: {"aak110": helpNumber,"aar040":"201808","pageNum":datanum5,"pageSize":20,"list":1,"me":1},
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage55(box5,data.data.list)
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+
+        /*我审核的八个一批信息*/
+        $.ajax({
+            url: urls+"/newAduit/aduitEight",
+            data: {"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"me":1},
+            method: "post",
+            dataType: "json",
+            beforeSend:function(request){
+                ShowLoading();
+            },
+            success: function (data) {
+                if (data.code == 2000){
+                    HideLoading();
+                    showMessage6(box6,data.data.list)
+                    for(var i=0;i<$("#eightLists tr td").length;i++){
+                        if($("#eightLists tr td").eq(i).text()=="未通过"){
+                            $("#eightLists tr td").eq(i).css("color","red");
+                        }else if($("#eightLists tr td").eq(i).text()=="审核中"){
+                            $("#eightLists tr td").eq(i).css("color","#5f5f5f");
+                        }else if($("#eightLists tr td").eq(i).text()=="已通过"){
+                            $("#eightLists tr td").eq(i).css("color","#09bf09");
+                        }else if($("#eightLists tr td").eq(i).text()=="待审核"){
+                            $("#eightLists tr td").eq(i).css("color","blue");
+                        }
+                    }
+                }
+            },
+            complete:function(){
+                HideLoading();
+            }
+        })
+        /*我审核的八个一批信息(加载更多)*/
+        var datanum6=1;
+        $("#eightLists").siblings(".moreData").click(function(){
+            datanum6++;
+            $.ajax({
+                url: urls+"/newAduit/aduitEight",
+                data: {"aak110": helpNumber,"aar040":"201808","pageNum":datanum6,"pageSize":20,"list":1,"me":1},
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage66(box6,data.data.list)
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+
+        /*我审核的八个一批添加信息*/
+        $.ajax({
+            url: urls+"/newAduit/aduitEightInsert",
+            data: {"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"me":1},
+            method: "post",
+            dataType: "json",
+            beforeSend:function(request){
+                ShowLoading();
+            },
+            success: function (data) {
+                if (data.code == 2000){
+                    HideLoading();
+                    showMessage7(box7,data.data.list)
+                    for(var i=0;i<$("#eightLists2 tr td").length;i++){
+                        if($("#eightLists2 tr td").eq(i).text()=="未通过"){
+                            $("#eightLists2 tr td").eq(i).css("color","red");
+                        }else if($("#eightLists2 tr td").eq(i).text()=="审核中"){
+                            $("#eightLists2 tr td").eq(i).css("color","#5f5f5f");
+                        }else if($("#eightLists2 tr td").eq(i).text()=="已通过"){
+                            $("#eightLists2 tr td").eq(i).css("color","#09bf09");
+                        }else if($("#eightLists2 tr td").eq(i).text()=="待审核"){
+                            $("#eightLists2 tr td").eq(i).css("color","blue");
+                        }
+                    }
+                }
+            },
+            complete:function(){
+                HideLoading();
+            }
+        })
+        /*我审核的八个一批添加信息(加载更多)*/
+        var datanum7=1;
+        $("#eightLists2").siblings(".moreData").click(function(){
+            datanum7++;
+            $.ajax({
+                url: urls+"/newAduit/aduitEightInsert",
+                data: {"aak110": helpNumber,"aar040":"201808","pageNum":datanum7,"pageSize":20,"list":1,"me":1},
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage77(box7,data.data.list)
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+
+        /*我提交的户信息-贫困户筛选*/
+        var select1=$("#select1");
+        select1.change(function(){
+            $(".boxDetail").hide();
+            var aa=select1.val();
+            if(aa=="me"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":12,"list":1,"me":1};
+            }else if(aa=="okAduit"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":12,"list":1,"okAduit":1};
+            }else if(aa=="ok"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":12,"list":1,"ok":1};
+            }else if(aa=="noOk"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":12,"list":1,"noOk":1};
+            }
+            $.ajax({
+                url: urls+"/newAduit/submitPoverty",
+                data: data,
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage(box1,data.data.list)
+                        for(var i=0;i<$("#povertyList tr td").length;i++){
+                            if($("#povertyList tr td").eq(i).text()=="未通过"){
+                                $("#povertyList tr td").eq(i).css("color","red");
+                            }else if($("#povertyList tr td").eq(i).text()=="审核中"){
+                                $("#povertyList tr td").eq(i).css("color","#5f5f5f");
+                            }else if($("#povertyList tr td").eq(i).text()=="已通过"){
+                                $("#povertyList tr td").eq(i).css("color","#09bf09");
+                            }
+                        }
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+        /*我提交的户信息-八个一批筛选*/
+        var select2=$("#select2");
+        select2.change(function(){
+            $(".boxDetail").hide();
+            var aa=select2.val();
+            if(aa=="me"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"me":1};
+            }else if(aa=="okAduit"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"okAduit":1};
+            }else if(aa=="ok"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"ok":1};
+            }else if(aa=="noOk"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"noOk":1};
+            }
+            $.ajax({
+                url: urls+"/newAduit/submitEight",
+                data: data,
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage3(box3,data.data.list)
+                        for(var i=0;i<$("#povertyList2 tr td").length;i++){
+                            if($("#povertyList2 tr td").eq(i).text()=="未通过"){
+                                $("#povertyList2 tr td").eq(i).css("color","red");
+                            }else if($("#povertyList2 tr td").eq(i).text()=="审核中"){
+                                $("#povertyList2 tr td").eq(i).css("color","#5f5f5f");
+                            }else if($("#povertyList2 tr td").eq(i).text()=="已通过"){
+                                $("#povertyList2 tr td").eq(i).css("color","#09bf09");
+                            }
+                        }
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+        /*我提交的户信息-八个一批添加筛选*/
+        var select3=$("#select3");
+        select3.change(function(){
+            $(".boxDetail").hide();
+            var aa=select3.val();
+            if(aa=="me"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"me":1};
+            }else if(aa=="okAduit"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"okAduit":1};
+            }else if(aa=="ok"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"ok":1};
+            }else if(aa=="noOk"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"noOk":1};
+            }
+            $.ajax({
+                url: urls+"/newAduit/submitEightInsert",
+                data: data,
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage4(box4,data.data.list)
+                        for(var i=0;i<$("#povertyList3 tr td").length;i++){
+                            if($("#povertyList3 tr td").eq(i).text()=="未通过"){
+                                $("#povertyList3 tr td").eq(i).css("color","red");
+                            }else if($("#povertyList3 tr td").eq(i).text()=="审核中"){
+                                $("#povertyList3 tr td").eq(i).css("color","#5f5f5f");
+                            }else if($("#povertyList3 tr td").eq(i).text()=="已通过"){
+                                $("#povertyList3 tr td").eq(i).css("color","#09bf09");
+                            }
+                        }
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+        /*我提交的村信息筛选*/
+        var select4=$("#select4");
+        select4.change(function(){
+            $(".boxDetail").hide();
+            var aa=select4.val();
+            if(aa=="me"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"me":1};
+            }else if(aa=="okAduit"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"okAduit":1};
+            }else if(aa=="ok"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"ok":1};
+            }else if(aa=="noOk"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"noOk":1};
+            }
+            $.ajax({
+                url: urls+"/newAduit/submitVillage",
+                data: data,
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage2(box2,data.data.list)
+                        for(var i=0;i<$("#villageList tr td").length;i++){
+                            if($("#villageList tr td").eq(i).text()=="未通过"){
+                                $("#villageList tr td").eq(i).css("color","red");
+                            }else if($("#villageList tr td").eq(i).text()=="审核中"){
+                                $("#villageList tr td").eq(i).css("color","#5f5f5f");
+                            }else if($("#villageList tr td").eq(i).text()=="已通过"){
+                                $("#villageList tr td").eq(i).css("color","#09bf09");
+                            }
+                        }
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+        /*我审核的户信息筛选*/
+        var select5=$("#select5");
+        select5.change(function(){
+            $(".boxDetail").hide();
+            var aa=select5.val();
+            if(aa=="me"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"me":1};
+            }else if(aa=="okAduit"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"okAduit":1};
+            }else if(aa=="ok"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"ok":1};
+            }else if(aa=="noOk"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"noOk":1};
+            }
+            $.ajax({
+                url: urls+"/newAduit/aduitPoverty",
+                data: data,
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage5(box5,data.data.list)
+                        for(var i=0;i<$("#povertyLists tr td").length;i++){
+                            if($("#povertyLists tr td").eq(i).text()=="未通过"){
+                                $("#povertyLists tr td").eq(i).css("color","red");
+                            }else if($("#povertyLists tr td").eq(i).text()=="审核中"){
+                                $("#povertyLists tr td").eq(i).css("color","#5f5f5f");
+                            }else if($("#povertyLists tr td").eq(i).text()=="已通过"){
+                                $("#povertyLists tr td").eq(i).css("color","#09bf09");
+                            }else if($("#povertyLists tr td").eq(i).text()=="待审核"){
+                                $("#povertyLists tr td").eq(i).css("color","blue");
+                            }
+                        }
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+        /*我审核的八个一批信息筛选*/
+        var select6=$("#select6");
+        select6.change(function(){
+            $(".boxDetail").hide();
+            var aa=select6.val();
+            if(aa=="me"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"me":1};
+            }else if(aa=="okAduit"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"okAduit":1};
+            }else if(aa=="ok"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"ok":1};
+            }else if(aa=="noOk"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"noOk":1};
+            }
+            $.ajax({
+                url: urls+"/newAduit/aduitEight",
+                data: data,
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage6(box6,data.data.list)
+                        for(var i=0;i<$("#eightLists tr td").length;i++){
+                            if($("#eightLists tr td").eq(i).text()=="未通过"){
+                                $("#eightLists tr td").eq(i).css("color","red");
+                            }else if($("#eightLists tr td").eq(i).text()=="审核中"){
+                                $("#eightLists tr td").eq(i).css("color","#5f5f5f");
+                            }else if($("#eightLists tr td").eq(i).text()=="已通过"){
+                                $("#eightLists tr td").eq(i).css("color","#09bf09");
+                            }else if($("#eightLists tr td").eq(i).text()=="待审核"){
+                                $("#eightLists tr td").eq(i).css("color","blue");
+                            }
+                        }
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+        /*我审核的八个一批添加信息筛选*/
+        var select7=$("#select7");
+        select7.change(function(){
+            $(".boxDetail").hide();
+            var aa=select7.val();
+            if(aa=="me"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"me":1};
+            }else if(aa=="okAduit"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"okAduit":1};
+            }else if(aa=="ok"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"ok":1};
+            }else if(aa=="noOk"){
+                var data={"aak110": helpNumber,"aar040":"201808","pageNum":1,"pageSize":20,"list":1,"noOk":1};
+            }
+            $.ajax({
+                url: urls+"/newAduit/aduitEightInsert",
+                data: data,
+                method: "post",
+                dataType: "json",
+                beforeSend:function(request){
+                    ShowLoading();
+                },
+                success: function (data) {
+                    if (data.code == 2000){
+                        HideLoading();
+                        showMessage7(box7,data.data.list)
+                        for(var i=0;i<$("#eightLists2 tr td").length;i++){
+                            if($("#eightLists2 tr td").eq(i).text()=="未通过"){
+                                $("#eightLists2 tr td").eq(i).css("color","red");
+                            }else if($("#eightLists2 tr td").eq(i).text()=="审核中"){
+                                $("#eightLists2 tr td").eq(i).css("color","#5f5f5f");
+                            }else if($("#eightLists2 tr td").eq(i).text()=="已通过"){
+                                $("#eightLists2 tr td").eq(i).css("color","#09bf09");
+                            }else if($("#eightLists2 tr td").eq(i).text()=="待审核"){
+                                $("#eightLists2 tr td").eq(i).css("color","blue");
+                            }
+                        }
+                    }
+                },
+                complete:function(){
+                    HideLoading();
+                }
+            })
+        })
+
+
+
+        function ShowLoading() {
+            $(".spinner").show();
+        }
+        function HideLoading() {
+            $(".spinner").hide();
+        }
+        function showMessage(obj,data){
+            if(data.length<=20){
+                $("#povertyList").siblings(".moreData").css("display","none");
+            }else if(data.length>20){
+                $("#povertyList").siblings(".moreData").css("display","block");
+            }
+            obj.empty();
+            var str = "<tr><th>\u6237\u4E3B\u540D\u79F0</th><th>\u4FEE\u6539\u7C7B\u522B</th><th>\u63D0\u4EA4\u65F6\u95F4</th><th>\u5BA1\u6838\u72B6\u6001</th></tr>";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['MODIFY_TYPE']+'><td>' + data[i]['AAC029'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td><td>' + data[i]['status'] + '</td></tr>';
+            }
+            obj.html(str);
+        }
+        function showMessage11(obj,data){
+            var str = "";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['MODIFY_TYPE']+'><td>' + data[i]['AAC029'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td></tr>';
+            }
+            obj.append(str);
+        }
+        function showMessage3(obj,data){
+            if(data.length<=20){
+                $("#povertyList2").siblings(".moreData").css("display","none");
+            }else if(data.length>20){
+                $("#povertyList2").siblings(".moreData").css("display","block");
+            }
+            obj.empty();
+            var str = "<tr><th>\u6237\u4E3B\u540D\u79F0</th><th>\u4FEE\u6539\u7C7B\u522B</th><th>\u63D0\u4EA4\u65F6\u95F4</th><th>\u5BA1\u6838\u72B6\u6001</th></tr>";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['MODIFY_TYPE']+'><td>' + data[i]['AAC029'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td><td>' + data[i]['status'] + '</td></tr>';
+            }
+            obj.html(str);
+        }
+        function showMessage33(obj,data){
+            var str = "";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['MODIFY_TYPE']+'><td>' + data[i]['AAC029'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td></tr>';
+            }
+            obj.append(str);
+        }
+        function showMessage4(obj,data){
+            if(data.length<=20){
+                $("#povertyList3").siblings(".moreData").css("display","none");
+            }else if(data.length>20){
+                $("#povertyList3").siblings(".moreData").css("display","block");
+            }
+            obj.empty();
+            var str = "<tr><th>\u6237\u4E3B\u540D\u79F0</th><th>\u4FEE\u6539\u7C7B\u522B</th><th>\u63D0\u4EA4\u65F6\u95F4</th><th>\u5BA1\u6838\u72B6\u6001</th></tr>";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['TYPE']+'><td>' + data[i]['AAC029'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td><td>' + data[i]['status'] + '</td></tr>';
+            }
+            obj.html(str);
+        }
+        function showMessage44(obj,data){
+            var str = "";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['TYPE']+'><td>' + data[i]['AAC029'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td></tr>';
+            }
+            obj.append(str);
+        }
+        function showMessage5(obj,data){
+            if(data.length<=20){
+                $("#povertyLists").siblings(".moreData").css("display","none");
+            }else if(data.length>20){
+                $("#povertyLists").siblings(".moreData").css("display","block");
+            }
+            obj.empty();
+            var str = "<tr><th>\u6237\u4E3B\u540D\u79F0</th><th>\u4FEE\u6539\u7C7B\u522B</th><th>\u63D0\u4EA4\u65F6\u95F4</th><th>\u5BA1\u6838\u72B6\u6001</th></tr>";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['MODIFY_TYPE']+'><td>' + data[i]['AAC029'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td><td>' + data[i]['status'] + '</td></tr>';
+            }
+            obj.html(str);
+        }
+        function showMessage55(obj,data){
+            var str = "";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['MODIFY_TYPE']+'><td>' + data[i]['AAC029'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td></tr>';
+            }
+            obj.append(str);
+        }
+        function showMessage6(obj,data){
+            if(data.length<=20){
+                $("#eightLists").siblings(".moreData").css("display","none");
+            }else if(data.length>20){
+                $("#eightLists").siblings(".moreData").css("display","block");
+            }
+            obj.empty();
+            var str = "<tr><th>\u6237\u4E3B\u540D\u79F0</th><th>\u4FEE\u6539\u7C7B\u522B</th><th>\u63D0\u4EA4\u65F6\u95F4</th><th>\u5BA1\u6838\u72B6\u6001</th></tr>";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['MODIFY_TYPE']+'><td>' + data[i]['AAB002'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td><td>' + data[i]['status'] + '</td></tr>';
+            }
+            obj.html(str);
+        }
+        function showMessage66(obj,data){
+            var str = "";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['MODIFY_TYPE']+'><td>' + data[i]['AAB002'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td></tr>';
+            }
+            obj.append(str);
+        }
+        function showMessage7(obj,data){
+            if(data.length<=20){
+                $("#eightLists2").siblings(".moreData").css("display","none");
+            }else if(data.length>20){
+                $("#eightLists2").siblings(".moreData").css("display","block");
+            }
+            obj.empty();
+            var str = "<tr><th>\u6237\u4E3B\u540D\u79F0</th><th>\u4FEE\u6539\u7C7B\u522B</th><th>\u63D0\u4EA4\u65F6\u95F4</th><th>\u5BA1\u6838\u72B6\u6001</th></tr>";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['TYPE']+'><td>' + data[i]['AAC029'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td><td>' + data[i]['status'] + '</td></tr>';
+            }
+            obj.html(str);
+        }
+        function showMessage77(obj,data){
+            var str = "";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['TYPE']+'><td>' + data[i]['AAC029'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td></tr>';
+            }
+            obj.append(str);
+        }
+        function showMessage2(obj,data){
+            if(data.length<=20){
+                $("#villageList").siblings(".moreData").css("display","none");
+            }else if(data.length>20){
+                $("#villageList").siblings(".moreData").css("display","block");
+            }
+            obj.empty();
+            var str2 = "<tr><td>\u6751\u7EC4\u540D\u79F0</td><td>\u4FEE\u6539\u7C7B\u522B</td><td>\u63D0\u4EA4\u65F6\u95F4</td><td>\u5BA1\u6838\u72B6\u6001</td></tr>";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str2 += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['MODIFY_TYPE']+'><td>' + data[i]['AAR009'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td><td>' + data[i]['status'] + '</td></tr>';
+            }
+            obj.html(str2);
+        }
+        function showMessage22(obj,data){
+            var str2 = "";
+            for(var i=0;i<data.length;i++){
+                data[i]['DATA_REVIEW_TIME']=data[i]['DATA_REVIEW_TIME'].substring(0,4)+"-"+data[i]['DATA_REVIEW_TIME'].substring(4,6)+"-"+data[i]['DATA_REVIEW_TIME'].substring(6,8)+" "+data[i]['DATA_REVIEW_TIME'].substring(8,10)+":"+data[i]['DATA_REVIEW_TIME'].substring(10,12)+":"+data[i]['DATA_REVIEW_TIME'].substring(12,14);
+                str2 += '<tr hrefs1='+data[i]['ID']+' hrefs2='+data[i]['MODIFY_TYPE']+'><td>' + data[i]['AAR009'] + '</td><td>' + data[i]['MODIFY_TYPE'] + '</td><td>' + data[i]['DATA_REVIEW_TIME'] + '</td></tr>';
+            }
+            obj.append(str2);
+        }
+    })
+</script>
+</body>
+</html>

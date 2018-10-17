@@ -1,0 +1,102 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title></title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+	<link rel="stylesheet" href="../css/font-awesome.min.css" />
+	<link rel="stylesheet" href="../css/personInfo.css" />
+	<link rel="stylesheet" href="../css/povDyna.css" />
+</head>
+<body>
+	<!--个人信息背景-->
+	<div class="backImage">
+		<div class="perHeadDyna">
+			<img class="perHdImg" src="../img/perHdImg.jpg">
+			<p id="personName" style="color:#0C0C07;margin-top: 16px;"></p>
+		</div>
+	</div>
+	<div class="povDyna" id="aPovDyna">
+
+	</div>
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script src="../js/config.js"></script>
+<script>
+    dd.ready(function(){
+		var url=config.url;
+		var object=localStorage.getItem("objects");
+		var item=JSON.parse(object);
+		var helpNumber=item.cadreNum;
+		var logObject=$("#aPovDyna");
+		$.ajax({
+			url: url+"/help/logId",
+			data: {"helpNumber":helpNumber},
+			method: "post",
+			dataType: "json",
+			success: function (data) {
+				if (data.code == 2000) {
+					showLog(logObject,data.data.HelpLogByNum);
+					/*走访方式判断*/
+					var datas=data.data.HelpLogByNum;
+					$("#personName").text(datas[0].helpNumber)
+					for(var i=0;i<datas.length;i++){
+						if(datas[i].visitingMode=="null"){
+							$("#methods").remove();
+						}else if(datas[i].visitingMode==1){
+							$("#methods").text("电话走访")
+						}else if(datas[i].visitingMode==0){
+							$("#methods").text("实地走访")
+						}
+					}
+					for(var j=0;j<datas.length;j++){
+						var comments=$(".comments")[j];
+						var imgCollect=$(".dynaImgs")[j];
+						showComments(comments,datas[j].discussList);
+						showImgs(imgCollect,datas[j].list)
+					}
+				}
+			}
+		})
+		function showLog(obj,data){
+			obj.empty();
+			var str="";
+			for(var s=0;s<data.length;s++){
+                if(data[s]['log']=="null" || data[s]['log']==null){
+                    data[s]['log']="";
+                }
+                data[s]['helptime']=data[s]['helptime'].substring(0,4)+"-"+data[s]['helptime'].substring(4,6)+"-"+data[s]['helptime'].substring(6,8)+" "+data[s]['helptime'].substring(8,10)+":"+data[s]['helptime'].substring(10,12)+":"+data[s]['helptime'].substring(12,14);
+				str += '<div class="aPovDyna"><div class="fixP"><i class="Coloricon fa fa-clock-o" aria-hidden="true"></i><span style="font-size: 14px;">' + data[s]['helptime'] + '</span></div><div class="fixP"><i class="Coloricon fa fa-location-arrow" aria-hidden="true"></i>\u8D70\u8BBF\u65B9\u5F0F\uFF1A<span id="methods"></span></div><div class="povDynaDes">' + data[s]['log'] + '</div><div class="dynaImgs"></div><div class="dynaComment"><div style="border-bottom: 1px solid #e8e8e8;"><i class="Coloricon fontIcon fa fa-heart-o" aria-hidden="true"></i><span>' + data[s]['numberPraise'] + '</span></div><div class="comments"></div></div></div>';
+			}
+			obj.html(str);
+		}
+		/*渲染评论*/
+		function showComments(obj,data){
+			var strs="";
+			for(var n=0;n<data.length;n++){
+			    if(data[n]['discussValue']==null || data[n]['discussValue']=="null"){
+                    data[n]['discussValue']="";
+				}
+				strs += '<p>' + data[n]['helpNumber'] + '\uFF1A' + data[n]['discussValue'] + '</p>';
+			}
+			obj.innerHTML=strs;
+		}
+		/*渲染图片*/
+		function showImgs(obj,data){
+			var strs2="";
+			for(var m=0;m<data.length;m++){
+				strs2 += "<img src=\"" + data[m] + "\" style=\"margin-right:3px;\">";
+			}
+			obj.innerHTML=strs2;
+		}
+	})
+</script>
+</body>
+</html>

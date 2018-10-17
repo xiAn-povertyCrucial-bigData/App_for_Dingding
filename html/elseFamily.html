@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>家庭成员信息</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+    <style>
+        #familyInfo li span{display: inline-block;width:25%;text-align: center;}
+        #familyInfo li:first-child span{color:#3EACFE}
+    </style>
+</head>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <ul class="perInfo elsePerInfo bgColor header" id="familyInfo">
+
+    </ul>
+</section>
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    dd.ready(function(){
+        var url=config.url;
+        var object=localStorage.getItem("object");
+        var item=JSON.parse(object);
+        var povertyNumber=item.objnumber;
+        var familyMember=$("#familyInfo");
+        $.ajax({
+            url: url+"/poverty/familyInfo",
+            data: {"povertyNumber": povertyNumber},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    showFamily(familyMember,data.data.FamilyInfo);
+                }
+            }
+        })
+        function showFamily(obj,data){
+            obj.empty();
+            var str="";
+            str+='<li><a><span>' + '姓名' + '</span><span>' + '年龄' + '</span><span>' + '与户主关系' + '</span><span>' +'性别' + '</span></a></li>'
+            for(var i=0;i<data.length;i++){
+                str += '<li ><a href="elseNumber.html?number=' + data[i]['aab001'] + '"><span>' + data[i]['aab002'] + '</span><span>' + data[i]['aab005'] + '</span><span>' + data[i]['aab006'] + '</span><span>' + data[i]['aab003'] + '</span><i class="fa-1x fa fa-angle-right"></i></a></li>';
+            }
+            obj.html(str);
+        }
+    })
+</script>
+</body>
+</html>

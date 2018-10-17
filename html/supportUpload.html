@@ -1,0 +1,563 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>佐证上传</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/photoswipe.css">
+    <link rel="stylesheet" href="../css/default-skin.css">
+    <script type="text/javascript" src="../js/common.js" ></script>
+    <script type="text/javascript" src="../js/config.js" ></script>
+    <script type="text/javascript" src="../js/photoswipe.js" ></script>
+    <script type="text/javascript" src="../js/photoswipe-ui-default.min.js" ></script>
+</head>
+<style>
+    .grids{
+        padding:5% 5%;
+    }
+    .grids li{
+        width:45%;
+        height:36px;
+        float:left;
+        border-radius: 7px;
+        line-height: 36px;
+        text-align: center;
+        border:1px solid #ccc;
+        margin-right:10%;
+        box-sizing: border-box;
+        margin-bottom:3%;
+    }
+    .grids li:nth-child(2n){
+        margin-right:0;
+    }
+    .pictureBox .title{
+        width:100%;
+        height:36px;
+        line-height: 36px;
+        text-align: center;
+        background: #fff;
+        font-weight:700;
+    }
+    .fourPicture span{
+        display: block;
+        width:100%;
+        height:24px;
+        line-height: 24px;
+        background: rgba(0,0,0,0.3);
+        color:#fff;
+        position:absolute;bottom:24px;left:0;
+    }
+    .fourPicture strong{
+        display: block;
+        width:24px;
+        height:24px;
+        /*background: url("../img/status1.png") no-repeat center/cover;*/
+        color:#fff;
+        position:absolute;bottom:0;right:0;
+    }
+    .fourPicture{
+        padding:0 2%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .fourPicture .imgbox{
+        position:relative;
+        width:50%;height:170px;
+        display: inline-block;
+    }
+    .fourPicture .imgbox li{
+        width:100%;
+        height:100%;
+        position:absolute;
+        top:0;
+        left:0;
+    }
+</style>
+<body>
+<section>
+    <!--<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+        &lt;!&ndash; Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). &ndash;&gt;
+        <div class="pswp__bg"></div>
+
+        &lt;!&ndash; Slides wrapper with overflow:hidden. &ndash;&gt;
+        <div class="pswp__scroll-wrap">
+
+            &lt;!&ndash; Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. &ndash;&gt;
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            &lt;!&ndash; Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. &ndash;&gt;
+            <div class="pswp__ui pswp__ui&#45;&#45;hidden">
+
+                <div class="pswp__top-bar">
+
+                    &lt;!&ndash;  Controls are self-explanatory. Order can be changed. &ndash;&gt;
+
+                    <div class="pswp__counter"></div>
+
+                    <button class="pswp__button pswp__button&#45;&#45;close" title="Close (Esc)"></button>
+
+                    <button class="pswp__button pswp__button&#45;&#45;share" title="Share"></button>
+
+                    <button class="pswp__button pswp__button&#45;&#45;fs" title="Toggle fullscreen"></button>
+
+                    <button class="pswp__button pswp__button&#45;&#45;zoom" title="Zoom in/out"></button>
+
+                    &lt;!&ndash; element will get class pswp__preloader&#45;&#45;active when preloader is running &ndash;&gt;
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal&#45;&#45;hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+
+                <button class="pswp__button pswp__button&#45;&#45;arrow&#45;&#45;left" title="Previous (arrow left)">
+                </button>
+
+                <button class="pswp__button pswp__button&#45;&#45;arrow&#45;&#45;right" title="Next (arrow right)">
+                </button>
+
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>-->
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <div class="color" style="background: #fff;border-bottom: 1px solid #e8e8e8;padding:0 1rem;line-height: 1.4rem;text-align: left;font-size:14px;text-indent:26px;">
+        ★各类佐证资料上传时需一次性上传所有照片，不能分批多次上传
+    </div>
+    <div class="personContent">
+        <div class="personBasic fourTitle">
+            <p>
+                <strong>脱贫退出佐证资料</strong>
+            </p>
+        </div>
+        <ul class="iconBottom fourPicture fourPicture3">
+            <li class="borderRight borderBottom" type="0" type2="1"><img src="../img/noImg.png"/><p>收入调查核算表</p><span value="1">点击上传</span><strong></strong></li>
+            <li class="borderBottom" type="0" type2="2"><img src="../img/noImg.png"/><p>安全住房认证报告</p><span value="2">点击上传</span><strong></strong></li>
+            <li class="borderRight borderBottom" type="0" type2="3"><img src="../img/noImg.png"/><p>义务教育阶段学生学籍证明</p><span value="3">点击上传</span><strong></strong></li>
+            <li class="borderBottom" type="0" type2="4"><img src="../img/noImg.png"/><p>合疗本</p><span value="4">点击上传</span><strong></strong></li>
+            <li class="borderBottom" style="border-bottom: 0.5rem solid #F2F6F9;" type="0" type2="5"><img src="../img/noImg.png"/><p>安全饮水认定报告</p><span value="5">点击上传</span><strong></strong></li>
+        </ul>
+        <div class="personBasic fourTitle2">
+            <p>
+                <strong>八个一批佐证资料</strong>
+            </p>
+        </div>
+        <div class="pictureBox">
+            <div class="grids" style="width:100%;height:255px;">
+                <li types="9">生态扶贫</li>
+                <li types="4">就业扶贫</li>
+                <li types="17">金融扶贫</li>
+                <li types="2">危房改造</li>
+                <li types="1">易地搬迁</li>
+                <li types="5">健康扶贫</li>
+                <li types="7">兜底保障</li>
+                <li types="6">产业扶贫</li>
+                <li types="3">教育扶贫</li>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/idangerous.swiper.min.js" ></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/new-swiper.js" ></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".fourPicture li span").on("click",function(){
+            var type=$(this).attr("value");
+            location.href="editPhoto.html?type="+type;
+        })
+        $(".fourTitle .txtRight").click(function(){
+            $(".fourPicture3").slideToggle();
+            $(".fourTitle .txtRight").text($(".fourTitle .txtRight").text()=="展开"?"收起":"展开");
+        })
+        $(".fourTitle2 .txtRight").click(function(){
+            $(".pictureBox .grids").slideToggle();
+            $(".fourTitle2 .txtRight").text($(".fourTitle2 .txtRight").text()=="展开"?"收起":"展开");
+        })
+        $(".grids li").click(function(){
+            var indexs=$(this).index();
+            var txt=$(this).text();
+            var types=$(this).attr("types");
+            location.href="supportUpload2.html?txt="+txt+"&index="+indexs+"&types="+types;
+        })
+    })
+</script>
+
+<script>
+    dd.ready(function(){
+        var url=config.url;
+        var object=localStorage.getItem("object");
+        var item=JSON.parse(object);
+        var povertyNumber=item.objnumber;
+        var helpNumber=item.cadnumber;
+
+        $.ajax({
+            "url":url+"/evidence/myEvidence",
+            data:{"aac001":povertyNumber,"aak110":helpNumber,"type":0},
+            method:"post",
+            dataType:"json",
+            success:function(data){
+                if(data.code==2000){
+                    for(var i=0;i<data.data.length;i++){
+                        var datas=data.data[i];
+                        // alert(datas.ID)
+                        if(datas.IMAGE_TYPE==1){
+                            $(".fourPicture li").eq(0).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0]);
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicture li").eq(0).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicture li").eq(0).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(0).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicture li").eq(0).find("strong").css("background","url('../img/status3.png') no-repeat center/cover");
+                                $(".fourPicture li").eq(0).find("strong").click(function(){
+                                    lookReason($(".fourPicture li").eq(0).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==2){
+                            $(".fourPicture li").eq(1).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicture li").eq(1).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicture li").eq(1).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(1).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicture li").eq(1).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(1).find("strong").click(function(){
+                                    lookReason($(".fourPicture li").eq(1).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==3){
+                            $(".fourPicture li").eq(2).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicture li").eq(2).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicture li").eq(2).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(2).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicture li").eq(2).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(2).find("strong").click(function(){
+                                    lookReason($(".fourPicture li").eq(2).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==4){
+                            $(".fourPicture li").eq(3).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicture li").eq(3).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicture li").eq(3).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(3).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicture li").eq(3).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(3).find("strong").click(function(){
+                                    lookReason($(".fourPicture li").eq(3).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==5){
+                            $(".fourPicture li").eq(4).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicture li").eq(4).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicture li").eq(4).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(4).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicture li").eq(4).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(4).find("strong").click(function(){
+                                    lookReason($(".fourPicture li").eq(4).attr("id"))
+                                })
+                            }
+                        }
+
+                        function lookReason(id){
+                            $.ajax({
+                                url:url+'/evidence/noCause',
+                                data:{"id":id},
+                                type:"post",
+                                dataType:"json",
+                                success:function(data){
+                                    if(data.code==2000){
+                                        dd.device.notification.alert({
+                                            message: data.data,
+                                            title: "未通过原因",//可传空
+                                            buttonName: "确定",
+                                            onSuccess : function() {
+                                                //onSuccess将在点击button之后回调
+                                                /*回调*/
+                                            },
+                                            onFail : function(err) {}
+                                        });
+                                    }
+                                }
+                            })
+                        }
+
+                    }
+                }
+            }
+        })
+        $(".fourPicture li span").on("click",function(){
+            var type=$(this).attr("value");
+            location.href="editPhoto.html?type="+type;
+        })
+
+        $(".fourPicture li img").click(function(){
+            var type=$(this).parent().attr("type");
+            var type2=$(this).parent().attr("type2");
+            var txt=$(this).siblings("p").text();
+            location.href="photoLists.html?type="+type + "&type2="+type2 + "&txt="+txt;
+        })
+    })
+</script>
+
+<script type="text/javascript">
+    var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+        // 解析来自DOM元素幻灯片数据（URL，标题，大小...）
+        // (children of gallerySelector)
+        var parseThumbnailElements = function(el) {
+            var thumbElements = el.childNodes,
+                numNodes = thumbElements.length,
+                items = [],
+                figureEl,
+                linkEl,
+                size,
+                item;
+
+            for(var i = 0; i < numNodes; i++) {
+
+                figureEl = thumbElements[i]; // <figure> element
+
+                // 仅包括元素节点
+                if(figureEl.nodeType !== 1) {
+                    continue;
+                }
+                linkEl = figureEl.children[0]; // <a> element
+
+                size = linkEl.getAttribute('data-size').split('x');
+
+                // 创建幻灯片对象
+                item = {
+                    src: linkEl.getAttribute('href'),
+                    w: parseInt(size[0], 10),
+                    h: parseInt(size[1], 10)
+                };
+
+
+
+                if(figureEl.children.length > 1) {
+                    // <figcaption> content
+                    item.title = figureEl.children[1].innerHTML;
+                }
+
+                if(linkEl.children.length > 0) {
+                    // <img> 缩略图节点, 检索缩略图网址
+                    item.msrc = linkEl.children[0].getAttribute('src');
+                }
+
+                item.el = figureEl; // 保存链接元素 for getThumbBoundsFn
+                items.push(item);
+            }
+
+            return items;
+        };
+
+        // 查找最近的父节点
+        var closest = function closest(el, fn) {
+            return el && ( fn(el) ? el : closest(el.parentNode, fn) );
+        };
+
+        // 当用户点击缩略图触发
+        var onThumbnailsClick = function(e) {
+            e = e || window.event;
+            e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+            var eTarget = e.target || e.srcElement;
+
+            // find root element of slide
+            var clickedListItem = closest(eTarget, function(el) {
+                return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+            });
+
+            if(!clickedListItem) {
+                return;
+            }
+
+            // find index of clicked item by looping through all child nodes
+            // alternatively, you may define index via data- attribute
+            var clickedGallery = clickedListItem.parentNode,
+                childNodes = clickedListItem.parentNode.childNodes,
+                numChildNodes = childNodes.length,
+                nodeIndex = 0,
+                index;
+
+            for (var i = 0; i < numChildNodes; i++) {
+                if(childNodes[i].nodeType !== 1) {
+                    continue;
+                }
+
+                if(childNodes[i] === clickedListItem) {
+                    index = nodeIndex;
+                    break;
+                }
+                nodeIndex++;
+            }
+
+
+
+            if(index >= 0) {
+                // open PhotoSwipe if valid index found
+                openPhotoSwipe( index, clickedGallery );
+            }
+            return false;
+        };
+
+        // parse picture index and gallery index from URL (#&pid=1&gid=2)
+        var photoswipeParseHash = function() {
+            var hash = window.location.hash.substring(1),
+                params = {};
+
+            if(hash.length < 5) {
+                return params;
+            }
+
+            var vars = hash.split('&');
+            for (var i = 0; i < vars.length; i++) {
+                if(!vars[i]) {
+                    continue;
+                }
+                var pair = vars[i].split('=');
+                if(pair.length < 2) {
+                    continue;
+                }
+                params[pair[0]] = pair[1];
+            }
+
+            if(params.gid) {
+                params.gid = parseInt(params.gid, 10);
+            }
+
+            return params;
+        };
+
+        var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+            var pswpElement = document.querySelectorAll('.pswp')[0],
+                gallery,
+                options,
+                items;
+
+            items = parseThumbnailElements(galleryElement);
+
+            // 这里可以定义参数
+            options = {
+                barsSize: {
+                    top: 100,
+                    bottom: 100
+                },
+                fullscreenEl : false, // 是否支持全屏按钮
+                shareButtons: [
+                    {id:'wechat', label:'分享微信', url:'#'},
+                    {id:'weibo', label:'新浪微博', url:'#'},
+                    {id:'download', label:'保存图片', url:'{{raw_image_url}}', download:true}
+                ], // 分享按钮
+
+                // define gallery index (for URL)
+                galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                getThumbBoundsFn: function(index) {
+                    // See Options -> getThumbBoundsFn section of documentation for more info
+                    var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                        pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                        rect = thumbnail.getBoundingClientRect();
+
+                    return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+                }
+
+            };
+
+            // PhotoSwipe opened from URL
+            if(fromURL) {
+                if(options.galleryPIDs) {
+                    // parse real index when custom PIDs are used
+                    for(var j = 0; j < items.length; j++) {
+                        if(items[j].pid == index) {
+                            options.index = j;
+                            break;
+                        }
+                    }
+                } else {
+                    // in URL indexes start from 1
+                    options.index = parseInt(index, 10) - 1;
+                }
+            } else {
+                options.index = parseInt(index, 10);
+            }
+
+            // exit if index not found
+            if( isNaN(options.index) ) {
+                return;
+            }
+
+            if(disableAnimation) {
+                options.showAnimationDuration = 0;
+            }
+
+            // Pass data to PhotoSwipe and initialize it
+            gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+            gallery.init();
+        };
+
+        // loop through all gallery elements and bind events
+        var galleryElements = document.querySelectorAll( gallerySelector );
+
+        for(var i = 0, l = galleryElements.length; i < l; i++) {
+            galleryElements[i].setAttribute('data-pswp-uid', i+1);
+            galleryElements[i].onclick = onThumbnailsClick;
+        }
+
+        // Parse URL and open gallery if it contains #&pid=3&gid=1
+        var hashData = photoswipeParseHash();
+        if(hashData.pid && hashData.gid) {
+            openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
+        }
+    };
+
+    // execute above function
+    initPhotoSwipeFromDOM('.my-gallery');
+</script>
+</body>
+</html>

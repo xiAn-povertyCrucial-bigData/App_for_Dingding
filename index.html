@@ -1,0 +1,313 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>扶贫对象数据信息采集</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+	<meta name="apple-touch-fullscreen" content="yes"/>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" href="css/common.css"/>
+	<link rel="stylesheet" href="css/index.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<script type="text/javascript" src="js/common.js" ></script>
+	<script type="text/javascript" src="js/dd.js"></script>
+</head>
+<style>
+	#number{
+		font-weight: 700;
+	}
+	/*加载动画*/
+	.spinner {
+		position:fixed;
+		margin: 0 auto;
+		width: 36px;
+		height: 36px;
+		background: rgba(0,0,0,0.3);
+		box-shadow: 0 0 40px 1000px rgba(0,0,0,0.3);
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+		z-index: 999;
+	}
+
+	.container1 > div, .container2 > div, .container3 > div {
+		width: 8px;
+		height: 8px;
+		background-color: #404040;
+		border-radius: 100%;
+		position: absolute;
+		-webkit-animation: bouncedelay 1.2s infinite ease-in-out;
+		animation: bouncedelay 1.2s infinite ease-in-out;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	.spinner .spinner-container {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.container2 {
+		-webkit-transform: rotateZ(45deg);
+		transform: rotateZ(45deg);
+	}
+
+	.container3 {
+		-webkit-transform: rotateZ(90deg);
+		transform: rotateZ(90deg);
+	}
+
+	.circle1 { top: 0; left: 0; }
+	.circle2 { top: 0; right: 0; }
+	.circle3 { right: 0; bottom: 0; }
+	.circle4 { left: 0; bottom: 0; }
+
+	.container2 .circle1 {
+		-webkit-animation-delay: -1.1s;
+		animation-delay: -1.1s;
+	}
+
+	.container3 .circle1 {
+		-webkit-animation-delay: -1.0s;
+		animation-delay: -1.0s;
+	}
+
+	.container1 .circle2 {
+		-webkit-animation-delay: -0.9s;
+		animation-delay: -0.9s;
+	}
+
+	.container2 .circle2 {
+		-webkit-animation-delay: -0.8s;
+		animation-delay: -0.8s;
+	}
+
+	.container3 .circle2 {
+		-webkit-animation-delay: -0.7s;
+		animation-delay: -0.7s;
+	}
+
+	.container1 .circle3 {
+		-webkit-animation-delay: -0.6s;
+		animation-delay: -0.6s;
+	}
+
+	.container2 .circle3 {
+		-webkit-animation-delay: -0.5s;
+		animation-delay: -0.5s;
+	}
+
+	.container3 .circle3 {
+		-webkit-animation-delay: -0.4s;
+		animation-delay: -0.4s;
+	}
+
+	.container1 .circle4 {
+		-webkit-animation-delay: -0.3s;
+		animation-delay: -0.3s;
+	}
+
+	.container2 .circle4 {
+		-webkit-animation-delay: -0.2s;
+		animation-delay: -0.2s;
+	}
+
+	.container3 .circle4 {
+		-webkit-animation-delay: -0.1s;
+		animation-delay: -0.1s;
+	}
+
+	@-webkit-keyframes bouncedelay {
+		0%, 80%, 100% { -webkit-transform: scale(0.0) }
+		40% { -webkit-transform: scale(1.0) }
+	}
+
+	@keyframes bouncedelay {
+		0%, 80%, 100% {
+			transform: scale(0.0);
+			-webkit-transform: scale(0.0);
+		} 40% {
+			  transform: scale(1.0);
+			  -webkit-transform: scale(1.0);
+		  }
+	}
+
+</style>
+<body>
+<section>
+	<div class="spinner" style="display: none;">
+		<div class="spinner-container container1">
+			<div class="circle1"></div>
+			<div class="circle2"></div>
+			<div class="circle3"></div>
+			<div class="circle4"></div>
+		</div>
+		<div class="spinner-container container2">
+			<div class="circle1"></div>
+			<div class="circle2"></div>
+			<div class="circle3"></div>
+			<div class="circle4"></div>
+		</div>
+		<div class="spinner-container container3">
+			<div class="circle1"></div>
+			<div class="circle2"></div>
+			<div class="circle3"></div>
+			<div class="circle4"></div>
+		</div>
+	</div>
+
+	<div class="lunbo clearfix" id="lunbo">
+		<div class="swiper-container">
+			<ul id="vl" class="swiper-wrapper">
+				<li class="swiper-slide"><img src="img/banner-1.png"/></li>
+				<li class="swiper-slide"><img src="img/banner-2.png"/></li>
+				<li class="swiper-slide"><img src="img/banner-3.png"/></li>
+			</ul>
+		</div>
+	</div>
+    <div class="poverty povertyPerson poverty1">
+		<p>帮扶对象管理</p>
+        <div class="personDetail">
+            <ul class="grids">
+                <!--<li>
+                    <a href="html/povertyPerson.html" style="font-size: 1.5rem" id="povertyName">胡新军</a>
+                    <a href="html/povertyPerson.html" class="txtRight"><i class="fa-2x fa fa-eye Coloricon" style="margin-left: 1rem;"></i></a>
+                </li>
+                <li>
+                    <a href="html/povertyPerson.html" style="font-size: 1.5rem" id="povertyName">胡新军</a>
+                    <a href="html/povertyPerson.html" class="txtRight"><i class="fa-2x fa fa-eye Coloricon" style="margin-left: 1rem;"></i></a>
+                </li>
+				<li>
+					<a href="html/povertyPerson.html" style="font-size: 1.5rem" id="povertyName">胡新军</a>
+					<a href="html/povertyPerson.html" class="txtRight"><i class="fa-2x fa fa-eye Coloricon" style="margin-left: 1rem;"></i></a>
+				</li>-->
+            </ul>
+			<div class="more" style="width:100%;text-align:center;color:#39ACFE;font-weight: 600;">展开</div>
+		</div>
+    </div>
+    <div class="poverty povertyWork poverty2">
+		<p>工作内容管理</p>
+		<div class="workManage iconBottom clearfix" style="text-align: center;">
+            <a class="borderRight" href="html/assistLog.html"><i class="fa-3x fa fa-pencil-square-o Coloricon"></i><br/>签到日志</a>
+			<!--<a class="borderRight" href="html/povSign.html"><i class="fa-3x fa fa-street-view ColoriconY"></i><br/>帮扶签到</a>-->
+			<a class="borderRight" href="html/povCalendar.html"><i class="fa-3x fa fa-calendar ColoriconR"></i><br/>签到日历</a>
+			<a href="html/aPovDyna.html"><i class="fa-3x fa fa-line-chart ColoriconGreen"></i><br/>帮扶历程</a>
+            <a href="html/auditInform.html" style="position:relative" class="audit_inform"><span id="number"></span><i class="fa-3x fa fa-file-text ColoriconR"></i><br/>信息审核</a>
+		</div>
+    </div>
+	<div class="poverty povertyVillage poverty2 lastDyna" style="display: none;">
+		<p>村管理</p>
+		<div class="workManage iconBottom clearfix" style="text-align: center;">
+			<a class="borderRight" href="html/villBasicInfo.html"><i class="fa-3x fa fa-university Coloricon"></i><br/>村基础信息</a>
+			<a class="borderRight" href="html/infrastructure.html"><i class="fa-3x fa fa-truck ColoriconGreen"></i><br/>基础设施</a>
+			<a class="borderRight" href="html/everyFamily.html"><i class="fa-3x fa fa-address-book-o ColoriconR"></i><br/>村贫困户</a>
+			<a href="html/villBasicInfoList.html"><i class="fa-3x fa fa-dropbox Coloricon"></i><br/>驻村队员</a>
+		</div>
+	</div>
+</section>
+<footer>
+	<ul class="nav clearfix">
+		<li id="li1"><i class="fa-2x fa fa-home Coloricon"></i><br/><span class="Coloricon">首页</span></li>
+		<li id="li2"><i class="fa-2x fa fa-yelp ColoriconG"></i><br/><span class="ColoriconG">扶贫圈</span></li>
+		<!--<li id="li3"><i class="fa-2x fa fa-star ColoriconG"></i><br/><span class="ColoriconG">特色</span></li>-->
+		<li id="li4"><i class="fa-2x fa fa-user ColoriconG"></i><i class="pointIcon fa"></i><br/><span class="ColoriconG">我的</span>
+		</li>
+	</ul>
+</footer>
+<div class="pagination"></div>
+<script type="text/javascript" src="js/idangerous.swiper.min.js" ></script>
+<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="js/new-swiper.js" ></script>
+<script type="text/javascript" src="js/config.js"></script>
+<script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
+<script type="text/javascript">
+	/*钉钉调用接口*/
+	dd.ready(function(){
+		var code;
+		dd.runtime.permission.requestAuthCode({
+            // corpId : "dingd4e5d0db6be979cc35c2f4657eb6378f",
+            corpId : "ding98d66c2bc4e38c9335c2f4657eb6378f",
+			onSuccess : function(info) {
+				code=info.code;
+				login();
+			},
+			onFail : function(err) {
+				alert("fail: " + JSON.stringify(err));
+			}
+		});
+		function login(){
+			var url=config.url;
+			/*获取帮扶责任人信息和帮扶对象信息*/
+			var peoples=$(".grids");
+			$.ajax({
+				url:  url+"/helpUser/login",
+				data: {"code": code},
+				method: "post",
+				dataType: "json",
+               /* beforeSend:function(request){
+                    ShowLoading();
+                },*/
+				success: function (data) {
+					if (data.code == 2000) {
+						//渲染帮扶对象管理
+						//村管理模块的展示与隐藏
+						//本地存储帮扶干部编号和帮扶对象编号
+						showPeople(peoples,data.data)
+						if(data.data.aduitNum.me>=10){
+							$("#number").text("···");
+						}else{
+							$("#number").text(data.data.aduitNum.me);
+						}
+					}
+				},
+                complete:function(){
+                    HideLoading();
+                }
+			})
+		}
+        function ShowLoading() {
+            $(".spinner").show();
+        }
+        function HideLoading() {
+            $(".spinner").hide();
+        }
+		function showPeople(obj,data){
+			var cadreNum=data.helpNumber;
+			var objectNum=data.Name;
+			var object= {"cadreNum":cadreNum,"objectNum":objectNum};
+			var selectNum=JSON.stringify(object);
+			localStorage.setItem("objects",selectNum);
+			/*村管理的显示与隐藏控制*/
+			if(data.isResidency){
+				$(".povertyVillage").show();
+			}else{
+				$(".povertyVillage").hide();
+			}
+			obj.empty();
+			var str="";
+            for(var i=0;i<objectNum.length;i++){
+                str += '<li><a href="html/povertyPerson.html?objnumber=' + objectNum[i]['povertyNumber'] + '&cadnumber=' + cadreNum + '" style="font-size: 1.5rem" id="povertyName">' + objectNum[i]['povertyName'] + '</a><a href="html/povertyPerson.html?objnumber=' + objectNum[i]['povertyNumber'] + '&cadnumber=' + cadreNum + '" class="txtRight"><i class="fa-2x fa fa-eye Coloricon" style="margin-left: 1rem;"></i></a></li>';
+            }
+            obj.html(str);
+		}
+	});
+
+
+</script>
+<script>
+    $("#li1").click(function(){window.location.href="index.html";});
+    $("#li2").click(function(){window.location.href="html/allPovDyna.html";});
+    $("#li3").click(function(){window.location.href="html/feature.html";});
+    $("#li4").click(function(){window.location.href="html/personInfo.html";});
+</script>
+<script>
+    $(".personDetail .grids li").eq(1).nextAll().hide();
+    $(".personDetail .more").click(function(){
+        $(".personDetail .grids li").eq(1).nextAll().toggle();
+        $(".personDetail .more").text($(".personDetail .more").text()=="展开"?"收起":"展开");
+	})
+</script>
+</body>
+</html>

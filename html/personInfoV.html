@@ -1,0 +1,71 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>个人信息中心</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+	<link rel="stylesheet" href="../css/font-awesome.min.css" />
+	<link rel="stylesheet" href="../css/personInfo.css" />
+	<script type="text/javascript" src="../js/common.js" ></script>
+	<script type="text/javascript" src="../js/dd.js"></script>
+</head>
+<body>
+	<!--通知提醒框-->
+	<div id="noticeBox" class="noticeBox">
+		您拜访帮扶对象的周期一般是3天，这次怎么4天了还没有去拜访呢！
+	</div>
+	<!--通知提醒关闭框-->
+	<div id="noticeCloseBox" class="noticeCloseBox"></div>
+	<!--个人信息背景-->
+	<div class="backImage">
+		<div style="width: 100%">
+			<div class="povNotice">
+				<i class="remindIcon fa fa-1 fa-circle"></i>
+				<i class="dellIcon fa fa-2x fa-bell-o"></i>
+			</div>
+			<div class="perHeadDiv">
+				<img class="perHdImg" src="../img/perHdImg.jpg">
+				<p>王双全</p>
+			</div>
+		</div>
+	</div>
+	<div class="perInfo">
+		<p>姓名：<span>王双全</span></p>
+		<p>派出单位：<span>市扶贫办</span></p>
+		<p>工作职位：<span>信息采集工作人员</span></p>
+		<p>队内职务：<span>第一书记</span></p>
+	</div>
+	<a href="aPovDyna.html">
+		<div class="myPovCircle">
+			<i class="gradIcon fa fa-2x fa-yelp" aria-hidden="true"></i>
+			<span>我的扶贫动态</span>
+		</div>
+	</a>
+	<!--脚底导航页-->
+	<footer>
+		<ul class="nav clearfix">
+			<li id="li1"><i class="ColoriconG fa fa-2x fa-home" aria-hidden="true"></i><br/><span class="ColoriconG">首页</span></li>
+			<li id="li2"><i class="ColoriconG fa fa-2x fa-yelp" aria-hidden="true"></i><br/><span class="ColoriconG">帮扶圈</span></li>
+			<li id="li3"><i class="ColoriconG fa fa-2x fa-star" aria-hidden="true"></i><br/><span class="ColoriconG">特色</span></li>
+			<li id="li4"><i class="Coloricon fa-2x fa fa-user" aria-hidden="true"></i><i class="pointIcon fa fa-circle"></i><br/><span class="Coloricon">我的</span></li>
+		</ul>
+	</footer>
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/idangerous.swiper.min.js" ></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/new-swiper.js" ></script>
+<script type="text/javascript" src="../js/noticeInfo.js" ></script>
+<script>
+    $("#li1").click(function(){window.location.href="../indexV.html";});
+    $("#li2").click(function(){window.location.href="allPovDynaV.html";});
+    $("#li3").click(function(){window.location.href="featureV.html";});
+    $("#li4").click(function(){window.location.href="personInfoV.html";});
+</script>
+</body>
+</html>

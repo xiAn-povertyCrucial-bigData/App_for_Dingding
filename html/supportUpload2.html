@@ -1,0 +1,707 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>佐证上传</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+    <script type="text/javascript" src="../js/config.js" ></script>
+</head>
+<style>
+    .grids{
+        padding:5% 5%;
+    }
+    .grids li{
+        width:45%;
+        height:36px;
+        float:left;
+        border-radius: 7px;
+        line-height: 36px;
+        text-align: center;
+        border:1px solid #ccc;
+        margin-right:10%;
+        box-sizing: border-box;
+        margin-bottom:3%;
+    }
+    .grids li:nth-child(2n){
+        margin-right:0;
+    }
+    .pictureBox .title{
+        width:100%;
+        height:36px;
+        line-height: 36px;
+        text-align: center;
+        background: #fff;
+        font-weight:700;
+    }
+    .pictureBox .fourPicture2{
+        display: none;
+    }
+    .fourPicture span{
+        display: block;
+        width:100%;
+        height:24px;
+        line-height: 24px;
+        background: rgba(0,0,0,0.3);
+        color:#fff;
+        position:absolute;bottom:30px;left:0;
+    }
+    .fourPicture strong{
+        display: block;
+        width:24px;
+        height:24px;
+        /*background: url("../img/status1.png") no-repeat center/cover;*/
+        color:#fff;
+        position:absolute;bottom:0;right:0;
+    }
+</style>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <div class="color" style="background: #fff;border-bottom: 1px solid #e8e8e8;padding:0 1rem;line-height: 1.4rem;text-align: left;font-size:14px;text-indent:26px;">
+        ★各类佐证资料上传时需一次性上传所有照片，不能分批多次上传
+    </div>
+    <div class="personContent">
+        <div class="personBasic fourTitle">
+            <p>
+                <strong>八个一批佐证资料</strong>
+                <!--<a class="txtRight">展开</a>-->
+            </p>
+        </div>
+        <div class="pictureBox">
+            <div class="title">生态扶贫</div>
+            <ul class="clearfix iconBottom fourPicture fourPicture2" style="display: block;">
+                <li type="9" class="borderRight borderBottom" type2="6"><img src="../img/noImg.png"/><span value="6">点击上传</span><strong></strong><p>退耕还林补偿金</p></li>
+                <li type="9" class="borderBottom" type2="7"><img src="../img/noImg.png"/><span value="7">点击上传</span><strong></strong><p>公益林补偿金</p></li>
+                <li type="9" class="borderRight borderBottom" type2="8"><img src="../img/noImg.png"/><span value="8">点击上传</span><strong></strong><p>护林员、瞭望哨安置协议</p></li>
+            </ul>
+            <ul class="clearfix iconBottom fourPicture fourPicture2 fourPictureaa">
+                <li type="4" class="borderRight borderBottom" type2="9"><img src="../img/noImg.png"/><span value="9">点击上传</span><strong></strong><p>就业创业培训影响资料</p></li>
+                <li type="4" class="borderBottom" type2="10"><img src="../img/noImg.png"/><span value="10">点击上传</span><strong></strong><p>就业创业培训证</p></li>
+                <li type="4" class="borderRight borderBottom" type2="11"><img src="../img/noImg.png"/><span value="11">点击上传</span><strong></strong><p>规范性劳务合同</p></li>
+                <li type="4" class="borderRight borderBottom" type2="12"><img src="../img/noImg.png"/><span value="12">点击上传</span><strong></strong><p>公益性岗位安置合同</p></li>
+                <li type="4" class="borderRight borderBottom" type2="13"><img src="../img/noImg.png"/><span value="13">点击上传</span><strong></strong><p>创业证明(营业执照)</p></li>
+            </ul>
+            <ul class="clearfix iconBottom fourPicture fourPicture2 fourPicturebb">
+                <li type="17" class="borderRight borderBottom" type2="14"><img src="../img/noImg.png"/><span value="14">点击上传</span><strong></strong><p>小额贷款证明</p></li>
+            </ul>
+            <ul class="clearfix iconBottom fourPicture fourPicture2 fourPicturecc">
+                <li type="2" class="borderRight borderBottom" type2="15"><img src="../img/noImg.png"/><span value="15">点击上传</span><strong></strong><p>危房等级评定报告</p></li>
+                <li type="2" class="borderBottom" type2="16"><img src="../img/noImg.png"/><span value="16">点击上传</span><strong></strong><p>房屋安全报告</p></li>
+                <li type="2" class="borderRight borderBottom" type2="17"><img src="../img/noImg.png"/><span value="17">点击上传</span><strong></strong><p>新旧住宅照片</p></li>
+            </ul>
+            <ul class="clearfix iconBottom fourPicture fourPicture2 fourPicturedd">
+                <li type="1" class="borderRight borderBottom" type2="18"><img src="../img/noImg.png"/><span value="18">点击上传</span><strong></strong><p>易地搬迁意愿书</p></li>
+                <li type="1" class="borderBottom" type2="19"><img src="../img/noImg.png"/><span value="19">点击上传</span><strong></strong><p>房屋安全报告</p></li>
+                <li type="1" class="borderRight borderBottom" type2="20"><img src="../img/noImg.png"/><span value="20">点击上传</span><strong></strong><p>房屋照片(社区)</p></li>
+            </ul>
+            <ul class="clearfix iconBottom fourPicture fourPicture2 fourPictureee">
+                <li type="5" class="borderRight borderBottom" type2="21"><img src="../img/noImg.png"/><span value="21">点击上传</span><strong></strong><p>合疗本</p></li>
+                <li type="5" class="borderBottom" type2="22"><img src="../img/noImg.png"/><span value="22">点击上传</span><strong></strong><p>注销报销结算证明</p></li>
+                <li type="5" class="borderRight borderBottom" type2="23"><img src="../img/noImg.png"/><span value="23">点击上传</span><strong></strong><p>医生签约协议</p></li>
+                <li type="5" class="borderRight borderBottom" type2="24"><img src="../img/noImg.png"/><span value="24">点击上传</span><strong></strong><p>上门巡诊记录</p></li>
+                <li type="5" class="borderRight borderBottom" type2="25"><img src="../img/noImg.png"/><span value="25">点击上传</span><strong></strong><p>大病集中救治证明</p></li>
+            </ul>
+            <ul class="clearfix iconBottom fourPicture fourPicture2 fourPictureff">
+                <li type="7" class="borderRight borderBottom" type2="26"><img src="../img/noImg.png"/><span value="26">点击上传</span><strong></strong><p>低保证</p></li>
+                <li type="7" class="borderBottom" type2="27"><img src="../img/noImg.png"/><span value="27">点击上传</span><strong></strong><p>低保金发放记录</p></li>
+                <li type="7" class="borderRight borderBottom" type2="28"><img src="../img/noImg.png"/><span value="28">点击上传</span><strong></strong><p>五保证</p></li>
+                <li type="7" class="borderRight borderBottom" type2="29"><img src="../img/noImg.png"/><span value="29">点击上传</span><strong></strong><p>五保金发放记录</p></li>
+                <li type="7" class="borderRight borderBottom" type2="30"><img src="../img/noImg.png"/><span value="30">点击上传</span><strong></strong><p>残疾证</p></li>
+                <li type="7" class="borderRight borderBottom" type2="31"><img src="../img/noImg.png"/><span value="31">点击上传</span><strong></strong><p>残疾人两项补贴发放证明</p></li>
+            </ul>
+            <ul class="clearfix iconBottom fourPicture fourPicture2 fourPicturegg">
+                <li type="6" class="borderRight borderBottom" type2="32"><img src="../img/noImg.png"/><span value="32">点击上传</span><strong></strong><p>发展产业实地照片</p></li>
+                <li type="6" class="borderBottom" type2="33"><img src="../img/noImg.png"/><span value="33">点击上传</span><strong></strong><p>入股协议</p></li>
+            </ul>
+            <ul class="clearfix iconBottom fourPicture fourPicture2 fourPicturehh">
+                <li type="3" class="borderRight borderBottom" type2="34"><img src="../img/noImg.png../img/noImg.png"/><span value="34">点击上传</span><strong></strong><p>学前教育补贴证明</p></li>
+                <li type="3" class="borderBottom" type2="35"><img src="../img/noImg.png"/><span value="35">点击上传</span><strong></strong><p>义务教育阶段两免一补证明</p></li>
+                <li type="3" class="borderBottom" type2="36"><img src="../img/noImg.png"/><span value="36">点击上传</span><strong></strong><p>义务教育阶段学籍证明</p></li>
+                <li type="3" class="borderBottom" type2="37"><img src="../img/noImg.png"/><span value="37">点击上传</span><strong></strong><p>送教上门证明</p></li>
+                <li type="3" class="borderBottom" type2="38"><img src="../img/noImg.png"/><span value="38">点击上传</span><strong></strong><p>中高职资助证明</p></li>
+                <li type="3" class="borderBottom" type2="39" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;"><img src="../img/noImg.png"/><span value="39">点击上传</span><strong></strong><p>大专及以上助学金或助学贷款证明</p></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/idangerous.swiper.min.js" ></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/new-swiper.js" ></script>
+<script type="text/javascript" src="../js/dd.js" ></script>
+<script>
+    dd.ready(function(){
+        /*截取地址栏参数*/
+        var params=(function(){
+            var search=location.search;	//获取location的search属性，保存在search中
+            var params={};		//创建空对象params
+            if(search!=""){		//如果search不是空字符串
+                search.slice(1).split("&").forEach(	//?username=zhangdong&pwd=123456;//search去开头?，按&切割为数组，forEach
+                    function(val){
+                        var arr=val.split("=");		//将当前元素值按=切割，保存在arr中
+                        params[arr[0]]=arr[1];		//向params中添加一个元素,属性名为arr[0],值为arr[1]
+                    }
+                );
+            }
+            return params;		//返回params
+        })();
+        var txt=decodeURI(params.txt);
+        var indexs=decodeURI(params.index);
+        $(".pictureBox .fourPicture").eq(indexs).show().siblings(".fourPicture2").hide();
+        $(".pictureBox .title").text(txt);
+        $(".fourPicture2 li span").on("click",function(){
+            var type=$(this).attr("value");
+            location.href="editPhoto.html?type="+type;
+         })
+
+        $(".fourPicture li img").click(function(){
+            var type=$(this).parent().attr("type");
+            var type2=$(this).parent().attr("type2");
+            var txt=$(this).siblings("p").text();
+            location.href="photoLists.html?type="+type + "&type2="+type2 + "&txt="+txt;
+        })
+
+        var url=config.url;
+        var object=localStorage.getItem("object");
+        var item=JSON.parse(object);
+        var povertyNumber=item.objnumber;
+        var helpNumber=item.cadnumber;
+        var types=decodeURI(params.types)
+        var data={"aac001":povertyNumber,"aak110":helpNumber,"type":types};
+        $.ajax({
+            "url":url+"/evidence/myEvidence",
+            data:{"aac001":povertyNumber,"aak110":helpNumber,"type":types},
+            method:"post",
+            dataType:"json",
+            success:function(data){
+                if(data.code==2000){
+                    for(var i=0;i<data.data.length;i++){
+                        var datas=data.data[i]
+                        /*生态扶贫*/
+                        if(datas.IMAGE_TYPE==6){
+                            $(".fourPicture li").eq(0).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0]);
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicture li").eq(0).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicture li").eq(0).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(0).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicture li").eq(0).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(0).find("strong").click(function(){
+                                    lookReason($(".fourPicture li").eq(0).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==7){
+                            $(".fourPicture li").eq(1).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicture li").eq(1).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicture li").eq(1).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(1).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicture li").eq(1).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(1).find("strong").click(function(){
+                                    lookReason($(".fourPicture li").eq(1).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==8){
+                            $(".fourPicture li").eq(2).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicture li").eq(2).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(2).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicture li").eq(2).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(2).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicture li").eq(2).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicture li").eq(2).find("strong").click(function(){
+                                    lookReason($(".fourPicture li").eq(2).attr("id"))
+                                })
+                            }
+                        }
+                        /*就业扶贫*/
+                        if(datas.IMAGE_TYPE==9){
+                            $(".fourPictureaa li").eq(0).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureaa li").eq(0).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureaa li").eq(0).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureaa li").eq(0).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureaa li").eq(0).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureaa li").eq(0).find("strong").click(function(){
+                                    lookReason($(".fourPictureaa li").eq(0).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==10){
+                            $(".fourPictureaa li").eq(1).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureaa li").eq(1).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureaa li").eq(1).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureaa li").eq(1).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureaa li").eq(1).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureaa li").eq(1).find("strong").click(function(){
+                                    lookReason($(".fourPictureaa li").eq(1).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==11){
+                            $(".fourPictureaa li").eq(2).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureaa li").eq(2).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureaa li").eq(2).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureaa li").eq(2).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureaa li").eq(2).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureaa li").eq(2).find("strong").click(function(){
+                                    lookReason($(".fourPictureaa li").eq(2).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==12){
+                            $(".fourPictureaa li").eq(3).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureaa li").eq(3).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureaa li").eq(3).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureaa li").eq(3).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureaa li").eq(3).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureaa li").eq(3).find("strong").click(function(){
+                                    lookReason($(".fourPictureaa li").eq(3).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==13){
+                            $(".fourPictureaa li").eq(4).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureaa li").eq(4).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureaa li").eq(4).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureaa li").eq(4).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureaa li").eq(4).find("strong").click(function(){
+                                    lookReason($(".fourPictureaa li").eq(4).attr("id"))
+                                })
+                            }
+                        }
+                        /*金融扶贫*/
+                        if(datas.IMAGE_TYPE==14){
+                            $(".fourPicturebb li").eq(0).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturebb li").eq(0).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturebb li").eq(0).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturebb li").eq(0).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturebb li").eq(0).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturebb li").eq(0).find("strong").click(function(){
+                                    lookReason($(".fourPicturebb li").eq(0).attr("id"))
+                                })
+                            }
+                        }
+                        /*危房改造*/
+                        if(datas.IMAGE_TYPE==15){
+                            $(".fourPicturecc li").eq(0).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturecc li").eq(0).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturecc li").eq(0).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturecc li").eq(0).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturecc li").eq(0).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturecc li").eq(0).find("strong").click(function(){
+                                    lookReason($(".fourPicturecc li").eq(0).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==16){
+                            $(".fourPicturecc li").eq(1).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturecc li").eq(1).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturecc li").eq(1).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturecc li").eq(1).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturecc li").eq(1).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturecc li").eq(1).find("strong").click(function(){
+                                    lookReason($(".fourPicturecc li").eq(1).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==17){
+                            $(".fourPicturecc li").eq(2).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturecc li").eq(2).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturecc li").eq(2).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturecc li").eq(2).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturecc li").eq(2).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturecc li").eq(2).find("strong").click(function(){
+                                    lookReason($(".fourPicturecc li").eq(2).attr("id"))
+                                })
+                            }
+                        }
+                        /*易地搬迁*/
+                        if(datas.IMAGE_TYPE==18){
+                            $(".fourPicturedd li").eq(0).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturedd li").eq(0).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturedd li").eq(0).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturedd li").eq(0).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturedd li").eq(0).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturedd li").eq(0).find("strong").click(function(){
+                                    lookReason($(".fourPicturedd li").eq(0).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==19){
+                            $(".fourPicturedd li").eq(1).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturedd li").eq(1).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturedd li").eq(1).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturedd li").eq(1).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturedd li").eq(1).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturedd li").eq(1).find("strong").click(function(){
+                                    lookReason($(".fourPicturedd li").eq(1).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==20){
+                            $(".fourPicturedd li").eq(2).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturedd li").eq(2).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturedd li").eq(2).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturedd li").eq(2).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturedd li").eq(2).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturedd li").eq(2).find("strong").click(function(){
+                                    lookReason($(".fourPicturedd li").eq(2).attr("id"))
+                                })
+                            }
+                        }
+                        /*健康扶贫*/
+                        if(datas.IMAGE_TYPE==21){
+                            $(".fourPictureee li").eq(0).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureee li").eq(0).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureee li").eq(0).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureee li").eq(0).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureee li").eq(0).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureee li").eq(0).find("strong").click(function(){
+                                    lookReason($(".fourPictureee li").eq(0).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==22){
+                            $(".fourPictureee li").eq(1).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureee li").eq(1).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureee li").eq(1).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureee li").eq(1).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureee li").eq(1).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureee li").eq(1).find("strong").click(function(){
+                                    lookReason($(".fourPictureee li").eq(1).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==23){
+                            $(".fourPictureee li").eq(2).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureee li").eq(2).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureee li").eq(2).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureee li").eq(2).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureee li").eq(2).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureee li").eq(2).find("strong").click(function(){
+                                    lookReason($(".fourPictureee li").eq(2).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==24){
+                            $(".fourPictureee li").eq(3).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureee li").eq(3).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureee li").eq(3).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureee li").eq(3).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureee li").eq(3).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureee li").eq(3).find("strong").click(function(){
+                                    lookReason($(".fourPictureee li").eq(3).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==25){
+                            $(".fourPictureee li").eq(4).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureee li").eq(4).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureee li").eq(4).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureee li").eq(4).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureee li").eq(4).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureee li").eq(4).find("strong").click(function(){
+                                    lookReason($(".fourPictureee li").eq(4).attr("id"))
+                                })
+                            }
+                        }
+                        /*兜底保障*/
+                        if(datas.IMAGE_TYPE==26){
+                            $(".fourPictureff li").eq(0).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureff li").eq(0).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureff li").eq(0).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(0).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureff li").eq(0).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(0).find("strong").click(function(){
+                                    lookReason($(".fourPictureff li").eq(0).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==27){
+                            $(".fourPictureff li").eq(1).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureff li").eq(1).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureff li").eq(1).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(1).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureff li").eq(1).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(1).find("strong").click(function(){
+                                    lookReason($(".fourPictureff li").eq(1).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==28){
+                            $(".fourPictureff li").eq(2).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureff li").eq(2).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureff li").eq(2).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(2).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureff li").eq(2).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(2).find("strong").click(function(){
+                                    lookReason($(".fourPictureff li").eq(2).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==29){
+                            $(".fourPictureff li").eq(3).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureff li").eq(3).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureff li").eq(3).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(3).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureff li").eq(3).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(3).find("strong").click(function(){
+                                    lookReason($(".fourPictureff li").eq(3).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==30){
+                            $(".fourPictureff li").eq(4).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureff li").eq(4).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureff li").eq(4).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(4).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureff li").eq(4).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(4).find("strong").click(function(){
+                                    lookReason($(".fourPictureff li").eq(4).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==31){
+                            $(".fourPictureff li").eq(5).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPictureff li").eq(5).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPictureff li").eq(5).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(5).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPictureff li").eq(5).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPictureff li").eq(5).find("strong").click(function(){
+                                    lookReason($(".fourPictureff li").eq(5).attr("id"))
+                                })
+                            }
+                        }
+                        /*产业扶贫*/
+                        if(datas.IMAGE_TYPE==32){
+                            $(".fourPicturegg li").eq(0).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturegg li").eq(0).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturegg li").eq(0).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturegg li").eq(0).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturegg li").eq(0).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturegg li").eq(0).find("strong").click(function(){
+                                    lookReason($(".fourPicturegg li").eq(0).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==33){
+                            $(".fourPicturegg li").eq(1).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturegg li").eq(1).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturegg li").eq(1).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturegg li").eq(1).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturegg li").eq(1).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturegg li").eq(1).find("strong").click(function(){
+                                    lookReason($(".fourPicturegg li").eq(1).attr("id"))
+                                })
+                            }
+                        }
+                        /*教育扶贫*/
+                        if(datas.IMAGE_TYPE==34){
+                            $(".fourPicturehh li").eq(0).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturehh li").eq(0).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturehh li").eq(0).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(0).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturehh li").eq(0).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(0).find("strong").click(function(){
+                                    lookReason($(".fourPicturehh li").eq(0).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==35){
+                            $(".fourPicturehh li").eq(1).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturehh li").eq(1).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturehh li").eq(1).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(1).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturehh li").eq(1).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(1).find("strong").click(function(){
+                                    lookReason($(".fourPicturehh li").eq(1).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==36){
+                            $(".fourPicturehh li").eq(2).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturehh li").eq(2).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturehh li").eq(2).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(2).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturehh li").eq(2).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(2).find("strong").click(function(){
+                                    lookReason($(".fourPicturehh li").eq(2).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==37){
+                            $(".fourPicturehh li").eq(3).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturehh li").eq(3).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturehh li").eq(3).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(3).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturehh li").eq(3).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(3).find("strong").click(function(){
+                                    lookReason($(".fourPicturehh li").eq(3).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==38){
+                            $(".fourPicturehh li").eq(4).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturehh li").eq(4).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturehh li").eq(4).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(4).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturehh li").eq(4).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(4).find("strong").click(function(){
+                                    lookReason($(".fourPicturehh li").eq(4).attr("id"))
+                                })
+                            }
+                        }
+                        if(datas.IMAGE_TYPE==39){
+                            $(".fourPicturehh li").eq(5).attr("id",datas.ID).find("img").attr("src",datas.ImgAddress[0])
+                            if(datas.DISTRICT_ADUIT==0){
+                                $(".fourPicturehh li").eq(5).find("strong").css("background","url('../img/status1.png') no-repeat center/cover")
+                            }else if(datas.DISTRICT_ADUIT==1){
+                                $(".fourPicturehh li").eq(5).find("strong").css("background","url('../img/status2.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(5).find("span").unbind("click");
+                            }else if(datas.DISTRICT_ADUIT==4){
+                                $(".fourPicturehh li").eq(5).find("strong").css("background","url('../img/status3.png') no-repeat center/cover")
+                                $(".fourPicturehh li").eq(5).find("strong").click(function(){
+                                    lookReason($(".fourPicturehh li").eq(5).attr("id"))
+                                })
+                            }
+                        }
+
+                        function lookReason(id){
+                            $.ajax({
+                                url:url+'/evidence/noCause',
+                                data:{"id":id},
+                                type:"post",
+                                dataType:"json",
+                                success:function(data){
+                                    if(data.code==2000){
+                                        dd.device.notification.alert({
+                                            message: data.data,
+                                            title: "未通过原因",//可传空
+                                            buttonName: "确定",
+                                            onSuccess : function() {
+                                                //onSuccess将在点击button之后回调
+                                                /*回调*/
+                                            },
+                                            onFail : function(err) {}
+                                        });
+                                    }
+                                }
+                            })
+                        }
+
+
+                    }
+                }
+            }
+        })
+
+    })
+</script>
+</body>
+</html>

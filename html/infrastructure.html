@@ -1,0 +1,97 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>村基础设施</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+</head>
+<body>
+<section class="header">
+    <form class="personContent">
+        <ul class="eightbtn threebtn clearfix">
+            <li class="eightbtn1 eightbtnActive" onclick="eightToggle($('.eightbtn1'),$('.eightContent1'))">村级道路</li>
+            <li class="eightbtn2" onclick="eightToggle($('.eightbtn2'),$('.eightContent2'))">人饮和灌溉设施</li>
+            <li class="eightbtn3" onclick="eightToggle($('.eightbtn3'),$('.eightContent3'))">用电情况</li>
+        </ul>
+
+        <div class="eightContent">
+            <ul style="display: block" class="eightContent1 perInfo bgColor">
+                <li><strong>村级道路</strong></li>
+                <li>村(组)路是否畅通：<input type="text" placeholder="" id="con1" readonly/></li>
+                <li>未通里程(KM)：<input type="text" placeholder="" id="con2" readonly/></li>
+                <li>贫困村通村公路是否“油返砂”：<input type="text" placeholder="" class="small_input" id="con3" readonly/></li>
+                <li>“油返砂”里程(KM)：<input type="text" placeholder="" id="con4" readonly/></li>
+                <!--<a class=" update_btn">修改</a>-->
+            </ul>
+            <ul class="eightContent2 perInfo bgColor">
+                <li><strong>人饮和灌溉设施</strong></li>
+                <li>是否有集中供水点：<input type="text" placeholder="" id="con5" readonly/></li>
+                <li>是否通自来水：<input type="text" placeholder="" id="con6" readonly/></li>
+                <li>建设内容及数量：<input type="text" placeholder="" id="con7" readonly/></li>
+                <!--<a class=" update_btn">修改</a>-->
+            </ul>
+            <ul class="eightContent3 perInfo bgColor">
+                <li><strong>用电情况</strong></li>
+                <li>是否有生产用电设施 ：<input type="text" placeholder="" id="con9" readonly/></li>
+                <li>是否有贫困户生活生产用电设施：<input type="text" placeholder="" class="small_input" id="con10" readonly/></li>
+                <li>建设内容及数量：<input type="text" placeholder="" id="con11" readonly/></li>
+                <li>备注：<input type="text" placeholder="" id="con12" readonly/></li>
+                <li>年份：<input type="text" placeholder="" id="con13" readonly/></li>
+                <!--<a class=" update_btn">修改</a>-->
+            </ul>
+        </div>
+    </form>
+</section>
+
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    function eightToggle(obj1,obj2){
+        obj1.addClass("eightbtnActive");
+        obj1.siblings().removeClass("eightbtnActive");
+        obj2.show();
+        obj2.siblings().hide();
+    }
+</script>
+<script>
+    dd.ready(function(){
+        var url=config.url;
+        var object=localStorage.getItem("objects");
+        var item=JSON.parse(object);
+        var helpNumber=item.cadreNum;
+        $.ajax({
+            url: url+"/village/statistics",
+            data: {"helpNumber": helpNumber},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    $("#con1").val(data.data['PovertyVillageStatistics']['isVillRoad']);
+                    $("#con2").val(data.data['PovertyVillageStatistics']['noaccessMileage']);
+                    $("#con3").val(data.data['PovertyVillageStatistics']['isOilToSand']);
+                    $("#con4").val(data.data['PovertyVillageStatistics']['oilToSandNum']);
+                    $("#con5").val(data.data['PovertyVillageStatistics']['isFocusWater']);
+                    $("#con6").val(data.data['PovertyVillageStatistics']['isTapWater']);
+                    $("#con7").val(data.data['PovertyVillageStatistics']['constrNum']);
+                    $("#con9").val(data.data['PovertyVillageStatistics']['isNatuProPow']);
+                    $("#con10").val(data.data['PovertyVillageStatistics']['isPovProPow']);
+                    $("#con11").val(data.data['PovertyVillageStatistics']['consContE']);
+                    $("#con12").val(data.data['PovertyVillageStatistics']['electRemarks']);
+                    $("#con13").val(data.data['PovertyVillageStatistics']['zoneYear']);
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>

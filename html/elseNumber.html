@@ -1,0 +1,325 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>家庭成员</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+</head>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <div class="color" style="background: #fff;border-bottom: 1px solid #e8e8e8;padding:0 1rem;line-height: 2rem;text-align: center;">
+        <div class="blue" style="color: #9b9b9b;display: inline-block;margin-right: 8px;"><span style="display:inline-block;width:16px;height:10px;background: blue;margin-right: 4px;"></span>待初审</div>
+        <div class="blue" style="color: #9b9b9b;display: inline-block;margin-right: 8px;"><span style="display:inline-block;width:16px;height:10px;background: yellow;margin-right: 4px;"></span>待复审</div>
+        <div class="blue" style="color: #9b9b9b;display: inline-block;"><span style="display:inline-block;width:16px;height:10px;background: red;margin-right: 4px;"></span>待终审</div>
+    </div>
+    <form class="personContent">
+        <!--<div class="personBasic">
+            <p>
+                <strong id="memberName"><i class="fa fa-user-circle-o Coloricon"></i> </strong>
+                <span class="txtRight"></span>
+            </p>
+            <div class="number">联系方式：<span id="phone"></span></div>
+        </div>-->
+        <ul class="perInfo bgColor">
+            <li>姓名：<span id="con1"></span></li>
+            <li>性别：<span id="con2"></span></li>
+            <li>证件类型：<span id="con3"></span></li>
+            <li>证件号码：<span id="con4"></span></li>
+            <li>年龄：<span id="con5"></span></li>
+            <li>联系电话：<span id="con7"></span></li>
+            <li>与户主关系：<span id="con19"></span></li>
+            <li>民族：<span id="con6"></span></li>
+            <li>政治面貌：<span id="con13"></span></li>
+            <li>在校生情况：<span id="con9"></span></li>
+            <li>文化程度：<span id="con8"></span></li>
+            <li>健康状况：<span id="con11"></span></li>
+            <li>劳动技能：<span id="con10"></span></li>
+            <li>是否现役军人：<span id="con12"></span></li>
+            <li>是否享受低保：<span id="con14"></span></li>
+            <li>是否享受五保：<span id="con15"></span></li>
+            <!--<li>是否参加新型农村合作医疗：<span id="con15"></span></li>
+            <li>是否参加新型农村养老保险：<span id="con16"></span></li>
+            <li>是否参加城镇职工基本养老保险：<span id="con17"></span></li>-->
+            <li>是否参加大病保险：<span id="con18"></span></li>
+            <li>疾病名称：<span id="con20"></span></li>
+            <li>疾病等级：<span id="con21"></span></li>
+            <li>务工状况：<span id="con22"></span></li>
+            <li>所在省：<span id="con23"></span></li>
+            <li>所在市：<span id="con24"></span></li>
+            <li>所在县：<span id="con25"></span></li>
+            <li>所在乡：<span id="con26"></span></li>
+            <li>上年务工时间(月)：<span id="con27"></span></li>
+            <li>务工企业名称：<span id="con28"></span></li>
+            <a class="update_btn submit updateFamily">修改</a>
+        </ul>
+    </form>
+</section>
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    dd.ready(function(){
+        var url=config.url;
+        /*截取地址栏参数*/
+        var params=(function(){
+            var search=location.search;	//获取location的search属性，保存在search中
+            var params={};		//创建空对象params
+            if(search!=""){		//如果search不是空字符串
+                search.slice(1).split("&").forEach(	//?username=zhangdong&pwd=123456;//search去开头?，按&切割为数组，forEach
+                    function(val){
+                        var arr=val.split("=");		//将当前元素值按=切割，保存在arr中
+                        params[arr[0]]=arr[1];		//向params中添加一个元素,属性名为arr[0],值为arr[1]
+                    }
+                );
+            }
+            return params;		//返回params
+        })();
+        $(".updateFamily").click(function(){
+            location.href="elseNumberUpdate.html?number="+params.number;
+        })
+        $.ajax({
+            url: url+"/poverty/fInfo",
+            data: {"povertyNumber": params.number},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    //console.log("ok");
+                    // console.log(data);
+                    /*$("#memberName").text(data.data['FamilyDetailInfo']['aab002']);
+                    $(".txtRight").text(data.data['FamilyDetailInfo']['aab006']);
+                    $("#phone").text(data.data['FamilyDetailInfo']['aab031']);*/
+                    $("#con1").text(data.data['FamilyDetailInfo']['aab002']);
+                    $("#con2").text(data.data['FamilyDetailInfo']['aab003']);
+                    $("#con3").text(data.data['FamilyDetailInfo']['aab018']);
+                    $("#con4").text(data.data['FamilyDetailInfo']['aab004']);
+                    $("#con5").text(data.data['FamilyDetailInfo']['aab005']);
+                    $("#con6").text(data.data['FamilyDetailInfo']['aab007']);
+                    $("#con7").text(data.data['FamilyDetailInfo']['aab031']);
+                    $("#con8").text(data.data['FamilyDetailInfo']['aab008']);
+                    $("#con9").text(data.data['FamilyDetailInfo']['aab009']);
+                    $("#con10").text(data.data['FamilyDetailInfo']['aab010']);
+                    $("#con11").text(data.data['FamilyDetailInfo']['aab017']);
+                    $("#con12").text(data.data['FamilyDetailInfo']['aab019']);
+                    $("#con13").text(data.data['FamilyDetailInfo']['aak033']);
+                    $("#con14").text(data.data['FamilyDetailInfo']['aab030']);
+                    $("#con15").text(data.data['FamilyDetailInfo']['abb003']);
+                    /*$("#con15").text(data.data['FamilyDetailInfo']['aab013']);
+                    $("#con16").text(data.data['FamilyDetailInfo']['aab014']);
+                    $("#con17").text(data.data['FamilyDetailInfo']['aab021']);*/
+                    $("#con18").text(data.data['FamilyDetailInfo']['aab022']);
+                    $("#con19").text(data.data['FamilyDetailInfo']['aab006']);
+                    $("#con20").text(data.data['FamilyDetailInfo']['abb001']);
+                    $("#con21").text(data.data['FamilyDetailInfo']['abb002']);
+                    $("#con22").text(data.data['FamilyDetailInfo']['aab011']);
+                    $("#con23").text(data.data['FamilyDetailInfo']['aab025']);
+                    $("#con24").text(data.data['FamilyDetailInfo']['aab026']);
+                    $("#con25").text(data.data['FamilyDetailInfo']['aab027']);
+                    $("#con26").text(data.data['FamilyDetailInfo']['aab028']);
+                    $("#con27").text(data.data['FamilyDetailInfo']['aab012']);
+                    $("#con28").text(data.data['FamilyDetailInfo']['aab029']);
+
+                    /*修改状态的渲染*/
+                    var status=data.data.status;
+                    var html1="<span style='width:16px;height:10px;display:inline-block;background: blue;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    var html2="<span style='width:16px;height:10px;display:inline-block;background: yellow;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    var html3="<span style='width:16px;height:10px;display:inline-block;background: red;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    if(status.aab002==1){
+                        $("#con1").append(html1)
+                    }else if(status.aab002==2){
+                        $("#con1").append(html2)
+                    }else if(status.aab002==3){
+                        $("#con1").append(html3)
+                    }
+                    if(status.aab003==1){
+                        $("#con2").append(html1)
+                    }else if(status.aab003==2){
+                        $("#con2").append(html2)
+                    }else if(status.aab003==3){
+                        $("#con2").append(html3)
+                    }
+                    if(status.aab018==1){
+                        $("#con3").append(html1)
+                    }else if(status.aab018==2){
+                        $("#con3").append(html2)
+                    }else if(status.aab018==3){
+                        $("#con3").append(html3)
+                    }
+                    if(status.aab004==1){
+                        $("#con4").append(html1)
+                    }else if(status.aab004==2){
+                        $("#con4").append(html2)
+                    }else if(status.aab004==3){
+                        $("#con4").append(html3)
+                    }
+                    if(status.aab005==1){
+                        $("#con5").append(html1)
+                    }else if(status.aab005==2){
+                        $("#con5").append(html2)
+                    }else if(status.aab005==3){
+                        $("#con5").append(html3)
+                    }
+                    if(status.aab031==1){
+                        $("#con7").append(html1)
+                    }else if(status.aab031==2){
+                        $("#con7").append(html2)
+                    }else if(status.aab031==3){
+                        $("#con7").append(html3)
+                    }
+                    if(status.aab006==1){
+                        $("#con19").append(html1)
+                    }else if(status.aab006==2){
+                        $("#con19").append(html2)
+                    }else if(status.aab006==3){
+                        $("#con19").append(html3)
+                    }
+                    if(status.aab007==1){
+                        $("#con6").append(html1)
+                    }else if(status.aab007==2){
+                        $("#con6").append(html2)
+                    }else if(status.aab007==3){
+                        $("#con6").append(html3)
+                    }
+                    if(status.aak033==1){
+                        $("#con13").append(html1)
+                    }else if(status.aak033==2){
+                        $("#con13").append(html2)
+                    }else if(status.aak033==3){
+                        $("#con13").append(html3)
+                    }
+                    if(status.aab009==1){
+                        $("#con9").append(html1)
+                    }else if(status.aab009==2){
+                        $("#con9").append(html2)
+                    }else if(status.aab009==3){
+                        $("#con9").append(html3)
+                    }
+                    if(status.aab008==1){
+                        $("#con8").append(html1)
+                    }else if(status.aab008==2){
+                        $("#con8").append(html2)
+                    }else if(status.aab008==3){
+                        $("#con8").append(html3)
+                    }
+                    if(status.aab017==1){
+                        $("#con11").append(html1)
+                    }else if(status.aab017==2){
+                        $("#con11").append(html2)
+                    }else if(status.aab017==3){
+                        $("#con11").append(html3)
+                    }
+                    if(status.aab010==1){
+                        $("#con10").append(html1)
+                    }else if(status.aab010==2){
+                        $("#con10").append(html2)
+                    }else if(status.aab010==3){
+                        $("#con10").append(html3)
+                    }
+                    if(status.aab019==1){
+                        $("#con12").append(html1)
+                    }else if(status.aab019==2){
+                        $("#con12").append(html2)
+                    }else if(status.aab019==3){
+                        $("#con12").append(html3)
+                    }
+                    if(status.aab030==1){
+                        $("#con14").append(html1)
+                    }else if(status.aab030==2){
+                        $("#con14").append(html2)
+                    }else if(status.aab030==3){
+                        $("#con14").append(html3)
+                    }
+                    if(status.abb003==1){
+                        $("#con15").append(html1)
+                    }else if(status.abb003==2){
+                        $("#con15").append(html2)
+                    }else if(status.abb003==3){
+                        $("#con15").append(html3)
+                    }
+                    if(status.aab022==1){
+                        $("#con18").append(html1)
+                    }else if(status.aab022==2){
+                        $("#con18").append(html2)
+                    }else if(status.aab022==3){
+                        $("#con18").append(html3)
+                    }
+                    if(status.abb001==1){
+                        $("#con20").append(html1)
+                    }else if(status.abb001==2){
+                        $("#con20").append(html2)
+                    }else if(status.abb001==3){
+                        $("#con20").append(html3)
+                    }
+                    if(status.abb002==1){
+                        $("#con21").append(html1)
+                    }else if(status.abb002==2){
+                        $("#con21").append(html2)
+                    }else if(status.abb002==3){
+                        $("#con21").append(html3)
+                    }
+                    if(status.aab011==1){
+                        $("#con22").append(html1)
+                    }else if(status.aab011==2){
+                        $("#con22").append(html2)
+                    }else if(status.aab011==3){
+                        $("#con22").append(html3)
+                    }
+                    if(status.aab025==1){
+                        $("#con23").append(html1)
+                    }else if(status.aab025==2){
+                        $("#con23").append(html2)
+                    }else if(status.aab025==3){
+                        $("#con23").append(html3)
+                    }
+                    if(status.aab026==1){
+                        $("#con24").append(html1)
+                    }else if(status.aab026==2){
+                        $("#con24").append(html2)
+                    }else if(status.aab026==3){
+                        $("#con24").append(html3)
+                    }
+                    if(status.aab027==1){
+                        $("#con25").append(html1)
+                    }else if(status.aab027==2){
+                        $("#con25").append(html2)
+                    }else if(status.aab027==3){
+                        $("#con25").append(html3)
+                    }
+                    if(status.aab028==1){
+                        $("#con26").append(html1)
+                    }else if(status.aab028==2){
+                        $("#con26").append(html2)
+                    }else if(status.aab028==3){
+                        $("#con26").append(html3)
+                    }
+                    if(status.aab012==1){
+                        $("#con27").append(html1)
+                    }else if(status.aab012==2){
+                        $("#con27").append(html2)
+                    }else if(status.aab012==3){
+                        $("#con27").append(html3)
+                    }
+                    if(status.aab029==1){
+                        $("#con28").append(html1)
+                    }else if(status.aab029==2){
+                        $("#con28").append(html2)
+                    }else if(status.aab029==3){
+                        $("#con28").append(html3)
+                    }
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>

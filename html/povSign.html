@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>扶贫签到</title>
+    <style type="text/css">body{background-color: #F2F6F9 !important;}</style>
+    <link type="text/css" href="../css/common.css" rel="stylesheet">
+    <link type="text/css" href="../css/personInfo.css" rel="stylesheet">
+    <link type="text/css" href="../css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <!--记录签到位置-->
+    <div class="cardMiddle">
+        <div class="cardRecord">
+            <p class="addressP">记录签到位置</p>
+            <p>
+                <i class="Coloricon fa fa-clock-o" aria-hidden="true"></i>
+                <span class="timeColor dakaTime" id="dakaTime"></span>
+            </p>
+            <!--<div id="mapRecord" class="mapRecord"></div>-->
+            <div id="allmap" style="width: 100%;height:170px;"></div>
+            <p class="addressP">
+                <i class="Coloricon fa fa-location-arrow" aria-hidden="true"></i>
+                <span id="place">西安市周至县新红村新湖社45号</span>
+            </p>
+        </div>
+        <!--扶贫打卡圆形按钮-->
+        <div class="recordButton">
+            <p class="addressP">记录签到时间</p>
+            <div class="recordCircular" id="recordCircular">
+                <span>签到</span>
+                <br><br>
+                <span class="currentTime">14:10:35</span>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="../js/dd.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=E0S9htjpi1iobtIXPXwU4Ztwj4gbl9jM"></script>
+    <script src="../js/povSign.js"></script>
+    <script type="text/javascript">
+        // 百度地图API功能
+        /*ip定位*/
+        var map = new BMap.Map("allmap");
+        var point = new BMap.Point(116.331398,39.897445);
+        map.centerAndZoom(point,16);
+        map.enableScrollWheelZoom();
+        function myFun(result){
+            var cityName = result.name;
+            map.setCenter(cityName);
+            let lng=result.center.lng,lat=result.center.lat;
+            var data= {"lng":lng,"lat":lat};//要存储的json对象
+            var point=JSON.stringify(data);//将json对象转化成字符串
+            localStorage.setItem("object",point);//把选择的数据存储在localstorage中
+        }
+        var pointData=localStorage.getItem("object");
+        var item=JSON.parse(pointData);
+        point.lng=item.lng;point.lat=item.lat;
+        console.log(point)
+        var myCity = new BMap.LocalCity();
+        myCity.get(myFun);
+        var marker = new BMap.Marker(point);  // 创建标注
+        map.addOverlay(marker);               // 将标注添加到地图中
+        marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+
+
+
+        // function attribute(){
+        //     var p = marker.getPosition();  //获取marker的位置
+        //     console.log("您所在的位置是经度：" + p.lng + ",纬度：" + p.lat);
+        // }
+        // attribute();
+        /*浏览器定位*/
+        // var map = new BMap.Map("allmap");
+        // var point = new BMap.Point(116.331398,39.897445);
+        // map.centerAndZoom(point,18);
+        //
+        // var geolocation = new BMap.Geolocation();
+        // geolocation.getCurrentPosition(function(r){
+        //     if(this.getStatus() == BMAP_STATUS_SUCCESS){
+        //         var mk = new BMap.Marker(r.point);
+        //         map.addOverlay(mk);
+        //         map.panTo(r.point);
+        //
+        //     }
+        //     else {
+        //         alert('failed'+this.getStatus());
+        //     }
+        // },{enableHighAccuracy: true})
+        // console.log('您的位置：'+r.point.lng+','+r.point.lat);
+        /*h5定位*/
+        // 使用html5获取当前手机的经纬度，并接入百度地图API，查询出当前位置
+        /*var map = new BMap.Map("allmap");
+        var longitude, latitude;
+        navigator.geolocation.getCurrentPosition(function (position) {
+            longitude = position.coords.longitude;
+            latitude = position.coords.latitude;
+        });
+        setTimeout(function () {
+            var gpsPoint = new BMap.Point(longitude, latitude);
+            BMap.Convertor.translate(gpsPoint, 0, function (point) {
+                var geoc = new BMap.Geocoder();
+                geoc.getLocation(point, function (rs) {
+                    var addComp = rs.addressComponents;
+                    console.log(addComp)
+                    alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+                });
+            });
+        }, 3000);*/
+    </script>
+</body>
+</html>

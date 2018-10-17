@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" style="width:100%;height:100%;">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <title>详情</title>
+    <style type="text/css">
+        body {
+            background-color: #F2F6F9 !important;
+        }</style>
+    <link type="text/css" href="../css/common.css" rel="stylesheet">
+    <link type="text/css" href="../css/povDyna.css" rel="stylesheet">
+    <link type="text/css" href="../css/personInfo.css" rel="stylesheet">
+    <link type="text/css" href="../css/font-awesome.min.css" rel="stylesheet">
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    .container{
+        width:100%;
+        height:100%;
+        padding-top:10px;
+    }
+    .container .items{
+        width:100%;
+        height:52px;
+        background: #fff;
+        border-bottom:1px solid #E5E5E5;
+        padding:8px 10px;
+        text-align: center;
+        line-height: 32px;
+        font-size: 16px;
+    }
+    .container .items li{
+        border-right:2px solid #E5E5E5;
+        width:33.333333%;
+        text-align: center;
+        line-height: 40px;
+        cursor:pointer;
+    }
+    .container .items li img{
+        width:18px;
+        height:18px;
+        margin-top:-4px;
+        margin-right:10px;
+    }
+    .container .items li:last-child{
+        border-right:0;
+    }
+    .container .grids{
+        width:100%;
+        height:auto;
+        background: #fff;
+    }
+    .container .grids .boxes{
+        width:100%;
+        height:auto;
+        display: none;
+    }
+    .container .grids .boxes li{
+        width:100%;
+        height:50px;
+        line-height: 50px;
+        /*padding:0 2%;*/
+        display: flex;
+        justify-content: space-between;
+        border-bottom:1px solid #e5e5e5;
+    }
+    .container .grids .boxes li span{
+        width:33.333333%;
+        height:100%;
+        display: inline-block;
+        line-height: 50px;
+        text-align: center;
+    }
+    .container .grids .boxes li span:nth-child(2){
+        color:#3EACFE;
+        width:50%;
+    }
+    .container .grids .boxes li span:nth-child(3){
+        color:#A1A1A1;
+    }
+    .container .grids .boxes li span:last-child{
+        height:20px;
+        border-radius:12px;
+        line-height: 22px;
+        margin-top: 15px;
+        /*color:#fff;*/
+    }
+    .container .grids .boxes1 li span:last-child{
+        color:#D7D7D7;
+    }
+    .container .grids .boxes2 li span:last-child{
+        background: #03FFA3;
+    }
+    .container .grids .title{
+        width:100%;
+        height:50px;
+        display: flex;
+        justify-content: space-between;
+        line-height: 50px;
+        /*padding:0 1%;*/
+    }
+    .container .grids .title span{
+        display: inline-block;
+        width:33.333333%;
+        text-align: center;
+    }
+</style>
+<body style="width:100%;height:100%;">
+<div class="container">
+    <div class="items">提交详情</div>
+    <div class="grids">
+        <div class="title">
+            <span>修改选项</span>
+            <span>修改前</span>
+            <span>修改后</span>
+        </div>
+        <ul class="boxes boxes3" style="display: block;">
+
+        </ul>
+    </div>
+<!--    <a class="update_btn submit">审核通过</a>
+    <a class="update_btn submit">审核不通过</a>-->
+</div>
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".modules div").click(function(){
+            var index=$(this).index();
+            $(".container").eq(index).show().siblings().hide();
+        })
+        $(".btn_details").click(function(){
+            $(this).next().slideToggle("fast");
+        })
+    })
+</script>
+<script>
+    $(document).ready(function(){
+        $(".items li").click(function(){
+            var index=$(this).index();
+            $(".boxes").eq(index).show().siblings(".boxes").hide();
+        })
+    })
+</script>
+<script>
+    dd.ready(function(){
+        /*截取地址栏参数*/
+        var params=(function(){
+            var search=location.search;	//获取location的search属性，保存在search中
+            var params={};		//创建空对象params
+            if(search!=""){		//如果search不是空字符串
+                search.slice(1).split("&").forEach(	//?username=zhangdong&pwd=123456;//search去开头?，按&切割为数组，forEach
+                    function(val){
+                        var arr=val.split("=");		//将当前元素值按=切割，保存在arr中
+                        params[arr[0]]=arr[1];		//向params中添加一个元素,属性名为arr[0],值为arr[1]
+                    }
+                );
+            }
+            return params;		//返回params
+        })();
+        var url=config.url;
+        var box3=$(".boxes3");
+        var id=params.id;
+        var modifyType=params.modifyType;
+        $.ajax({
+            url: url+"/aduit/detail",
+            data: {"id": id,"modifyType":modifyType},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    showMessage(box3,data.data.AduitDetail)
+                }
+            }
+        })
+        function showMessage(obj,data){
+            obj.empty();
+            var str="";
+            for(var i=0;i<data.length;i++){
+                str += '<li value="' + data[i]['dataReviewId'] + '"><span style="display:block;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">' + data[i]['infoName'] + '</span><span>' + data[i]['updateBefore'] + '</span><span>' + data[i]['updateAfter'] + '</span></li>';
+            }
+            obj.html(str);
+        }
+        /*/!*点击进行审核*!/
+        $(".submit").click(function(){
+            var number=0;
+            if($(this).text()=="审核通过"){
+                number=1;
+            }else if($(this).text()=="审核不通过"){
+                number=4;
+            }
+            $.ajax({
+                url:url+"/aduit/aduitId",
+                data:{"dataId":id,"type":modifyType,"first":number},
+                method:"post",
+                dataType:"json",
+                success:function(data){
+                    if(data.code==2000){
+                        if(number==1){
+                            $(".submit").eq(0).text("已通过").siblings(".submit").hide();
+                        }else if(number==4){
+                            $(".submit").eq(0).text("未通过").css({"background":"red"}).siblings(".submit").hide();
+                        }
+                    }
+                }
+            })
+        })*/
+    })
+</script>
+</body>
+</html>

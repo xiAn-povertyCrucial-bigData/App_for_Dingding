@@ -1,0 +1,149 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>脱贫状态</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+</head>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <div class="personContent">
+        <div class="personBasic" style="text-align: center;font-weight: bold;font-size: 1rem;">总分：<span> <i id="sumScore"></i>分</span></div>
+
+        <ul class="perInfo bgColor fiveIndex">
+            <li>
+                <div id="nav1">
+                    <span>纯收入超过收入标准 <em>(<i id="con1"></i>分)</em></span>
+                    <i class="fa fa-sort-down fa1"></i>
+                </div>
+                <p class="navcontent nav1content">收入情况：<i id="con2"></i>元； 是否达标：<i id="con3"></i></p>
+            </li>
+            <li>
+                <div id="nav2">
+                    <span>有无辍学生 <em>(<i id="con4"></i>分)</em></span>
+                    <i class="fa fa-sort-down fa2"></i>
+                </div>
+                <p class="navcontent nav2content">有无辍学生：<i id="con5"></i></p>
+            </li>
+            <li>
+                <div id="nav3">
+                    <span>安全饮水 <em>(<i id="con6"></i>分)</em></span>
+                    <i class="fa fa-sort-down fa3"></i>
+                </div>
+                <p class="navcontent nav3content">饮水是否安全: <i id="con7"></i>； 饮水是否困难：<i id="con8"></i></p>
+            </li>
+            <li>
+                <div id="nav4">
+                    <span>安全住房 <em>(<i id="con9"></i>分)</em></span>
+                    <i class="fa fa-sort-down fa4"></i>
+                </div>
+                <p class="navcontent nav4content">是否危房户：<i id="con10"></i></p>
+            </li>
+            <li style="border-bottom: 1px solid #fff;">
+                <div id="nav5">
+                    <span>新型农村医疗保险 <em>(<i id="con11"></i>分)</em></span>
+                    <i class="fa fa-sort-down fa5"></i>
+                </div>
+                <p class="navcontent nav5content">家庭成员是否参加新型农村合作医疗：<i id="con12"></i></p>
+            </li>
+        </ul>
+    </div>
+</section>
+
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        function clickToggle(obj1,obj2){
+            obj1.click(function(){
+                $(this).next().slideToggle(200);
+                obj2.hide();
+            });
+        }
+        clickToggle($("#nav1"),$(".navcontent").not($('.nav1content')));
+        clickToggle($("#nav2"),$(".navcontent").not($('.nav2content')));
+        clickToggle($("#nav3"),$(".navcontent").not($('.nav3content')));
+        clickToggle($("#nav4"),$(".navcontent").not($('.nav4content')));
+        clickToggle($("#nav5"),$(".navcontent").not($('.nav5content')));
+    });
+</script>
+<script src="../js/config.js"></script>
+<script src="../js/dd.js"></script>
+<script>
+    dd.ready(function(){
+        var url=config.url;
+        var object=localStorage.getItem("object");
+        var item=JSON.parse(object);
+        var povertyNumber=item.objnumber;
+        var helpNumber=item.cadnumber;
+        $.ajax({
+            url: url+"/poverty/Alleviation",
+            data: {"povertyNumber": povertyNumber},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    $("#con1").text(data.data.FiveExit['incomeScore']);
+                    $("#con2").text(data.data.FiveExit['income']);
+                    $("#con3").text(data.data.FiveExit['isReachTheStandard']);
+                    $("#con4").text(data.data.FiveExit['studentScore']);
+                    $("#con5").text(data.data.FiveExit['isStudent']);
+                    $("#con6").text(data.data.FiveExit['waterScore']);
+                    $("#con7").text(data.data.FiveExit['isSafeWater']);
+                    $("#con8").text(data.data.FiveExit['isDifficuly']);
+                    $("#con9").text(data.data.FiveExit['houseScore']);
+                    $("#con10").text(data.data.FiveExit['isSafeHouse']);
+                    $("#con11").text(data.data.FiveExit['joinScore']);
+                    $("#con12").text(data.data.FiveExit['isJoin']);
+                    $("#sumScore").text($("#con1").text()*1+$("#con4").text()*1+$("#con6").text()*1+$("#con9").text()*1+$("#con11").text()*1);
+                    if($("#con1").text()*1){
+                        $("#nav1").css("borderLeft","10px solid #1FA463");
+                        $("#nav1 em").addClass("txtGreen");
+                    }else{
+                        $("#nav1").css("borderLeft","10px solid #dd4f43");
+                        $("#nav1 em").addClass("txtRed");
+                    }
+                    if($("#con4").text()*1){
+                        $("#nav2").css("borderLeft","10px solid #1FA463");
+                        $("#nav2 em").addClass("txtGreen");
+                    }else{
+                        $("#nav2").css("borderLeft","10px solid #dd4f43");
+                        $("#nav2 em").addClass("txtRed");
+                    }
+                    if($("#con6").text()*1){
+                        $("#nav3").css("borderLeft","10px solid #1FA463");
+                        $("#nav3 em").addClass("txtGreen");
+                    }else{
+                        $("#nav3").css("borderLeft","10px solid #dd4f43");
+                        $("#nav3 em").addClass("txtRed");
+                    }
+                    if($("#con9").text()*1){
+                        $("#nav4").css("borderLeft","10px solid #1FA463");
+                        $("#nav4 em").addClass("txtGreen");
+                    }else{
+                        $("#nav4").css("borderLeft","10px solid #dd4f43");
+                        $("#nav4 em").addClass("txtRed");
+                    }
+                    if($("#con11").text()*1){
+                        $("#nav5").css("borderLeft","10px solid #1FA463");
+                        $("#nav5 em").addClass("txtGreen");
+                    }else{
+                        $("#nav5").css("borderLeft","10px solid #dd4f43");
+                        $("#nav5 em").addClass("txtRed");
+                    }
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>

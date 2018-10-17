@@ -1,0 +1,212 @@
+.sc-calendar {
+  width: 30rem;
+  height: 30rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #4A4A4A;
+  box-shadow: 2px 4px 5px 5px rgba(57, 172, 254, 0.06);
+  border-width: 1px 0 0 1px;
+  border-radius: 1rem;
+  border-color: #E6E4E0;
+  border-style: solid;
+  float: left;
+  margin-right: 20px;
+  -moz-user-select: none;
+  /*火狐*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -ms-user-select: none;
+  /*IE10*/
+  user-select: none;
+  -webkit-text-size-adjust: none;
+  font-size: 14px;
+}
+
+.sc-header {
+  height: 35px;
+  border-bottom: 0;
+}
+.sc-body {
+  height: 93%;
+  clear: both;/*
+  box-shadow: 2px 4px 5px #bdbdbd;*/
+}
+.sc-week {
+  margin-left: 1.26rem;
+  height: 10%;
+  font-weight: 400;
+  font-size: 20px;
+  color: #4A4A4A;
+}
+.sc-days {
+  margin-left: 1.25rem;
+  height: 100%;
+  height: 100%;
+}
+.sc-item {
+  height: 13.5%;
+  float: left;
+  font-weight: 600;
+  color: #565555;
+  width: 13.5%;
+  padding-top: 0.7rem;
+  border-color: #ebecf1;
+  border-style: solid;
+  box-sizing: border-box;
+}
+.item-nolunar {
+  padding-top: 20px;
+}
+.sc-item:nth-child(7n) .day, .sc-item:nth-child(7n+6) .day {
+  color: #4A4A4A;
+}
+.sc-vocation {
+  background-color: #FFEBEC;
+}
+.sc-mark{
+  background-color: #E5FBFA;
+}
+.sc-vocation:before {
+  content: '休';
+  display: block;
+  position: absolute;
+  font-size: 0.7em;
+  width: 1.2em;
+  font-weight: 100;
+  color: white;
+  background-color: #E00808;
+  margin-top: -10px;
+}
+.sc-othermenth {
+  color: #C1C0C0 !important;
+}
+.sc-othermenth .day, .sc-othermenth .lunar-day {
+  color: #C1C0C0 !important;
+}
+.sc-active-day, .sc-selected {
+  border: 1px solid #e5e5e5;
+  background: #e5e5e5;
+}
+.sc-today {
+  background-color: #e5e5e5;
+  color: #e56350;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+}
+.sc-pointday {
+  background-color: #e56350;
+  color: white!important;
+  border: 1px solid #e56350;
+  border-radius: 3px;
+}
+.sc-item .day {
+  font-size: 1em;
+}
+.sc-today .day {
+  color: #e56350 !important;
+}
+.sc-item .lunar-day {
+  font-size: 10px;
+  font-weight: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sc-pointday .day{
+  color: white !important;
+}
+.sc-pointday .lunar-day{
+  color: white !important;
+}
+.sc-festival .lunar-day {
+  color: #4A4A4A;
+}
+
+/*.sc-item:last-child, .sc-item:nth-child(7n) {
+  border-width: 0 1px 1px 1px;
+}*/
+
+.sc-week-item {
+  border-radius: 3px;
+  height: 100%;
+  padding-top: 2%;
+  float: left;
+  width: 13.5%;
+  /*background-color: #97C8EC;*/
+  border-color: #ebecf1;
+  border-style: solid;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sc-item-small{
+  font-size: 10px !important;
+}
+.sc-week-item:last-child {
+  border-width: 1px 1px 1px 1px;
+}
+.sc-week-item:nth-child(7n), .sc-week-item:nth-child(7n+6) {
+  color: #4A4A4A;
+}
+.sc-actions {
+  float: left;
+  width: 25%;
+  padding: 5px;
+  height: 100%;
+  box-sizing: border-box;
+}
+.sc-actions:last-child {
+  float: right;
+}
+.sc-actions-big{
+  width: 50%;
+}
+@media screen and (max-width : 500px){
+.sc-actions{
+  width: 50%;
+}
+}
+.sc-header select {
+  background: #f2f6f9;
+  border-color: rgba(0, 0, 0, 0);
+  padding: 0.2em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: "Microsoft Yahei";
+  color: #606060;
+  font-size: 13px ;
+}
+.sc-header input {
+  border-color: rgba(0, 0, 0, 0);
+  padding: 0.2em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-family: "Microsoft Yahei";
+  color: #606060;
+}
+.sc-actions div {
+  display: inline-block;
+  /*border: 1px solid #ccc;*/
+  vertical-align: bottom;
+  width: 20px;
+  padding-bottom: 5px;
+  font-size: 1.5em;
+  line-height: 0.9em;
+}
+.sc-return-today {
+  display: block;
+  background-color: #F5F5F9;
+  border-radius: 2px;
+  /* border: 1px solid #ccc; */
+  width: 60px;
+  font-size: 0.8em;
+  padding: 0.3em;
+  margin: auto;
+}
+
+.sc-time {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.8em;
+}

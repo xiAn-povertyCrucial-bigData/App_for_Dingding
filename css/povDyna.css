@@ -1,0 +1,249 @@
+/*********************************个人扶贫圈**********************************/
+.perHeadDyna{
+    width: 100%;
+    height: 6rem;
+    margin-top: 3rem;
+}
+.perHeadDyna p{
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+}
+.perHeadDyna i{
+    float: right;
+    margin-right: 1rem;
+    color: #39ACFE;
+}
+.povDyna{
+    width: 100%;
+    padding: 0.5rem;
+}
+.aPovDyna{
+    width: 100%;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 3px;
+}
+.aPovDyna li{
+    margin-bottom: 20px;
+}
+.aPovDyna p{
+    line-height: 1.5rem;
+    font-size: 0.8rem;
+    color: #39ACFE;
+}
+.aPovDyna img{
+    width: 32%;
+    height: 5.5rem;
+    margin-bottom: 0.2rem;
+}
+.povDynaDes{
+    margin:0.5rem 6.5% 2% 6.5%;
+    line-height: 1rem;
+}
+.dynaImgs{
+    margin:0 6.5%;
+}
+.dynaComment{
+    width: 87%;
+    padding: 0.3rem 0.5rem;
+    margin:2% 6.5% 0 6.5%;
+    background-color: #EFEFEF;
+    border-radius: 3px;
+}
+.dynaComment div{
+    padding-bottom: 0.1rem;
+}
+.dynaComment p{
+    line-height: 1rem;
+    padding-top: 0.15rem;
+}
+.dynaComment p span:first-child{
+    font-size: 0.8rem;
+    color: #39ACFE;
+}
+.dynaComment p span:nth-child(2){
+    font-size: 0.8rem;
+    color: #000000;
+}
+.fixP{line-height: 1.2rem;}
+.fixP span{color: #377ecd;}
+/*********************************所有扶贫圈**********************************/
+.peopleImg{
+    width: 100%;
+    padding: 0 0.5rem 0.5rem;
+    border-bottom: 1px solid #EFEFEF;
+}
+.peopleImg img{
+    width: 3.4rem;
+    height: 3.4rem;
+    margin-right: 0.4rem;
+    border-radius: 100%;
+    float: left;
+}
+.peopleImg p:first-child{
+    line-height: 1.5rem;
+    font-size: 0.8rem;
+    color: #377ecd;
+}
+.peopleImg p:nth-child(2){
+    line-height: 1.2rem;
+    font-size: 0.8rem;
+    color: #9B9B9B;
+}
+.peopleImg p:nth-child(3){
+    line-height: 1.2rem;
+    font-size: 0.8rem;
+    color: #9B9B9B;
+}
+.thumbComm{padding: 0 6.5%;}
+.commIcon,.thumbIcon{
+    float: right;
+    line-height: 2rem;
+    text-align: center;
+    padding: 0.3rem;
+}
+.commIcon i,.thumbIcon i{color:#373A41;}
+.thumbComm i{
+    font-size: 1rem!important;
+}
+/**********************************帮扶日志上传****************************************/
+.conMain {
+    padding: 2%;
+}
+
+.editor-content {
+    width: 96%;
+    padding: 1rem 0 0.6rem 4%;
+}
+.editor-content textarea {
+    width: 100%;
+    height: 8rem;
+    outline:none;
+    border: 1px solid #eaeaea;
+    color: black;
+    box-sizing: border-box;
+    font-size: 0.8rem!important;
+    margin-top: 10px;
+    padding:3px 3px;
+}
+.editor-content textarea:focus{
+    outline: none;
+}
+
+.get-position {
+    width: 84%;
+    padding: 2% 8%;
+    border-bottom: 1px solid lightgray;
+}
+
+.get-position > a > p {
+    color: #8C8C8C;
+}
+
+/*图片上传*/
+.z_photo {
+    width: 100%;
+    height: auto;
+    padding: 0.3rem 4%;
+    float: left;
+    line-height: 60px;
+}
+
+.z_photo img {
+    width: 60px;
+    height: 60px;
+}
+
+.z_addImg {
+    float: left;
+    margin-right: 0.2rem;
+    margin-top: 0.2rem;
+}
+
+.z_file {
+    width: 4.5rem;
+    height: 4.5rem;
+    background: url("../img/addImg.png") no-repeat;
+    background-size: 100% 100%;
+    float: left;
+    margin-right: 0.2rem;
+    margin-top: 0.2rem;
+    border:1px solid #ccc;
+}
+
+.z_file input::-webkit-file-upload-button {
+    width: 4.5rem;
+    height: 4.5rem;
+    border: none;
+    position: absolute;
+    outline: 0;
+    opacity: 0;
+}
+
+.z_file input#file {
+    display: block;
+    width: auto;
+    border: 0;
+    vertical-align: middle;
+}
+
+/*遮罩层*/
+.z_mask {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(80, 80, 80, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    color: #000;
+    padding: 18rem 15% 0 15%;
+}
+
+.z_alert {
+    width: 100%;
+    height: 4.3rem;
+    border-radius: 0.2rem;
+    background: #fff;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 0.3rem;
+}
+
+.z_alert p:nth-child(1) {
+    line-height: 2rem;
+}
+
+.z_alert p:nth-child(2) span {
+    display: inline-block;
+    width: 49%;
+    height: 2rem;
+    line-height: 2rem;
+    float: left;
+    border-top: 1px solid #ddd;
+}
+
+.z_cancel {
+    border-right: 1px solid #ddd;
+}
+/*确定上传按钮样式*/
+.btnSubmit {
+    width: 6rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    background-color: #39ACFE;
+    border: 0;
+    font-size: 0.8rem;
+    color: white;
+    float: right;
+    margin-right: 1.2rem;
+}
+.btnSubmit:focus{
+    outline: none;
+}
+.btnSubmit i{
+    color: white;
+}

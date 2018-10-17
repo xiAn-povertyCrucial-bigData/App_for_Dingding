@@ -1,0 +1,699 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>家庭成员</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+</head>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <div class="color" style="background: #fff;border-bottom: 1px solid #e8e8e8;padding:0 1rem;line-height: 2rem;text-align: center;">
+        <div class="blue" style="color: #9b9b9b;display: inline-block;margin-right: 8px;"><span style="display:inline-block;width:16px;height:10px;background: blue;margin-right: 4px;"></span>待初审</div>
+        <div class="blue" style="color: #9b9b9b;display: inline-block;margin-right: 8px;"><span style="display:inline-block;width:16px;height:10px;background: yellow;margin-right: 4px;"></span>待复审</div>
+        <div class="blue" style="color: #9b9b9b;display: inline-block;"><span style="display:inline-block;width:16px;height:10px;background: red;margin-right: 4px;"></span>待终审</div>
+    </div>
+    <form class="personContent">
+        <!--<div class="personBasic">
+            <p>
+                <strong id="memberName"><i class="fa fa-user-circle-o Coloricon"></i> </strong>
+                <span class="txtRight"></span>
+            </p>
+            <div class="number">联系方式：<span id="phone"></span></div>
+        </div>-->
+        <ul class="perInfo bgColor">
+            <li>姓名：<input type="text" placeholder="" id="con1"/></li>
+            <!--<li>性别：<input type="text" placeholder="" id="con2"/></li>-->
+            <li class="aab003">性别：<div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                <input type="radio" name="sex" value="男"><label for="" style="color: #9b9b9b;">男</label>
+            </div>
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="sex" value="女
+"><label for="" style="color: #9b9b9b;">女</label>
+                </div>
+            </li>
+            <li>证件类型：<select name="" id="con3">
+                <option value="居民身份证（户口簿）">居民身份证（户口簿）</option>
+                <option value="残疾人证">残疾人证</option>
+                <option value="中国人民解放军军官证">中国人民解放军军官证</option>
+            </select></li>
+            <li>证件号码：<input type="text" placeholder="" id="con4"/></li>
+            <li>年龄：<input type="text" placeholder="" id="con5" readonly/></li>
+            <li>联系电话：<input type="text" placeholder="" id="con7" class="vilidateNum"/></li>
+            <!--<li>与户主关系：<input type="text" placeholder="" id="con13"/></li>-->
+            <li>与户主关系：<select name="" id="con13"><option value="户主">户主</option><option value="配偶">配偶</option><option value="之子">之子</option><option value="之女">之女</option><option value="之儿媳">之儿媳</option><option value="之女婿">之女婿</option><option value="之孙子">之孙子</option><option value="之孙女">之孙女</option><option value="之外孙子">之外孙子</option><option value="之外孙女">之外孙女</option><option value="之岳父">之岳父</option><option value="之岳母">之岳母</option><option value="之公公">之公公</option><option value="之婆婆">之婆婆</option><option value="之祖父">之祖父</option><option value="之祖母">之祖母</option><option value="之外祖父">之外祖父</option><option value="之外祖母">之外祖母</option><option value="之父">之父</option><option value="之母">之母</option><option value="其他">其他</option></select></li>
+            <!--<li>民族：<input type="text" placeholder="" id="con6"/></li>-->
+            <li>民族：<select name="" id="con6">
+                <option value="汉族">汉族</option>
+                <option value="满族">满族</option>
+                <option value="回族">回族</option>
+                <option value="蒙古族">蒙古族</option>
+                <option value="藏族">藏族</option>
+                <option value="维吾尔族">维吾尔族</option>
+                <option value="苗族">苗族</option>
+                <option value="彝族">彝族</option>
+                <option value="壮族">壮族</option>
+                <option value="布依族">布依族</option>
+                <option value="朝鲜族">朝鲜族</option>
+                <option value="侗族">侗族</option>
+                <option value="瑶族">瑶族</option>
+                <option value="白族">白族</option>
+                <option value="土家族">土家族</option>
+                <option value="哈尼族">哈尼族</option>
+                <option value="哈萨克族">哈萨克族</option>
+                <option value="傣族">傣族</option>
+                <option value="黎族">黎族</option>
+                <option value="傈僳族">傈僳族</option>
+                <option value="佤族">佤族</option>
+                <option value="畲族">畲族</option>
+                <option value="高山族">高山族</option>
+                <option value="拉祜族">拉祜族</option>
+                <option value="水族">水族</option>
+                <option value="东乡族">东乡族</option>
+                <option value="纳西族">纳西族</option>
+                <option value="景颇族">景颇族</option>
+                <option value="柯尔克孜族">柯尔克孜族</option>
+                <option value="土族">土族</option>
+                <option value="达斡尔族">达斡尔族</option>
+                <option value="仫佬族">仫佬族</option>
+                <option value="羌族">羌族</option>
+                <option value="布朗族">布朗族</option>
+                <option value="撒拉族">撒拉族</option>
+                <option value="毛南族">毛南族</option>
+                <option value="仡佬族">仡佬族</option>
+                <option value="锡伯族">锡伯族</option>
+                <option value="阿昌族">阿昌族</option>
+                <option value="普米族">普米族</option>
+                <option value="塔吉克族">塔吉克族</option>
+                <option value="怒族">怒族</option>
+                <option value="乌孜别克族">乌孜别克族</option>
+                <option value="俄罗斯族">俄罗斯族</option>
+                <option value="鄂温克族">鄂温克族</option>
+                <option value="德昂族">德昂族</option>
+                <option value="保安族">保安族</option>
+                <option value="裕固族">裕固族</option>
+                <option value="京族">京族</option>
+                <option value="塔塔儿族">塔塔儿族</option>
+                <option value="独龙族">独龙族</option>
+                <option value="鄂伦春族">鄂伦春族</option>
+                <option value="赫哲族">赫哲族</option>
+                <option value="门巴族">门巴族</option>
+                <option value="珞巴族">珞巴族</option>
+                <option value="基诺族">基诺族</option>
+                <option value="其他">其他</option>
+            </select>
+            </li>
+            <li>政治面貌：<select name="" id="con12">
+                <option value="中共党员">中共党员</option>
+                <option value="无党派民主人士">无党派民主人士</option>
+                <option value="民盟盟员">民盟盟员</option>
+                <option value="共青团员">共青团员</option>
+                <option value="台盟盟员">台盟盟员</option>
+                <option value="民革会员">民革会员</option>
+                <option value="九三学社社员">九三学社社员</option>
+                <option value="群众">群众</option>
+                <option value="民进会员">民进会员</option>
+                <option value="农工党党员">农工党党员</option>
+                <option value="中共预备党员">中共预备党员</option>
+                <option value="民建会员">民建会员</option>
+                <option value="致公党党员">致公党党员</option>
+            </select>
+            </li>
+            <li>在校生情况：<select name="" id="con9">
+                <option value="学前教育">学前教育</option>
+                <option value="小学">小学</option>
+                <option value="七年级">七年级</option>
+                <option value="八年级">八年级</option>
+                <option value="九年级">九年级</option>
+                <option value="高中一年级">高中一年级</option>
+                <option value="高中二年级">高中二年级</option>
+                <option value="高中三年级">高中三年级</option>
+                <option value="中职一年级">中职一年级</option>
+                <option value="中职二年级">中职二年级</option>
+                <option value="中职三年级">中职三年级</option>
+                <option value="高职一年级">高职一年级</option>
+                <option value="高职二年级">高职二年级</option>
+                <option value="高职三年级">高职三年级</option>
+                <option value="大专及以上">大专及以上</option>
+                <option value="非在校生">非在校生</option>
+            </select>
+            </li>
+            <li>文化程度：<select name="" id="con8">
+                <option value="学龄前儿童">学龄前儿童</option>
+                <option value="小学">小学</option>
+                <option value="初中">初中</option>
+                <option value="高中">高中</option>
+                <option value="大专及以上">大专及以上</option>
+                <option value="文盲或半文盲">文盲或半文盲</option>
+            </select>
+            </li>
+            <li>健康状况：<select name="" id="con11">
+                <option value="健康">健康</option>
+                <option value="患有大病">患有大病</option>
+                <option value="残疾">残疾</option>
+                <option value="长期慢性病">长期慢性病</option>
+            </select>
+            </li>
+            <li>劳动技能：<select name="" id="con10">
+                <option value="丧失劳动力">丧失劳动力</option>
+                <option value="技能劳动力">技能劳动力</option>
+                <option value="普通劳动力">普通劳动力</option>
+                <option value="无劳动力">无劳动力</option>
+            </select>
+            </li>
+            <li class="aab019">是否现役军人：<div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                <input type="radio" name="1" value="是"><label for="" style="color: #9b9b9b;">是</label>
+            </div>
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="1" value="否"><label for="" style="color: #9b9b9b;">否</label>
+                </div>
+            </li>
+            <li class="aab030">是否享受低保：<div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                <input type="radio" name="2" value="是"><label for="" style="color: #9b9b9b;">是</label>
+            </div>
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="2" value="否"><label for="" style="color: #9b9b9b;">否</label>
+                </div>
+            </li>
+            <li class="abb003">是否享受五保：<div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                <input type="radio" name="7" value="是"><label for="" style="color: #9b9b9b;">是</label>
+            </div>
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="7" value="否"><label for="" style="color: #9b9b9b;">否</label>
+                </div>
+            </li>
+            <li hidden>是否参加新型农村合作医疗：<div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                <input type="radio" name="3" value="参加"><label for="" style="color: #9b9b9b;">参加</label>
+            </div>
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="3" value="未参加"><label for="" style="color: #9b9b9b;">未参加</label>
+                </div>
+            </li>
+            <li hidden>是否参加新型农村养老保险：<div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                <input type="radio" name="4" value="参加"><label for="" style="color: #9b9b9b;">参加</label>
+            </div>
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="4" value="未参加"><label for="" style="color: #9b9b9b;">未参加</label>
+                </div>
+            </li>
+            <li hidden>是否参加城镇职工基本养老保险：<div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                <input type="radio" name="5" value="参加"><label for="" style="color: #9b9b9b;">参加</label>
+            </div>
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="5" value="未参加"><label for="" style="color: #9b9b9b;">未参加</label>
+                </div>
+            </li>
+            <li class="aab022">是否参加大病保险：<div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                <input type="radio" name="6" value="参加"><label for="" style="color: #9b9b9b;">参加</label>
+            </div>
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="6" value="未参加"><label for="" style="color: #9b9b9b;">未参加</label>
+                </div>
+            </li>
+            <li>疾病名称：<input type="text" placeholder="" id="con20"/></li>
+            <li>疾病等级：<input type="text" placeholder="" id="con21"/></li>
+            <li>务工状况：<!--<input type="text" placeholder="" id="con22"/>-->
+                <select name="" id="con22">
+                    <option value="乡（镇）内务工">乡（镇）内务工</option>
+                    <option value="乡（镇）外县内务工">乡（镇）外县内务工</option>
+                    <option value="县外省内务工">县外省内务工</option>
+                    <option value="省外务工">省外务工</option>
+                    <option value="其他">其他</option>
+                </select>
+            </li>
+            <li>所在省：<input type="text" placeholder="" id="con23"/></li>
+            <li>所在市：<input type="text" placeholder="" id="con24"/></li>
+            <li>所在县：<input type="text" placeholder="" id="con25"/></li>
+            <li>所在乡：<input type="text" placeholder="" id="con26"/></li>
+            <li>上年务工时间(月)：<!--<input type="text" placeholder="" id="con27"/>-->
+                <select name="" id="con27">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </li>
+            <li>务工企业名称：<input type="text" placeholder="" id="con28"/></span></li>
+            <a class="update_btn submit">提交</a>
+        </ul>
+    </form>
+</section>
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    dd.ready(function(){
+        /*截取地址栏参数*/
+        var params=(function(){
+            var search=location.search;	//获取location的search属性，保存在search中
+            var params={};		//创建空对象params
+            if(search!=""){		//如果search不是空字符串
+                search.slice(1).split("&").forEach(	//?username=zhangdong&pwd=123456;//search去开头?，按&切割为数组，forEach
+                    function(val){
+                        var arr=val.split("=");		//将当前元素值按=切割，保存在arr中
+                        params[arr[0]]=arr[1];		//向params中添加一个元素,属性名为arr[0],值为arr[1]
+                    }
+                );
+            }
+            return params;		//返回params
+        })();
+        var url=config.url;
+        var object=localStorage.getItem("object");
+        var item=JSON.parse(object);
+        var povertyNumber=item.objnumber;
+        var helpNumber=item.cadnumber;
+        $.ajax({
+            url: url+"/poverty/fInfo",
+            data: {"povertyNumber": params.number},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    /*$("#memberName").text(data.data['FamilyDetailInfo']['aab002']);
+                    $(".txtRight").text(data.data['FamilyDetailInfo']['aab006']);
+                    $("#phone").text(data.data['FamilyDetailInfo']['aab031']);*/
+                    $("#con1").val(data.data['FamilyDetailInfo']['aab002']);
+                    // $("#con2").val(data.data['FamilyDetailInfo']['aab003']);
+                    $("#con3").val(data.data['FamilyDetailInfo']['aab018']);
+                    $("#con4").val(data.data['FamilyDetailInfo']['aab004']);
+                    $("#con5").val(data.data['FamilyDetailInfo']['aab005']);
+                    $("#con6").val(data.data['FamilyDetailInfo']['aab007']);
+                    $("#con7").val(data.data['FamilyDetailInfo']['aab031']);
+                    $("#con8").val(data.data['FamilyDetailInfo']['aab008']);
+                    $("#con9").val(data.data['FamilyDetailInfo']['aab009']);
+                    $("#con10").val(data.data['FamilyDetailInfo']['aab010']);
+                    $("#con11").val(data.data['FamilyDetailInfo']['aab017']);
+                    var boxSex = document.getElementsByName("sex");
+                    for(var i=0;i<boxSex.length;i++){
+                        if(boxSex[i].value == data.data['FamilyDetailInfo']['aab003']){
+                            boxSex[i].checked = true;
+                            break
+                        }else{
+                            // box1.value="否"
+                        }
+                    }
+                    var box1 = document.getElementsByName("1");
+                    for(var i=0;i<box1.length;i++){
+                        if(box1[i].value == data.data['FamilyDetailInfo']['aab019']){
+                            box1[i].checked = true;
+                            break
+                        }else{
+                            // box1.value="否"
+                        }
+                    }
+                    $("#con12").val(data.data['FamilyDetailInfo']['aak033']);
+                    var box2 = document.getElementsByName("2");
+                    for(var i=0;i<box2.length;i++){
+                        if(box2[i].value == data.data['FamilyDetailInfo']['aab030']){
+                            box2[i].checked = true;
+                            break
+                        }else{
+                            console.log(box2)
+                            // box2[1].checked="否";
+                        }
+                    }
+                    var box3 = document.getElementsByName("3");
+                    for(var i=0;i<box3.length;i++){
+                        if(box3[i].value == data.data['FamilyDetailInfo']['aab013']){
+                            box3[i].checked = true;
+                            break
+                        }else{
+                            // box3[1].checked="未参加";
+                        }
+                    }
+                    var box4 = document.getElementsByName("4");
+                    for(var i=0;i<box4.length;i++){
+                        if(box4[i].value == data.data['FamilyDetailInfo']['aab014']){
+                            box4[i].checked = true;
+                            break
+                        }else{
+                            // box4[1].checked="未参加";
+                        }
+                    }
+                    var box5 = document.getElementsByName("5");
+                    for(var i=0;i<box5.length;i++){
+                        if(box5[i].value == data.data['FamilyDetailInfo']['aab021']){
+                            box5[i].checked = true;
+                            break
+                        }else{
+                            // box5[1].checked="未参加";
+                        }
+                    }
+                    var box6 = document.getElementsByName("6");
+                    for(var i=0;i<box6.length;i++){
+                        if(box6[i].value == data.data['FamilyDetailInfo']['aab022']){
+                            box6[i].checked = true;
+                            break
+                        }else{
+                            // box6[1].checked="未参加";
+                        }
+                    }
+                    var box7 = document.getElementsByName("7");
+                    for(var i=0;i<box7.length;i++){
+                        if(box7[i].value == data.data['FamilyDetailInfo']['abb003']){
+                            box7[i].checked = true;
+                            break
+                        }else{
+                            // box6[1].checked="未参加";
+                        }
+                    }
+                    $("#con13").val(data.data['FamilyDetailInfo']['aab006'])
+                    $("#con20").val(data.data['FamilyDetailInfo']['abb001'])
+                    $("#con21").val(data.data['FamilyDetailInfo']['abb002'])
+                    $("#con22").val(data.data['FamilyDetailInfo']['aab011']);
+                    $("#con23").val(data.data['FamilyDetailInfo']['aab025']);
+                    $("#con24").val(data.data['FamilyDetailInfo']['aab026']);
+                    $("#con25").val(data.data['FamilyDetailInfo']['aab027']);
+                    $("#con26").val(data.data['FamilyDetailInfo']['aab028']);
+                    $("#con27").val(data.data['FamilyDetailInfo']['aab012']);
+                    $("#con28").val(data.data['FamilyDetailInfo']['aab029']);
+
+                    /*修改状态的渲染*/
+                    var status=data.data.status;
+                    var html1="<span style='width:16px;height:10px;display:inline-block;background: blue;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    var html2="<span style='width:16px;height:10px;display:inline-block;background: yellow;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    var html3="<span style='width:16px;height:10px;display:inline-block;background: red;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    if(status.aab002==1){
+                        $("#con1").parent().append(html1)
+                    }else if(status.aab002==2){
+                        $("#con1").parent().append(html2)
+                    }else if(status.aab002==3){
+                        $("#con1").parent().append(html3)
+                    }
+                    if(status.aab003==1){
+                        $(".aab003").append(html1)
+                    }else if(status.aab003==2){
+                        $(".aab003").append(html2)
+                    }else if(status.aab003==3){
+                        $(".aab003").append(html3)
+                    }
+                    if(status.aab018==1){
+                        $("#con3").parent().append(html1)
+                    }else if(status.aab018==2){
+                        $("#con3").parent().append(html2)
+                    }else if(status.aab018==3){
+                        $("#con3").parent().append(html3)
+                    }
+                    if(status.aab004==1){
+                        $("#con4").parent().append(html1)
+                    }else if(status.aab004==2){
+                        $("#con4").parent().append(html2)
+                    }else if(status.aab004==3){
+                        $("#con4").parent().append(html3)
+                    }
+                    if(status.aab005==1){
+                        $("#con5").parent().append(html1)
+                    }else if(status.aab005==2){
+                        $("#con5").parent().append(html2)
+                    }else if(status.aab005==3){
+                        $("#con5").parent().append(html3)
+                    }
+                    if(status.aab031==1){
+                        $("#con7").parent().append(html1)
+                    }else if(status.aab031==2){
+                        $("#con7").parent().append(html2)
+                    }else if(status.aab031==3){
+                        $("#con7").parent().append(html3)
+                    }
+                    if(status.aab006==1){
+                        $("#con13").parent().append(html1)
+                    }else if(status.aab006==2){
+                        $("#con13").parent().append(html2)
+                    }else if(status.aab006==3){
+                        $("#con13").parent().append(html3)
+                    }
+                    if(status.aab007==1){
+                        $("#con6").parent().append(html1)
+                    }else if(status.aab007==2){
+                        $("#con6").parent().append(html2)
+                    }else if(status.aab007==3){
+                        $("#con6").parent().append(html3)
+                    }
+                    if(status.aak033==1){
+                        $("#con12").parent().append(html1)
+                    }else if(status.aak033==2){
+                        $("#con12").parent().append(html2)
+                    }else if(status.aak033==3){
+                        $("#con12").parent().append(html3)
+                    }
+                    if(status.aab009==1){
+                        $("#con9").parent().append(html1)
+                    }else if(status.aab009==2){
+                        $("#con9").parent().append(html2)
+                    }else if(status.aab009==3){
+                        $("#con9").parent().append(html3)
+                    }
+                    if(status.aab008==1){
+                        $("#con8").parent().append(html1)
+                    }else if(status.aab008==2){
+                        $("#con8").parent().append(html2)
+                    }else if(status.aab008==3){
+                        $("#con8").parent().append(html3)
+                    }
+                    if(status.aab017==1){
+                        $("#con11").parent().append(html1)
+                    }else if(status.aab017==2){
+                        $("#con11").parent().append(html2)
+                    }else if(status.aab017==3){
+                        $("#con11").parent().append(html3)
+                    }
+                    if(status.aab010==1){
+                        $("#con10").parent().append(html1)
+                    }else if(status.aab010==2){
+                        $("#con10").parent().append(html2)
+                    }else if(status.aab010==3){
+                        $("#con10").parent().append(html3)
+                    }
+                    if(status.aab019==1){
+                        $(".aab019").append(html1)
+                    }else if(status.aab019==2){
+                        $(".aab019").append(html2)
+                    }else if(status.aab019==3){
+                        $(".aab019").append(html3)
+                    }
+                    if(status.aab030==1){
+                        $(".aab030").append(html1)
+                    }else if(status.aab030==2){
+                        $(".aab030").append(html2)
+                    }else if(status.aab030==3){
+                        $(".aab030").append(html3)
+                    }
+                    if(status.abb003==1){
+                        $(".abb003").append(html1)
+                    }else if(status.abb003==2){
+                        $(".abb003").append(html2)
+                    }else if(status.abb003==3){
+                        $(".abb003").append(html3)
+                    }
+                    if(status.aab022==1){
+                        $(".aab022").append(html1)
+                    }else if(status.aab022==2){
+                        $(".aab022").append(html2)
+                    }else if(status.aab022==3){
+                        $(".aab022").append(html3)
+                    }
+                    if(status.abb001==1){
+                        $("#con20").parent().append(html1)
+                    }else if(status.abb001==2){
+                        $("#con20").parent().append(html2)
+                    }else if(status.abb001==3){
+                        $("#con20").parent().append(html3)
+                    }
+                    if(status.abb002==1){
+                        $("#con21").parent().append(html1)
+                    }else if(status.abb002==2){
+                        $("#con21").parent().append(html2)
+                    }else if(status.abb002==3){
+                        $("#con21").parent().append(html3)
+                    }
+                    if(status.aab011==1){
+                        $("#con22").parent().append(html1)
+                    }else if(status.aab011==2){
+                        $("#con22").parent().append(html2)
+                    }else if(status.aab011==3){
+                        $("#con22").parent().append(html3)
+                    }
+                    if(status.aab025==1){
+                        $("#con23").parent().append(html1)
+                    }else if(status.aab025==2){
+                        $("#con23").parent().append(html2)
+                    }else if(status.aab025==3){
+                        $("#con23").parent().append(html3)
+                    }
+                    if(status.aab026==1){
+                        $("#con24").parent().append(html1)
+                    }else if(status.aab026==2){
+                        $("#con24").parent().append(html2)
+                    }else if(status.aab026==3){
+                        $("#con24").parent().append(html3)
+                    }
+                    if(status.aab027==1){
+                        $("#con25").parent().append(html1)
+                    }else if(status.aab027==2){
+                        $("#con25").parent().append(html2)
+                    }else if(status.aab027==3){
+                        $("#con25").parent().append(html3)
+                    }
+                    if(status.aab028==1){
+                        $("#con26").parent().append(html1)
+                    }else if(status.aab028==2){
+                        $("#con26").parent().append(html2)
+                    }else if(status.aab028==3){
+                        $("#con26").parent().append(html3)
+                    }
+                    if(status.aab012==1){
+                        $("#con27").parent().append(html1)
+                    }else if(status.aab012==2){
+                        $("#con27").parent().append(html2)
+                    }else if(status.aab012==3){
+                        $("#con27").parent().append(html3)
+                    }
+                    if(status.aab029==1){
+                        $("#con28").parent().append(html1)
+                    }else if(status.aab029==2){
+                        $("#con28").parent().append(html2)
+                    }else if(status.aab029==3){
+                        $("#con28").parent().append(html3)
+                    }
+
+                    /*点击提交*/
+                    $(".submit").click(function() {
+                        var aab002 = $("#con1").val();
+                        var aab003 = $("input[name='sex']:checked").val();
+                        var aab018 = $("#con3").val();
+                        var aab004 = $("#con4").val();
+                        var aab005 = $("#con5").val();
+                        var aab007 = $("#con6").val();
+                        var aab031 = $("#con7").val();
+                        var aab008 = $("#con8").val();
+                        var aab009 = $("#con9").val();
+                        var aab010 = $("#con10").val();
+                        var aab017 = $("#con11").val();
+                        var aab019=$("input[name='1']:checked").val();
+                        var aak033 = $("#con12").val();
+                        var aab030=$("input[name='2']:checked").val();
+                        var aab013=$("input[name='3']:checked").val();
+                        var aab014=$("input[name='4']:checked").val();
+                        var aab021=$("input[name='5']:checked").val();
+                        var aab022=$("input[name='6']:checked").val();
+                        var abb003=$("input[name='7']:checked").val();
+                        var aab006 = $("#con13").val();
+                        var abb001 = $("#con20").val();
+                        var abb002 = $("#con21").val();
+                        var aab011 = $("#con22").val();
+                        var aab025 = $("#con23").val();
+                        var aab026 = $("#con24").val();
+                        var aab027 = $("#con25").val();
+                        var aab028 = $("#con26").val();
+                        var aab012 = $("#con27").val();
+                        var aab029= $("#con28").val();
+                        /*验证表单*/
+                        //验证只能为数字
+                        for(var j=0;j<$(".vilidateNum").length;j++){
+                            if(checkNumber($(".vilidateNum").eq(j).val())==false){
+                                $(".vilidateNum").eq(j).trigger("focus").val("").attr("placeholder","请输入有效的手机号").addClass("inputPla");
+                                return false;
+                            }
+                        }
+                        function checkNumber(obj){
+                            var reg = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
+                            if(obj!=""&&!reg.test(obj)){
+                                return false;
+                            }else{
+                                return true;
+                            }
+                        }
+                        var map = {
+                            "aab002": aab002,
+                            "aab006": aab006,
+                            "aab031": aab031,
+                            "aab018": aab018,
+                            "aab004": aab004,
+                            "aab005": aab005,
+                            "aab003": aab003,
+                            "aab007": aab007,
+                            "aab008": aab008,
+                            "aab009": aab009,
+                            "aab017": aab017,
+                            "aab010": aab010,
+                            "aak033": aak033,
+                            "aab019": aab019,
+                            "aab030": aab030,
+                            "aab013": aab013,
+                            "aab014": aab014,
+                            "aab021": aab021,
+                            "aab022": aab022,
+                            "abb003": abb003,
+                            "abb001": abb001,
+                            "abb002": abb002,
+                            "aab011": aab011,
+                            "aab025": aab025,
+                            "aab026": aab026,
+                            "aab027": aab027,
+                            "aab028": aab028,
+                            "aab029": aab029,
+                            "aab012": aab012,
+
+                            "povertyNumber":povertyNumber,
+                            "helpNumber":helpNumber
+                        };
+                        function qukong(obj){
+                            for(var key in obj){
+                                if(obj[key]==null || obj[key]==''){
+                                    console.log(obj[key]);
+                                    delete obj[key];
+                                }
+                                // console.log(key,obj[key]);
+                            }
+                            return obj;
+                        }
+                        var newmap=qukong(map);
+                        $.ajax({
+                            url: url + "/update/familyInfo",
+                            data: newmap,
+                            method: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.code == 2000) {
+                                    dd.device.notification.alert({
+                                        message: "修改成功",
+                                        title: "提示",//可传空
+                                        buttonName: "确定",
+                                        onSuccess : function() {
+                                            //onSuccess将在点击button之后回调
+                                            /*回调*/
+                                            location.href="../index.html";
+                                        },
+                                        onFail : function(err) {}
+                                    });
+                                }
+                            }
+                        })
+                    })
+                }
+            }
+        })
+        /*提交数据*/
+
+    })
+</script>
+</body>
+</html>

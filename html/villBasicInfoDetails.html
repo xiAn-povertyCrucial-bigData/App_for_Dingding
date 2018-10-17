@@ -1,0 +1,156 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>驻村队员详情</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+</head>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <form class="personContent">
+        <ul class="perInfo bgColor">
+            <li>姓名：<span id="con1"></span></li>
+            <li>派出单位：<span id="con2"></span></li>
+            <li>派出单位职务：<span id="con3"></span></li>
+            <li>联系电话：<span id="con4"></span></li>
+            <li>性别：<span id="con5"></span></li>
+            <li>证件号码：<span id="con6"></span></li>
+            <li>学历：<span id="con7"></span>
+                <!--<select name="" id="con7">
+                    <option value="研究生及以上">研究生及以上</option>
+                    <option value="博士研究生">博士研究生</option>
+                    <option value="硕士研究生">硕士研究生</option>
+                    <option value="大学本科">大学本科</option>
+                    <option value="大学专科">大学专科</option>
+                    <option value="中专技校">中专技校</option>
+                    <option value="中等专科">中等专科</option>
+                    <option value="职业高中">职业高中</option>
+                    <option value="技工学校">技工学校</option>
+                    <option value="普通高中">普通高中</option>
+                    <option value="初中">初中</option>
+                    <option value="小学">小学</option>
+                    <option value="其他">其他</option>
+                </select>-->
+            </li>
+            <li>政治面貌：<span id="con8"></span>
+                <!--<select name="" id="con8">
+                    <option value="中共党员">中共党员</option>
+                    <option value="中共预备党员">中共预备党员</option>
+                    <option value="共青团员">共青团员</option>
+                    <option value="民革会员">民革会员</option>
+                    <option value="民盟盟员">民盟盟员</option>
+                    <option value="民建会员">民建会员</option>
+                    <option value="民进会员">民进会员</option>
+                    <option value="农民工党员">农民工党员</option>
+                    <option value="致公党党员">致公党党员</option>
+                    <option value="九宫学社社员">九宫学社社员</option>
+                    <option value="台盟盟员">台盟盟员</option>
+                    <option value="无党派民主人士">无党派民主人士</option>
+                    <option value="群众">群众</option>
+                </select>-->
+            </li>
+            <li>技术特长：<span id="con9"></span>
+                <!--<select name="" id="con9">
+                    <option value="种植">种植</option>
+                    <option value="养殖">养殖</option>
+                    <option value="林果">林果</option>
+                    <option value="服务">服务</option>
+                </select>-->
+            </li>
+            <li>开始时间：<span id="con10"></span></li>
+            <li>结束时间：<span id="con11"></span></li>
+            <a class="update_btn" style="display: none;">修改</a>
+        </ul>
+    </form>
+</section>
+<div class="pagination"></div>
+<script src="../js/config.js"></script>
+<script src="../js/dd.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script>
+    dd.ready(function(){
+        /*截取地址栏参数*/
+        var params=(function(){
+            var search=location.search;	//获取location的search属性，保存在search中
+            var params={};		//创建空对象params
+            if(search!=""){		//如果search不是空字符串
+                search.slice(1).split("&").forEach(	//?username=zhangdong&pwd=123456;//search去开头?，按&切割为数组，forEach
+                    function(val){
+                        var arr=val.split("=");		//将当前元素值按=切割，保存在arr中
+                        params[arr[0]]=arr[1];		//向params中添加一个元素,属性名为arr[0],值为arr[1]
+                    }
+                );
+            }
+            return params;		//返回params
+        })();
+        var url=config.url;
+        var object=localStorage.getItem("objects");
+        var item=JSON.parse(object);
+        var helpNumber=item.cadreNum;
+        var index=params.index;
+        var arr=[];
+        if(params.isUpdate==1){
+            $(".update_btn").show();
+        }else{
+            $(".update_btn").hide();
+        }
+        $.ajax({
+            url: url+"/village/four",
+            data: {"helpNumber": helpNumber},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    var datas=data.data;
+                    for(var i=0;i<datas.first.length;i++){
+                        arr.push(datas.first[i])
+                    }
+                    for(var i=0;i<datas.leader.length;i++){
+                        arr.push(datas.leader[i])
+                    }
+                    for(var i=0;i<datas.fuLeader.length;i++){
+                        arr.push(datas.fuLeader[i])
+                    }
+                    for(var i=0;i<datas.fufirst.length;i++){
+                        arr.push(datas.fufirst[i])
+                    }
+                    for(var i=0;i<datas.team.length;i++){
+                        arr.push(datas.team[i])
+                    }
+                    showDetails(index,arr)
+                }
+            }
+        })
+        function showDetails(index,data){
+            $("#con1").text(data[index].AAB002);
+            $("#con2").text(data[index].AAP001);
+            $("#con3").text(data[index].AAK888);
+            $("#con4").text(data[index].AAR012);
+            $("#con5").text(data[index].AAB003);
+            $("#con6").text(data[index].AAB004);
+            $("#con7").text(data[index].AAK036);
+            $("#con8").text(data[index].AAK033);
+            $("#con9").text(data[index].AAK037);
+            $("#con10").text(data[index].AAR020);
+            $("#con11").text(data[index].AAR021);
+        }
+        setTimeout(function(){
+            $(".update_btn").click(function(){
+                window.location.href="villBasicInfoDetailsUpdate.html?index="+index;
+            })
+        },1000)
+
+
+    })
+</script>
+</body>
+</html>

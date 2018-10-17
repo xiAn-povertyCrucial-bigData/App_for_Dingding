@@ -1,0 +1,111 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>个人信息中心</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+	<link rel="stylesheet" href="../css/font-awesome.min.css" />
+	<link rel="stylesheet" href="../css/personInfo.css" />
+	<script type="text/javascript" src="../js/common.js" ></script>
+	<script type="text/javascript" src="../js/dd.js"></script>
+</head>
+<body>
+	<!--通知提醒框-->
+	<!--<div id="noticeBox" class="noticeBox">
+		您拜访帮扶对象的周期一般是3天，这次怎么4天了还没有去拜访呢！
+	</div>-->
+	<!--通知提醒关闭框-->
+	<div id="noticeCloseBox" class="noticeCloseBox"></div>
+	<!--个人信息背景-->
+	<div class="backImage">
+		<div style="width: 100%">
+			<div class="povNotice">
+				<i class="remindIcon fa fa-1"></i>
+				<i id="dellIcon" class="dellIcon fa fa-2x fa-bell-o"></i>
+			</div>
+			<!--<div class="perHeadDiv">
+				<img class="perHdImg" src="../img/perHdImg.jpg">
+				<p>王双全</p>
+			</div>-->
+		</div>
+	</div>
+	<div class="perInfo">
+		<p>姓名：<span id="worker"></span></p>
+		<p>工作单位：<span id="workPlace"></span></p>
+		<p>职务：<span id="works"></span></p>
+	</div>
+	<a href="aPovDyna.html">
+		<div class="myPovCircle">
+			<i class="gradIcon fa fa-2x fa-yelp" aria-hidden="true"></i>
+			<span>我的扶贫动态</span>
+		</div>
+	</a>
+	<!--<a href="mySubmit.html" style="margin-top: 14px;">
+		<div class="myPovCircle">
+			<i class="gradIcon fa fa-2x fa-yelp" aria-hidden="true"></i>
+			<span>我提交的</span>
+		</div>
+	</a>-->
+	<!--脚底导航页-->
+	<footer>
+		<ul class="nav clearfix">
+			<li id="li1"><i class="ColoriconG fa fa-2x fa-home" aria-hidden="true"></i><br/><span class="ColoriconG">首页</span></li>
+			<li id="li2"><i class="ColoriconG fa fa-2x fa-yelp" aria-hidden="true"></i><br/><span class="ColoriconG">帮扶圈</span></li>
+			<!--<li id="li3"><i class="ColoriconG fa fa-2x fa-star" aria-hidden="true"></i><br/><span class="ColoriconG">特色</span></li>-->
+			<li id="li4"><i class="Coloricon fa-2x fa fa-user" aria-hidden="true"></i><i class="pointIcon fa"></i><br/><span class="Coloricon">我的</span></li>
+		</ul>
+	</footer>
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/idangerous.swiper.min.js" ></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/new-swiper.js" ></script>
+<script type="text/javascript" src="../js/noticeInfo.js" ></script>
+<script src="../js/config.js"></script>
+<script>
+    $("#li1").click(function(){window.location.href="../index.html";});
+    $("#li2").click(function(){window.location.href="allPovDyna.html";});
+    $("#li3").click(function(){window.location.href="feature.html";});
+    $("#li4").click(function(){window.location.href="personInfo.html";});
+</script>
+<script>
+    dd.ready(function(){
+		var url=config.url;
+        var object=localStorage.getItem("objects");
+        var item=JSON.parse(object);
+        var helpNumber=item.cadreNum;
+		$.ajax({
+			url: url+"/helpUser/detail",
+			data: {"helpNumber": helpNumber},
+			method: "post",
+			dataType: "json",
+			success: function (data) {
+				if (data.code == 2000) {
+					$("#worker").text(data.data.aab002);
+					$("#workPlace").text(data.data.aap001);
+					$("#works").text(data.data.aaf031);
+					if(data.data.aak031=="是"){
+						$("#works").text("队长");
+					}else if(data.data.aak031=="否"){
+						if(data.data.aak032=="是"){
+							$("#works").text("第一书记");
+						}else if(data.data.aak032=="否"){
+							if(data.data.aak039=="是"){
+								$("#works").text("驻村队员");
+							}else if(data.data.aak039=="否"){
+								$("#works").text("帮扶干部");
+							}
+						}
+					}
+				}
+			}
+		})
+	})
+</script>
+</body>
+</html>

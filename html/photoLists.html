@@ -1,0 +1,141 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>图片展示</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+    <script type="text/javascript" src="../js/config.js" ></script>
+</head>
+<style>
+    .grids{
+        padding:5% 5%;
+    }
+    .grids li{
+        width:45%;
+        height:36px;
+        float:left;
+        border-radius: 7px;
+        line-height: 36px;
+        text-align: center;
+        border:1px solid #ccc;
+        margin-right:10%;
+        box-sizing: border-box;
+        margin-bottom:3%;
+    }
+    .grids li:nth-child(2n){
+        margin-right:0;
+    }
+    .pictureBox .title{
+        width:100%;
+        height:36px;
+        line-height: 36px;
+        text-align: center;
+        background: #fff;
+        font-weight:700;
+    }
+    .fourPicture span{
+        display: block;
+        width:100%;
+        height:24px;
+        line-height: 24px;
+        background: rgba(0,0,0,0.3);
+        color:#fff;
+        position:absolute;bottom:30px;left:0;
+    }
+    .fourPicture li{
+        width:100%;
+        height: 100%;
+    }
+    .fourPicture li img{
+        width:100%;
+        height:100%;
+    }
+</style>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <div class="personContent">
+        <div class="pictureBox">
+            <div class="title"></div>
+            <ul class="clearfix iconBottom fourPicture">
+                <!--<li><img src="../img/book1.jpg" alt=""></li>
+                <li><img src="../img/book1.jpg" alt=""></li>
+                <li><img src="../img/book1.jpg" alt=""></li>
+                <li><img src="../img/book1.jpg" alt=""></li>
+                <li><img src="../img/book1.jpg" alt=""></li>-->
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/idangerous.swiper.min.js" ></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/new-swiper.js" ></script>
+<script type="text/javascript" src="../js/dd.js" ></script>
+
+<script>
+    dd.ready(function(){
+        /*截取地址栏参数*/
+        var params=(function(){
+            var search=location.search;	//获取location的search属性，保存在search中
+            var params={};		//创建空对象params
+            if(search!=""){		//如果search不是空字符串
+                search.slice(1).split("&").forEach(	//?username=zhangdong&pwd=123456;//search去开头?，按&切割为数组，forEach
+                    function(val){
+                        var arr=val.split("=");		//将当前元素值按=切割，保存在arr中
+                        params[arr[0]]=arr[1];		//向params中添加一个元素,属性名为arr[0],值为arr[1]
+                    }
+                );
+            }
+            return params;		//返回params
+        })();
+        var type=decodeURI(params.type);
+        var type2=decodeURI(params.type2);
+        var txt=decodeURI(params.txt);
+        $(".title").text(txt);
+        var url=config.url;
+        var object=localStorage.getItem("object");
+        var item=JSON.parse(object);
+        var povertyNumber=item.objnumber;
+        var helpNumber=item.cadnumber;
+        var box1=$(".fourPicture");
+        $.ajax({
+            "url":url+"/evidence/myEvidence",
+            data:{"aac001":povertyNumber,"aak110":helpNumber,"type":type},
+            method:"post",
+            dataType:"json",
+            success:function(data){
+                if(data.code==2000){
+                    for(var i=0;i<data.data.length;i++){
+                        if(data.data[i].IMAGE_TYPE==type2){
+                            imgList(box1,data.data[i])
+                        }
+                    }
+                }
+            }
+        })
+        function imgList(obj,data){
+            obj.empty();
+            var str = "";
+            for(var i=0;i<data.ImgAddress.length;i++){
+                str += `
+                    <li><img src="${data.ImgAddress[i]}" alt=""></li>
+                `;
+            }
+            obj.html(function(i,value){
+                return value+str;
+            })
+        }
+    })
+</script>
+</body>
+</html>

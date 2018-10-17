@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--易地搬迁-->
+<div class="gird" style="position: absolute;top:0;left:0;width:100%;display: none;">
+    <li><strong>易地搬迁</strong></li>
+    <li>区县名称：<select name="" id="" class="districtName"><option value="请选择">请选择</option><option value="国际港务区">国际港务区</option><option value="蓝田县">蓝田县</option><option value="灞桥区">灞桥区</option><option value="临潼区">临潼区</option><option value="周至县">周至县</option><option value="鄠邑区">鄠邑区</option><option value="长安区">长安区</option><option value="高陵区">高陵区</option><option value="沣东新城">沣东新城</option><option value="秦汉新城">秦汉新城</option><option value="泾河新城">泾河新城</option><option value="空港新城">空港新城</option><option value="沣西新城">沣西新城</option></select></li>
+    <li>镇街名称：<select name="" id="" class="townName"><option value="请选择">请选择</option></select></li>
+    <li>行政村名称：<select name="" id="" class="villageName"><option value="请选择">请选择</option></select></li>
+    <li>户主姓名：<select name="" id="" class="nameSelect"></select></li>
+    <li>户主身份证号码：<select name="" id="" class="idSelect"></select></li>
+    <li>是否集中安置：<input type="radio" value="是" name="sixthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="sixthRadio"/><label for="">否</label></li>
+    <li>是否分散安置：<input type="radio" value="是" name="seventhRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="seventhRadio"/><label for="">否</label></li>
+    <li>是否开工	：<input type="radio" value="是" name="firstRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="firstRadio"/><label for="">否</label></li>
+    <li>开工时间	：<input type="date" value=""/></li>
+    <li>是否竣工：<input type="radio" value="是" name="secondRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="secondRadio"/><label for="">否</label></li>
+    <li>竣工时间：<input type="date" value=""/></li>
+    <li>是否验收：<input type="radio" value="是" name="thirdRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="thirdRadio"/><label for="">否</label></li>
+    <li>验收时间：<input type="date" value=""/></li>
+    <li>是否交钥匙：<input type="radio" value="是" name="forthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="forthRadio"/><label for="">否</label></li>
+    <li>交钥匙时间：<input type="date" value=""/></li>
+    <li>是否入住：<input type="radio" value="是" name="fifthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="fifthRadio"/><label for="">否</label></li>
+    <li>入住时间：<input type="date" value=""/></li>
+    <li>住房面积(㎡)：<input type="text" value=""/></li>
+    <li>建房补助(%)：<input type="text" value=""/></li>
+    <li>个人自筹(%)：<input type="text" value=""/></li>
+    <li>备注：<input type="text" value=""/></li>
+    <a class="add_btn submit">添加</a>
+</div>
+
+<input type=\"hidden\" value=\"" +doudiData[i].districtName+ "\" class=\"districtName\"/><input type=\"hidden\" value=\"" +doudiData[i].townName+ "\" class=\"townName\"/><input type=\"hidden\" value=\"" +doudiData[i].villageName+ "\" class=\"villageName\"/><input type=\"hidden\" value=\"" +doudiData[i].startBefore+ "\" class=\"startBefore\"/><input type=\"hidden\" value=\"" +doudiData[i].construction+ "\" class=\"construction\"/><input type=\"hidden\" value=\"" +doudiData[i].afterCompletion+ "\" class=\"afterCompletion\"/><input type=\"hidden\" value=\"" +doudiData[i].afterCheckin+ "\" class=\"afterCheckin\"/><input type=\"hidden\" value=\"" +doudiData[i].zoneYear+ "\" class=\"zoneYear\"/>
+
+
+
+
+<!--危房改造-->
+<div class="gird" style="position: absolute;top:0;left:0;width:100%;display: none;">
+    <li><strong>危房改造</strong></li>
+    <li>区县名称：<select name="" id="" class="districtName"><option value="请选择">请选择</option><option value="国际港务区">国际港务区</option><option value="蓝田县">蓝田县</option><option value="灞桥区">灞桥区</option><option value="临潼区">临潼区</option><option value="周至县">周至县</option><option value="鄠邑区">鄠邑区</option><option value="长安区">长安区</option><option value="高陵区">高陵区</option><option value="沣东新城">沣东新城</option><option value="秦汉新城">秦汉新城</option><option value="泾河新城">泾河新城</option><option value="空港新城">空港新城</option><option value="沣西新城">沣西新城</option></select></li>
+    <li>镇街名称：<select name="" id="" class="townName"><option value="请选择">请选择</option></select></li>
+    <li>行政村名称：<select name="" id="" class="villageName"><option value="请选择">请选择</option></select></li>
+    <li>户主姓名：<select name="" id="" class="nameSelect"></select></li>
+    <li>户主身份证号码：<select name="" id="" class="idSelect"></select></li>
+    <li>是否开工	：<input type="radio" value="是" name="firstRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="firstRadio"/><label for="">否</label></li>
+    <li>开工时间	：<input type="date" value=""/></li>
+    <li>是否竣工：<input type="radio" value="是" name="secondRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="secondRadio"/><label for="">否</label></li>
+    <li>竣工时间：<input type="date" value=""/></li>
+    <li>是否验收：<input type="radio" value="是" name="thirdRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="thirdRadio"/><label for="">否</label></li>
+    <li>验收时间：<input type="date" value=""/></li>
+    <li>是否入住：<input type="radio" value="是" name="fifthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="fifthRadio"/><label for="">否</label></li>
+    <li>入住时间：<input type="date" value=""/></li>
+    <li>住房面积(㎡)：<input type="text" value=""/></li>
+    <li>建房补助(%)：<input type="text" value=""/></li>
+    <li>个人自筹(%)：<input type="text" value=""/></li>
+    <li>危房等级：<input type="radio" value="C级" name="sixthRadio"/><label for="" style="margin-right:14px;">C级</label><input type="radio" value="D级" name="sixthRadio"/><label for="">D级</label></li>
+    <a class="add_btn submit">添加</a>
+</div>
+
+<input type=\"hidden\" value=\"" +doudiData[i].districtName+ "\" class=\"districtName\"/><input type=\"hidden\" value=\"" +doudiData[i].townName+ "\" class=\"townName\"/><input type=\"hidden\" value=\"" +doudiData[i].villageName+ "\" class=\"villageName\"/><input type=\"hidden\" value=\"" +doudiData[i].startBefore+ "\" class=\"startBefore\"/><input type=\"hidden\" value=\"" +doudiData[i].construction+ "\" class=\"construction\"/><input type=\"hidden\" value=\"" +doudiData[i].afterCompletion+ "\" class=\"afterCompletion\"/><input type=\"hidden\" value=\"" +doudiData[i].afterCheckin+ "\" class=\"afterCheckin\"/><input type=\"hidden\" value=\"" +doudiData[i].zoneYear+ "\" class=\"zoneYear\"/>
+
+
+<!--金融扶贫-->
+<div class="gird" style="position: absolute;top:0;left:0;width:100%;display: none;">
+    <li><strong>金融扶贫</strong></li>
+    <li>区县名称：<select name="" id="" class="districtName"><option value="请选择">请选择</option><option value="国际港务区">国际港务区</option><option value="蓝田县">蓝田县</option><option value="灞桥区">灞桥区</option><option value="临潼区">临潼区</option><option value="周至县">周至县</option><option value="鄠邑区">鄠邑区</option><option value="长安区">长安区</option><option value="高陵区">高陵区</option><option value="沣东新城">沣东新城</option><option value="秦汉新城">秦汉新城</option><option value="泾河新城">泾河新城</option><option value="空港新城">空港新城</option><option value="沣西新城">沣西新城</option></select></li>
+    <li>镇街名称：<select name="" id="" class="townName"><option value="请选择">请选择</option></select></li>
+    <li>行政村名称：<select name="" id="" class="villageName"><option value="请选择">请选择</option></select></li>
+    <li>贷款人姓名：<select name="" id="" class="nameSelect"></select></li>
+    <li>身份证号码：<select name="" id="" class="idSelect"></select></li>
+    <li>贷款银行详细名称	：<input type="text" value=""/></li>
+    <li>贷款金额(元)	：<input type="text" value=""/></li>
+    <li>借款日：<input type="date" value=""/></li>
+    <li>到期日：<input type="date" value=""/></li>
+    <li>借款用途：<select name="" id="" class="chanyeType"><option value="第一产业">第一产业</option><option value="第二产业">第二产业</option><option value="第三产业">第三产业</option></select></li>
+    <li>是否购买贷款保证保险：<input type="radio" value="是" name="forthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="forthRadio"/><label for="">否</label></li>
+    <li>年利率(%)：<input type="text" value=""/></li>
+    <li>贴息利率(%)：<input type="text" value=""/></li>
+    <li>应贴息金额(元)：<input type="text" value=""/></li>
+    <li>是否参加过信用等级评定：<input type="radio" value="是" name="fifthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="fifthRadio"/><label for="">否</label></li>
+    <a class="add_btn submit">添加</a>
+</div>
+
+<input type=\"hidden\" value=\"" +doudiData[i].districtName+ "\" class=\"districtName\"/><input type=\"hidden\" value=\"" +doudiData[i].townName+ "\" class=\"townName\"/><input type=\"hidden\" value=\"" +doudiData[i].villageName+ "\" class=\"villageName\"/><input type=\"hidden\" value=\"" +doudiData[i].yearZone+ "\" class=\"yearZone\"/>
+
+
+
+<!--教育扶贫-->
+<div class="gird" style="position: absolute;top:0;left:0;width:100%;display: none;">
+    <li><strong>教育扶贫</strong></li>
+    <li>区县名称：<select name="" id="" class="districtName"><option value="请选择">请选择</option><option value="国际港务区">国际港务区</option><option value="蓝田县">蓝田县</option><option value="灞桥区">灞桥区</option><option value="临潼区">临潼区</option><option value="周至县">周至县</option><option value="鄠邑区">鄠邑区</option><option value="长安区">长安区</option><option value="高陵区">高陵区</option><option value="沣东新城">沣东新城</option><option value="秦汉新城">秦汉新城</option><option value="泾河新城">泾河新城</option><option value="空港新城">空港新城</option><option value="沣西新城">沣西新城</option></select></li>
+    <li>镇街名称：<select name="" id="" class="townName"><option value="请选择">请选择</option></select></li>
+    <li>行政村名称：<select name="" id="" class="villageName"><option value="请选择">请选择</option></select></li>
+    <li>姓名：<select name="" id="" class="nameSelect"></select></li>
+    <li>性别：<input type="radio" value="男" name="sexRadio"/><label for="" style="margin-right:14px;">男</label><input type="radio" value="女" name="sexRadio"/><label for="">女</label></li>
+    <li>身份证号码：<select name="" id="" class="idSelect"></select></li>
+    <li>义务教育阶段是否辍学：<input type="radio" value="是" name="firstRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="firstRadio"/><label for="">否</label></li>
+    <li>就读年级：<select name="" id="" class="classLevel"><option value="学前">学前</option><option value="一年级">一年级</option><option value="二年级">二年级</option><option value="三年级">三年级</option><option value="四年级">四年级</option><option value="五年级">五年级</option><option value="六年级">六年级</option><option value="七年级">七年级</option><option value="八年级">八年级</option><option value="九年级">九年级</option><option value="高中一年级">高中一年级</option><option value="高中二年级">高中二年级</option><option value="高中三年级">高中三年级</option><option value="中职一年级">中职一年级</option><option value="中职二年级">中职二年级</option><option value="中职三年级">中职三年级</option><option value="高职一年级">高职一年级</option><option value="高职二年级">高职二年级</option><option value="高职三年级">高职三年级</option><option value="大专及以上">大专及以上</option></select></li>
+    <li>就读学校名称：<input type="text" value=""/></li>
+    <li>是否送教(特教情况)：<input type="radio" value="是" name="fifteenRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="fifteenRadio"/><label for="">否</label></li>
+    <li>是否跟班就读：<input type="radio" value="是" name="thirdRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="thirdRadio"/><label for="">否</label></li>
+    <li>是否特教学校：<input type="radio" value="是" name="forthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="forthRadio"/><label for="">否</label></li>
+    <li>是否享受学前家庭经济困难幼儿生活补助：<input type="radio" value="是" name="fifthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="fifthRadio"/><label for="">否</label></li>
+    <li>是否享受义务教育家庭经济困难寄宿生生活补助：<input type="radio" value="是" name="sixthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="sixthRadio"/><label for="">否</label></li>
+    <li>是否享受普通高中国家助学金：<input type="radio" value="是" name="seventhRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="seventhRadio"/><label for="">否</label></li>
+    <li>是否享受中等职业国家助学金：<input type="radio" value="是" name=eigthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="eigthRadio"/><label for="">否</label></li>
+    <li>是否享受中职国家免学费：<input type="radio" value="是" name=ninthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="ninthRadio"/><label for="">否</label></li>
+    <li>是否享受中职扶贫助学补助：<input type="radio" value="是" name=eleventhRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="eleventhRadio"/><label for="">否</label></li>
+    <li>是否享受高职及以上扶贫助学政策：<input type="radio" value="是" name=twelvethRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="twelvethRadio"/><label for="">否</label></li>
+    <li>是否享受贫困家庭营养改善计划：<input type="radio" value="是" name=thirteenthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="thirteenthRadio"/><label for="">否</label></li>
+    <li>是否享受免保教费或学费：<input type="radio" value="是" name=forteenthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="forteenthRadio"/><label for="">否</label></li>
+    <a class="add_btn submit">添加</a>
+</div>
+
+<input type=\"hidden\" value=\"" +doudiData[i].districtName+ "\" class=\"districtName\"/><input type=\"hidden\" value=\"" +doudiData[i].townName+ "\" class=\"townName\"/><input type=\"hidden\" value=\"" +doudiData[i].villageName+ "\" class=\"villageName\"/><input type=\"hidden\" value=\"" +doudiData[i].zoneYear+ "\" class=\"zoneYear\"/>
+
+
+<!--健康扶贫-->
+<div class="gird" style="position: absolute;top:0;left:0;width:100%;display: none;">
+    <li><strong>健康扶贫</strong></li>
+    <li>区县名称：<select name="" id="" class="districtName"><option value="请选择">请选择</option><option value="国际港务区">国际港务区</option><option value="蓝田县">蓝田县</option><option value="灞桥区">灞桥区</option><option value="临潼区">临潼区</option><option value="周至县">周至县</option><option value="鄠邑区">鄠邑区</option><option value="长安区">长安区</option><option value="高陵区">高陵区</option><option value="沣东新城">沣东新城</option><option value="秦汉新城">秦汉新城</option><option value="泾河新城">泾河新城</option><option value="空港新城">空港新城</option><option value="沣西新城">沣西新城</option></select></li>
+    <li>镇街名称：<select name="" id="" class="townName"><option value="请选择">请选择</option></select></li>
+    <li>行政村名称：<select name="" id="" class="villageName"><option value="请选择">请选择</option></select></li>
+    <li>姓名：<select name="" id="" class="nameSelect"></select></li>
+    <li>性别：<input type="radio" value="男" name="sexRadio"/><label for="" style="margin-right:14px;">男</label><input type="radio" value="女" name="sexRadio"/><label for="">女</label></li>
+    <li>身份证号码：<select name="" id="" class="idSelect"></select></li>
+    <li>与户主关系：<select name="" id="" class="classLevel"><option value="户主">户主</option><option value="配偶">配偶</option><option value="之子">之子</option><option value="之女">之女</option><option value="之儿媳">之儿媳</option><option value="之女婿">之女婿</option><option value="之孙子">之孙子</option><option value="之孙女">之孙女</option><option value="之外孙子">之外孙子</option><option value="之外孙女">之外孙女</option><option value="之岳父">之岳父</option><option value="之岳母">之岳母</option><option value="之公公">之公公</option><option value="之婆婆">之婆婆</option><option value="之祖父">之祖父</option><option value="之祖母">之祖母</option><option value="之外祖父">之外祖父</option><option value="之外祖母">之外祖母</option><option value="之父">之父</option><option value="之母">之母</option><option value="其他">其他</option></select></li>
+    <li>户主姓名：<input type="text" value=""/></li>
+    <li>是否参加新农合：<input type="radio" value="是" name="firstRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="firstRadio"/><label for="">否</label></li>
+    <li>是否参加大病保险：<input type="radio" value="是" name="secondRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="secondRadio"/><label for="">否</label></li>
+    <li>是否患有大病：<input type="radio" value="是" name="thirdRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="thirdRadio"/><label for="">否</label></li>
+    <li>是否患有慢性病：<input type="radio" value="是" name="forthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="forthRadio"/><label for="">否</label></li>
+    <li>是否签约：<input type="radio" value="是" name="fifthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="fifthRadio"/><label for="">否</label></li>
+    <li>随访次数：<input type="text" value=""/></li>
+    <a class="add_btn submit">添加</a>
+</div>
+
+<input type=\"hidden\" value=\"" +doudiData[i].districtName+ "\" class=\"districtName\"/><input type=\"hidden\" value=\"" +doudiData[i].townName+ "\" class=\"townName\"/><input type=\"hidden\" value=\"" +doudiData[i].villageName+ "\" class=\"villageName\"/><input type=\"hidden\" value=\"" +doudiData[i].zoneYear+ "\" class=\"zoneYear\"/>
+
+
+<!--兜底保障(民政)-->
+
+<div class="gird" style="position: absolute;top:0;left:0;width:100%;display: none;">
+    <li><strong>兜底保障(民政)</strong></li>
+    <li>区县名称：<select name="" id="" class="districtName"><option value="请选择">请选择</option><option value="国际港务区">国际港务区</option><option value="蓝田县">蓝田县</option><option value="灞桥区">灞桥区</option><option value="临潼区">临潼区</option><option value="周至县">周至县</option><option value="鄠邑区">鄠邑区</option><option value="长安区">长安区</option><option value="高陵区">高陵区</option><option value="沣东新城">沣东新城</option><option value="秦汉新城">秦汉新城</option><option value="泾河新城">泾河新城</option><option value="空港新城">空港新城</option><option value="沣西新城">沣西新城</option></select></li>
+    <li>镇街名称：<select name="" id="" class="townName"><option value="请选择">请选择</option></select></li>
+    <li>行政村名称：<select name="" id="" class="villageName"><option value="请选择">请选择</option></select></li>
+    <li>户主姓名：<select name="" id="" class="nameSelect"></select></li>
+    <li>户主身份证号码：<select name="" id="" class="idSelect"></select></li>
+    <li>是否五保户：<input type="radio" value="是" name="firstRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="firstRadio"/><label for="">否</label></li>
+    <li>供养方式：<input type="radio" value="集中" name="secondRadio"/><label for="" style="margin-right:14px;">集中</label><input type="radio" value="分散" name="secondRadio"/><label for="">分散</label></li>
+    <li>五保金(元/年)：<input type="text" value=""/></li>
+    <li>是否低保户：<input type="radio" value="是" name=thirdRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="thirdRadio"/><label for="">否</label></li>
+    <li>家庭成员姓名：<input type="text" value=""/></li>
+    <li>性别：<input type="radio" value="男" name=forthRadio"/><label for="" style="margin-right:14px;">男</label><input type="radio" value="女" name="forthRadio"/><label for="">女</label></li>
+    <li>与户主关系：<select name="" id="" class="classLevel"><option value="户主">户主</option><option value="配偶">配偶</option><option value="之子">之子</option><option value="之女">之女</option><option value="之儿媳">之儿媳</option><option value="之女婿">之女婿</option><option value="之孙子">之孙子</option><option value="之孙女">之孙女</option><option value="之外孙子">之外孙子</option><option value="之外孙女">之外孙女</option><option value="之岳父">之岳父</option><option value="之岳母">之岳母</option><option value="之公公">之公公</option><option value="之婆婆">之婆婆</option><option value="之祖父">之祖父</option><option value="之祖母">之祖母</option><option value="之外祖父">之外祖父</option><option value="之外祖母">之外祖母</option><option value="之父">之父</option><option value="之母">之母</option><option value="其他">其他</option></select></li>
+    <li>身份证号码：<input type="text" value=""/></li>
+    <li>保障人口：<input type="text" value=""/></li>
+    <li>月人均低保金(元)：<input type="text" value=""/></li>
+    <li>保障类别：<select name="" id="" class="classLevel2"><option value="一档">一档</option><option value="二挡">二挡</option><option value="三挡">三挡</option></select></li>
+    <li>分类施保金(元)：<input type="text" value=""/></li>
+    <li>家庭月低保金总额(元)：<input type="text" value=""/></li>
+    <li>备注：<input type="text" value=""/></li>
+    <a class="add_btn submit">添加</a>
+</div>
+
+<input type=\"hidden\" value=\"" +doudiData[i].districtName+ "\" class=\"districtName\"/><input type=\"hidden\" value=\"" +doudiData[i].townName+ "\" class=\"townName\"/><input type=\"hidden\" value=\"" +doudiData[i].villageName+ "\" class=\"villageName\"/><input type=\"hidden\" value=\"" +doudiData[i].zoneYear+ "\" class=\"zoneYear\"/>
+
+
+<!--兜底保障(残疾)-->
+<div class="gird" style="position: absolute;top:0;left:0;width:100%;display: none;">
+    <li><strong>兜底保障(残疾)</strong></li>
+    <li>区县名称：<select name="" id="" class="districtName"><option value="请选择">请选择</option><option value="国际港务区">国际港务区</option><option value="蓝田县">蓝田县</option><option value="灞桥区">灞桥区</option><option value="临潼区">临潼区</option><option value="周至县">周至县</option><option value="鄠邑区">鄠邑区</option><option value="长安区">长安区</option><option value="高陵区">高陵区</option><option value="沣东新城">沣东新城</option><option value="秦汉新城">秦汉新城</option><option value="泾河新城">泾河新城</option><option value="空港新城">空港新城</option><option value="沣西新城">沣西新城</option></select></li>
+    <li>镇街名称：<select name="" id="" class="townName"><option value="请选择">请选择</option></select></li>
+    <li>行政村名称：<select name="" id="" class="villageName"><option value="请选择">请选择</option></select></li>
+    <li>姓名：<select name="" id="" class="nameSelect"></select></li>
+    <li>身份证号码：<select name="" id="" class="idSelect"></select></li>
+    <li>残疾类别：<select name="" id="" class="classLevel"><option value="听力">听力</option><option value="视力">视力</option><option value="言语">言语</option><option value="肢体">肢体</option><option value="智力">智力</option><option value="精神">精神</option><option value="儿童">儿童</option></select></li>
+    <li>等级：<select name="" id="" class="classLevel2"><option value="一级">一级</option><option value="二级">二级</option><option value="三级">三级</option></select></li>
+    <li>发证日期：<input type="date" value=""/></li>
+    <li>残疾儿童少年康复救助(人次)：<input type="text" value=""/></li>
+    <li>精神残疾康复救助(人次)：<input type="text" value=""/></li>
+    <li>残疾人家庭种养殖业扶助(人次)：<input type="text" value=""/></li>
+    <li>自行助学项目(元/年)：<input type="text" value=""/></li>
+    <li>远程学历教育资助：<input type="text" value=""/></li>
+    <li>残疾人家庭无障碍改造(户)：<input type="text" value=""/></li>
+    <li>备注：<input type="text" value=""/></li>
+    <a class="add_btn submit">添加</a>
+</div>
+
+<input type=\"hidden\" value=\"" +doudiData[i].districtName+ "\" class=\"districtName\"/><input type=\"hidden\" value=\"" +doudiData[i].townName+ "\" class=\"townName\"/><input type=\"hidden\" value=\"" +doudiData[i].villageName+ "\" class=\"villageName\"/><input type=\"hidden\" value=\"" +doudiData[i].zoneYear+ "\" class=\"zoneYear\"/>
+
+
+<!--生态扶贫-->
+<div class="gird" style="position: absolute;top:0;left:0;width:100%;display: none;">
+    <li><strong>生态扶贫</strong></li>
+    <li>区县名称：<select name="" id="" class="districtName"><option value="请选择">请选择</option><option value="国际港务区">国际港务区</option><option value="蓝田县">蓝田县</option><option value="灞桥区">灞桥区</option><option value="临潼区">临潼区</option><option value="周至县">周至县</option><option value="鄠邑区">鄠邑区</option><option value="长安区">长安区</option><option value="高陵区">高陵区</option><option value="沣东新城">沣东新城</option><option value="秦汉新城">秦汉新城</option><option value="泾河新城">泾河新城</option><option value="空港新城">空港新城</option><option value="沣西新城">沣西新城</option></select></li>
+    <li>镇街名称：<select name="" id="" class="townName"><option value="请选择">请选择</option></select></li>
+    <li>行政村名称：<select name="" id="" class="villageName"><option value="请选择">请选择</option></select></li>
+    <li>姓名：<select name="" id="" class="nameSelect"></select></li>
+    <li>身份证号码：<select name="" id="" class="idSelect"></select></li>
+    <li>与户主关系：<select name="" id="" class="classLevel"><option value="户主">户主</option><option value="配偶">配偶</option><option value="之子">之子</option><option value="之女">之女</option><option value="之儿媳">之儿媳</option><option value="之女婿">之女婿</option><option value="之孙子">之孙子</option><option value="之孙女">之孙女</option><option value="之外孙子">之外孙子</option><option value="之外孙女">之外孙女</option><option value="之岳父">之岳父</option><option value="之岳母">之岳母</option><option value="之公公">之公公</option><option value="之婆婆">之婆婆</option><option value="之祖父">之祖父</option><option value="之祖母">之祖母</option><option value="之外祖父">之外祖父</option><option value="之外祖母">之外祖母</option><option value="之父">之父</option><option value="之母">之母</option><option value="其他">其他</option></select></li>
+    <li>户主姓名：<input type="text" value=""/></li>
+    <li>是否退耕还林：<input type="radio" value="是" name="firstRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="firstRadio"/><label for="">否</label></li>
+    <li>退耕还林面积(亩)：<input type="text" value=""/></li>
+    <li>退耕还林补助金(元)：<input type="text" value=""/></li>
+    <li>是否生态林公益补偿：<input type="radio" value="是" name="thirdRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="thirdRadio"/><label for="">否</label></li>
+    <li>生态林公益林面积(亩)：<input type="text" value=""/></li>
+    <li>生态林公益补偿金(元/年)：<input type="text" value=""/></li>
+    <li>护林员就业(元/月)：<input type="text" value=""/></li>
+    <a class="add_btn submit">添加</a>
+</div>
+
+<input type=\"hidden\" value=\"" +doudiData[i].districtName+ "\" class=\"districtName\"/><input type=\"hidden\" value=\"" +doudiData[i].townName+ "\" class=\"townName\"/><input type=\"hidden\" value=\"" +doudiData[i].villageName+ "\" class=\"villageName\"/><input type=\"hidden\" value=\"" +doudiData[i].zoneYear+"\" class=\"zoneYear\"/>
+
+
+<!--就业扶贫-->
+<div class="gird" style="position: absolute;top:0;left:0;width:100%;display: none;">
+    <li><strong>就业扶贫</strong></li>
+    <li>姓名：<select name="" id="" class="nameSelect"></select></li>
+    <li>身份证号码：<select name="" id="" class="idSelect"></select></li>
+    <li>户口所在地：<select name="" id="" class="districtName"><option value="请选择">请选择</option><option value="国际港务区">国际港务区</option><option value="蓝田县">蓝田县</option><option value="灞桥区">灞桥区</option><option value="临潼区">临潼区</option><option value="周至县">周至县</option><option value="鄠邑区">鄠邑区</option><option value="长安区">长安区</option><option value="高陵区">高陵区</option><option value="沣东新城">沣东新城</option><option value="秦汉新城">秦汉新城</option><option value="泾河新城">泾河新城</option><option value="空港新城">空港新城</option><option value="沣西新城">沣西新城</option></select><select name="" id="" class="townName"><option value="请选择">请选择</option></select><select name="" id="" class="villageName"><option value="请选择">请选择</option></select></li>
+    <li>性别：<input type="radio" value="男" name="sexRadio"/><label for="" style="margin-right:14px;">男</label><input type="radio" value="女" name="sexRadio"/><label for="">女</label></li>
+    <li>年龄：<input type="text" value=""/></li>
+    <li>民族：<select name="" id="" class="classLevel">
+        <option value="汉族">汉族</option>
+        <option value="满族">满族</option>
+        <option value="回族">回族</option>
+        <option value="蒙古族">蒙古族</option>
+        <option value="藏族">藏族</option>
+        <option value="维吾尔族">维吾尔族</option>
+        <option value="苗族">苗族</option>
+        <option value="彝族">彝族</option>
+        <option value="壮族">壮族</option>
+        <option value="布依族">布依族</option>
+        <option value="朝鲜族">朝鲜族</option>
+        <option value="侗族">侗族</option>
+        <option value="瑶族">瑶族</option>
+        <option value="白族">白族</option>
+        <option value="土家族">土家族</option>
+        <option value="哈尼族">哈尼族</option>
+        <option value="哈萨克族">哈萨克族</option>
+        <option value="傣族">傣族</option>
+        <option value="黎族">黎族</option>
+        <option value="傈僳族">傈僳族</option>
+        <option value="佤族">佤族</option>
+        <option value="畲族">畲族</option>
+        <option value="高山族">高山族</option>
+        <option value="拉祜族">拉祜族</option>
+        <option value="水族">水族</option>
+        <option value="东乡族">东乡族</option>
+        <option value="纳西族">纳西族</option>
+        <option value="景颇族">景颇族</option>
+        <option value="柯尔克孜族">柯尔克孜族</option>
+        <option value="土族">土族</option>
+        <option value="达斡尔族">达斡尔族</option>
+        <option value="仫佬族">仫佬族</option>
+        <option value="羌族">羌族</option>
+        <option value="布朗族">布朗族</option>
+        <option value="撒拉族">撒拉族</option>
+        <option value="毛南族">毛南族</option>
+        <option value="仡佬族">仡佬族</option>
+        <option value="锡伯族">锡伯族</option>
+        <option value="阿昌族">阿昌族</option>
+        <option value="普米族">普米族</option>
+        <option value="塔吉克族">塔吉克族</option>
+        <option value="怒族">怒族</option>
+        <option value="乌孜别克族">乌孜别克族</option>
+        <option value="俄罗斯族">俄罗斯族</option>
+        <option value="鄂温克族">鄂温克族</option>
+        <option value="德昂族">德昂族</option>
+        <option value="保安族">保安族</option>
+        <option value="裕固族">裕固族</option>
+        <option value="京族">京族</option>
+        <option value="塔塔儿族">塔塔儿族</option>
+        <option value="独龙族">独龙族</option>
+        <option value="鄂伦春族">鄂伦春族</option>
+        <option value="赫哲族">赫哲族</option>
+        <option value="门巴族">门巴族</option>
+        <option value="珞巴族">珞巴族</option>
+        <option value="基诺族">基诺族</option>
+        <option value="其他">其他</option>
+    </select>
+    </li>
+    <li>政治面貌：<select name="" id="" class="classLevel2">
+        <option value="中共党员">中共党员</option>
+        <option value="中共预备党员">中共预备党员</option>
+        <option value="共青团员">共青团员</option>
+        <option value="民革会员">民革会员</option>
+        <option value="民盟盟员">民盟盟员</option>
+        <option value="民建会员">民建会员</option>
+        <option value="民进会员">民进会员</option>
+        <option value="农工党党员">农工党党员</option>
+        <option value="致公党党员">致公党党员</option>
+        <option value="九三学社社员">九三学社社员</option>
+        <option value="台盟盟员">台盟盟员</option>
+        <option value="无党派民主人士">无党派民主人士</option>
+        <option value="群众">群众</option>
+    </select></li>
+    <li>文化程度：<select name="" id="" class="classLevel3">
+        <option value="文盲或半文盲">文盲或半文盲</option>
+        <option value="学龄前儿童">学龄前儿童</option>
+        <option value="小学">小学</option>
+        <option value="初中">初中</option>
+        <option value="高中">高中</option>
+        <option value="大专及以上">大专及以上</option>
+    </select></li>
+    <li>健康状况：<select name="" id="" class="classLevel4">
+        <option value="健康">健康</option>
+        <option value="长期慢性病">长期慢性病</option>
+        <option value="大病">大病</option>
+        <option value="残疾">残疾</option>
+    </select></li>
+    <li>劳动技能：<select name="" id="" class="classLevel5">
+        <option value="普通劳动力">普通劳动力</option>
+        <option value="技能劳动力">技能劳动力</option>
+        <option value="无劳动力">无劳动力</option>
+        <option value="丧失劳动力">丧失劳动力</option>
+    </select></li>
+    <li>户主姓名：<input type="text" value=""/></li>
+    <li>主要致贫原因：<select name="" id="" class="classLevel6">
+        <option value="因病">因病</option>
+        <option value="因学">因学</option>
+        <option value="因灾">因灾</option>
+        <option value="缺水">缺水</option>
+        <option value="因残">因残</option>
+        <option value="缺资金">缺资金</option>
+        <option value="缺技术">缺技术</option>
+        <option value="缺劳力">缺劳力</option>
+        <option value="缺土地">缺土地</option>
+        <option value="交通条件落后">交通条件落后</option>
+        <option value="自身发展动力不足">自身发展动力不足</option>
+        <option value="其他">其他</option>
+    </select></li>
+    <li>联系电话：<input type="text" value=""/></li>
+    <li>是否在校生：<input type="radio" value="是" name="firstRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="firstRadio"/><label for="">否</label></li>
+    <li>就业形式：<select name="" id="" class="classLevel7">
+        <option value="单位就业">单位就业</option>
+        <option value="扶贫公益专岗">扶贫公益专岗</option>
+        <option value="特设公益性岗位">特设公益性岗位</option>
+        <option value="公益性岗位安置">公益性岗位安置</option>
+        <option value="灵活就业">灵活就业</option>
+        <option value="涉农就业">涉农就业</option>
+    </select></li>
+    <li>就业地域：<select name="" id="" class="classLevel8">
+        <option value="陕西省">陕西省</option>
+    </select></li>
+    <li>就业地：<input type="text" value=""/></li>
+    <li>就业工种：<select name="" id="" class="classLevel9">
+
+    </select></li>
+    <li>就业时间：<input type="date" value=""/></li>
+    <li>是否签订劳动合同或协议：<input type="radio" value="是" name="secondRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="secondRadio"/><label for="">否</label></li>
+    <li>是否参加社会保险：<input type="radio" value="是" name="secondRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="secondRadio"/><label for="">否</label></li>
+    <li>月均薪资(元)：<input type="text" value=""/></li>
+    <li>岗位类型：<select name="" id="" class="classLevel10">
+        <option value="公益性岗位">公益性岗位</option>
+        <option value="公益专岗">公益专岗</option>
+        <option value="特设专岗">特设专岗</option>
+    </select></li>
+    <li>公益性岗位安置地址(市/县/镇/村)：<input type="text" value=""/></li>
+    <li>公益性岗位安置单位名称：<input type="text" value=""/></li>
+    <li>安置时间：<input type="date" value=""/></li>
+    <li>岗位名称：<input type="text" value=""/></li>
+    <li>是否参加就业培训：<input type="radio" value="是" name="thirdRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="thirdRadio"/><label for="">否</label></li>
+    <li>培训类型：<select name="" id="" class="classLevel11">
+        <option value="养殖">养殖</option>
+        <option value="种植">种植</option>
+        <option value="餐饮业">餐饮业</option>
+        <option value="家政服务">家政服务</option>
+        <option value="建筑服务">建筑服务</option>
+        <option value="制造业">制造业</option>
+        <option value="创业">创业</option>
+        <option value="实用技术">实用技术</option>
+        <option value="其他">其他</option>
+    </select></li>
+    <li>培训开始时间：<input type="date" value=""/></li>
+    <li>培训截止时间：<input type="date" value=""/></li>
+    <li>培训类别：<select name="" id="" class="classLevel12">
+        <option value="就业技能培训">就业技能培训</option>
+        <option value="两后生培训">两后生培训</option>
+        <option value="劳务品牌培训">劳务品牌培训</option>
+        <option value="春潮行动">春潮行动</option>
+        <option value="岗位技能提升培训">建筑服务</option>
+    </select></li>
+    <li>取得证书：<input type="text" value=""/></li>
+    <li>培训补贴(元)：<input type="text" value=""/></li>
+    <li>是否就业：<input type="radio" value="是" name="forthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="forthRadio"/><label for="">否</label></li>
+    <li>创业时间：<input type="date" value=""/></li>
+    <li>是否参加创业培训：<input type="radio" value="是" name="fifthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="fifthRadio"/><label for="">否</label></li>
+    <li>创业类型：<input type="radio" value="自主创业" name="sixthRadio"/><label for="" style="margin-right:14px;">自主创业</label><input type="radio" value="回乡创业" name="sixthRadio"/><label for="">回乡创业</label></li>
+    <li>企业或实体地址(省/市/县/乡)：<input type="text" value=""/></li>
+    <li>企业或实体名称：<input type="text" value=""/></li>
+    <li>产业类别：<select name="" id="" class="classLevel13">
+        <option value="第一产业">第一产业</option>
+        <option value="第二产业">第二产业</option>
+        <option value="第三产业">第三产业</option>
+    </select></li>
+    <li>是否享受小额担保贷款：<input type="radio" value="是" name="seventhRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="seventhRadio"/><label for="">否</label></li>
+    <li>贷款金额(万元)：<input type="text" value=""/></li>
+    <li>吸纳劳动力人数：<input type="text" value=""/></li>
+    <li>是否在工商部门注册登记：<input type="radio" value="是" name="eighthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="eighthRadio"/><label for="">否</label></li>
+    <li>是否有就业愿望：<input type="radio" value="是" name="ninthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="ninthRadio"/><label for="">否</label></li>
+    <li>就业意向地(省/市/县)：<input type="text" value=""/></li>
+    <li>期望月薪(元)：<input type="text" value=""/></li>
+    <li>提供就业政策咨询次数(次)：<input type="text" value=""/></li>
+    <li>提供就业信息次数(次)：<input type="text" value=""/></li>
+    <li>提供职业指导与介绍次数(次)：<input type="text" value=""/></li>
+    <li>提供培训次数(次)：<input type="text" value=""/></li>
+    <li>提供创业服务次数(次)：<input type="text" value=""/></li>
+    <li>是否享受职业介绍补贴：<input type="radio" value="是" name="tenthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="tenthRadio"/><label for="">否</label></li>
+    <li>是否享受社会保险补贴：<input type="radio" value="是" name="eleventhRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="eleventhRadio"/><label for="">否</label></li>
+    <li>是否享受岗位补贴：<input type="radio" value="是" name="twelfthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="twelfthRadio"/><label for="">否</label></li>
+    <li>是否享受其他政策扶持：<input type="radio" value="是" name="thirteenthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="thirteenthRadio"/><label for="">否</label></li>
+    <a class="add_btn submit">添加</a>
+</div>
+
+<input type=\"hidden\" value=\""+doudiData[i].zoneYear+"\" class=\"zoneYear\"/>
+
+
+<!--产业扶贫-->
+<div class="gird" style="position: absolute;top:0;left:0;width:100%;display: none;">
+    <li><strong>产业扶贫</strong></li>
+    <li>区县名称：<select name="" id="" class="districtName"><option value="请选择">请选择</option><option value="国际港务区">国际港务区</option><option value="蓝田县">蓝田县</option><option value="灞桥区">灞桥区</option><option value="临潼区">临潼区</option><option value="周至县">周至县</option><option value="鄠邑区">鄠邑区</option><option value="长安区">长安区</option><option value="高陵区">高陵区</option><option value="沣东新城">沣东新城</option><option value="秦汉新城">秦汉新城</option><option value="泾河新城">泾河新城</option><option value="空港新城">空港新城</option><option value="沣西新城">沣西新城</option></select></li>
+    <li>镇街名称：<select name="" id="" class="townName"><option value="请选择">请选择</option></select></li>
+    <li>行政村名称：<select name="" id="" class="villageName"><option value="请选择">请选择</option></select></li>
+    <li>户主姓名：<select name="" id="" class="nameSelect"></select></li>
+    <li>户主身份证号码：<select name="" id="" class="idSelect"></select></li>
+    <li>苗木花卉数量(亩)：<input type="text" value=""/></li>
+    <li>苗木花卉收益(元)：<input type="text" value=""/></li>
+    <li>是否参与乡村旅游：<input type="radio" value="是" name="firstRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="firstRadio"/><label for="">否</label></li>
+    <li>乡村旅游收益(元)：<input type="text" value=""/></li>
+    <li>是否参与电子商务：<input type="radio" value="是" name="secondRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="secondRadio"/><label for="">否</label></li>
+    <li>电子商务收益(元)：<input type="text" value=""/></li>
+    <li>设施瓜菜数量(亩)：<input type="text" value=""/></li>
+    <li>设施瓜菜收益(元)：<input type="text" value=""/></li>
+    <li>猕猴桃数量(亩)：<input type="text" value=""/></li>
+    <li>猕猴桃收益(元)：<input type="text" value=""/></li>
+    <li>奶山羊数量(只)：<input type="text" value=""/></li>
+    <li>奶山羊收益(元)：<input type="text" value=""/></li>
+    <li>中蜂数量(箱)：<input type="text" value=""/></li>
+    <li>中蜂收益(元)：<input type="text" value=""/></li>
+    <li>核桃数量(亩)：<input type="text" value=""/></li>
+    <li>核桃收益(元)：<input type="text" value=""/></li>
+    <li>葡萄数量(亩)：<input type="text" value=""/></li>
+    <li>葡萄收益(元)：<input type="text" value=""/></li>
+    <li>石榴数量(亩)：<input type="text" value=""/></li>
+    <li>石榴收益(元)：<input type="text" value=""/></li>
+    <li>其他项目名称：<select name="" id="" class="classLevel"><option value="种植">种植</option><option value="养殖">养殖</option><option value="光伏发电">光伏发电</option><option value="自主经营">自主经营</option></select></li>
+    <li>其他收益(元)：<input type="text" value=""/></li>
+    <li>是否接收技术培训：<input type="radio" value="是" name="thirdRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="thirdRadio"/><label for="">否</label></li>
+    <li>是否自主发展：<input type="radio" value="是" name="forthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="forthRadio"/><label for="">否</label></li>
+    <li>是否主体带动：<input type="radio" value="是" name="fifthRadio"/><label for="" style="margin-right:14px;">是</label><input type="radio" value="否" name="fifthRadio"/><label for="">否</label></li>
+    <li>主体类别：<select name="" id="" class="classLevel2"><option value="企业">企业</option><option value="合作社">合作社</option><option value="集体经济">集体经济</option><option value="园区">园区</option><option value="家庭农场">家庭农场</option></select></li>
+    <li>主体名称：<input type="text" value=""/></li>
+    <li>资金入股金额(元)：<input type="text" value=""/></li>
+    <li>资金入股收益(元/年)：<input type="text" value=""/></li>
+    <li>土地流转面积(亩)：<input type="text" value=""/></li>
+    <li>土地流转年收益(元/年)：<input type="text" value=""/></li>
+    <li>务工收益(元/月)：<input type="text" value=""/></li>
+    <li>其他收益(元/年)：<input type="text" value=""/></li>
+    <li>产业扶贫总收益(元/年)：<input type="text" value=""/></li>
+    <a class="add_btn submit">添加</a>
+</div>
+
+<input type=\"hidden\" value=\"" +doudiData[i].districtName+ "\" class=\"districtName\"/><input type=\"hidden\" value=\"" +doudiData[i].townName+ "\" class=\"townName\"/><input type=\"hidden\" value=\"" +doudiData[i].villageName+ "\" class=\"villageName\"/>
+
+
+
+<li>工资性收入：<input type="text" placeholder="" id="con1" class="vilidateNum"/></li>
+<li>生产经营性收入：<input type="text" placeholder="" id="con2" class="vilidateNum"/></li>
+<li>财产性收入：<input type="text" placeholder="" id="con3" class="vilidateNum"/></li>
+<li>转移性收入：<input type="text" placeholder="" id="con4" class="vilidateNum" readonly style="background: #f0efee"/></li>
+<li>贫困户家中现役军人(士官或军官)的工资：<input type="text" placeholder="" id="con20" class="vilidateNum" style="width:20%"/></li>
+<li>稳定性的补贴：<input type="text" placeholder="" id="con21" class="vilidateNum"/><br><p style="line-height: 1rem;font-size: 12px;color:skyblue;text-indent:0.6rem;">※ &nbsp;如退耕还林还草补偿款、农业综合补贴等</p></li>
+<li>三年以上的资产性收入：<input type="text" placeholder="" id="con22" class="vilidateNum"/><br><p style="line-height: 1rem;font-size: 12px;color:skyblue;text-indent:0.6rem">※ &nbsp;如土地整治、旅游园区、光伏、设施农业、水利发电、矿产等</p></li>
+<li>离退休金：<input type="text" placeholder="" id="con15" class="vilidateNum"/></li>
+<li>赡养金：<input type="text" placeholder="" id="con16" class="vilidateNum"/></li>
+<li>五保金：<input type="text" placeholder="" id="con7" class="vilidateNum"/></li>
+<li>低保金：<input type="text" placeholder="" id="con6" class="vilidateNum"/></li>
+<li hidden>一年以下低保金：<input type="text" placeholder="" id="con23" class="vilidateNum"/></li>
+<li>高龄补贴：<input type="text" placeholder="" id="con17" class="vilidateNum"/></li>
+<li>长期抚恤金：<input type="text" placeholder="" id="con18" class="vilidateNum"/></li>
+<li>残疾补贴：<input type="text" placeholder="" id="con19" class="vilidateNum"/></li>
+<li>计划生育金：<input type="text" placeholder="" id="con5" class="vilidateNum"/></li>
+<li>其他转移性收入：<input type="text" placeholder="" id="con10" class="vilidateNum"/></li>
+<li>养老金：<input type="text" placeholder="" id="con8" class="vilidateNum"/></li>
+<li>生态补偿金：<input type="text" placeholder="" id="con9" class="vilidateNum"/></li>
+<li>生产经营性支出：<input type="text" placeholder="" id="con12" class="vilidateNum"/></li>
+<li>年收入：<input type="text" placeholder="" id="con11" class="vilidateNum" readonly style="background: #f0efee"/></li>
+<li>年纯收入：<input type="text" placeholder="" id="con13" class="vilidateNum" readonly style="background: #f0efee"/></li>
+<li>年人均纯收入：<input type="text" placeholder="" id="con14" class="vilidateNum" readonly style="background: #f0efee"/></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

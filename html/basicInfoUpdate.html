@@ -1,0 +1,446 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>修改基本信息</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <script type="text/javascript" src="../js/common.js" ></script>
+</head>
+<body>
+<section>
+    <div style="width: 100%;height:0.5rem;background: #f2f6f9;"></div>
+    <div class="color" style="background: #fff;border-bottom: 1px solid #e8e8e8;padding:0 1rem;line-height: 2rem;text-align: center;">
+        <div class="blue" style="color: #9b9b9b;display: inline-block;margin-right: 8px;"><span style="display:inline-block;width:16px;height:10px;background: blue;margin-right: 4px;"></span>待初审</div>
+        <div class="blue" style="color: #9b9b9b;display: inline-block;margin-right: 8px;"><span style="display:inline-block;width:16px;height:10px;background: yellow;margin-right: 4px;"></span>待复审</div>
+        <div class="blue" style="color: #9b9b9b;display: inline-block;"><span style="display:inline-block;width:16px;height:10px;background: red;margin-right: 4px;"></span>待终审</div>
+    </div>
+    <form class="personContent">
+        <ul class="perInfo bgColor">
+            <!--<li>所在县：<input type="text" placeholder="" id="con44" readonly/></li>
+            <li>所在乡：<input type="text" placeholder="" id="con55" readonly/></li>
+            <li>所在村：<input type="text" placeholder="" id="con66" readonly/></li>-->
+            <li hidden>所在组：<input type="text" placeholder="" id="con21" readonly/></li>
+            <li hidden>户主姓名：<input type="text" placeholder="" id="con1" readonly/></li>
+            <!--<li>户主证件类型：<input type="text" placeholder="" id="con2"/></li>-->
+            <li hidden>户主证件号码：<input type="text" placeholder="" id="con2"/></li>
+            <li hidden>家庭人口数：<input type="text" placeholder="" id="con19" readonly class="vilidateNum"/></li>
+            <li>识别标准：<select name="" id="con9">
+                <option value="省定标准">省定标准</option>
+                <option value="国家标准">国家标准</option>
+                <option value="市定标准">市定标准</option>
+            </select>
+            </li>
+            <li>贫困户属性：<select name="" id="con10">
+                <!--<option value="五保户">五保户</option>-->
+                <!--<option value="一般农户">一般农户</option>-->
+                <option value="一般贫困户">一般贫困户</option>
+                <option value="低保贫困户">低保贫困户</option>
+                <option value="五保贫困户">五保贫困户</option>
+                <!--<option value="低保户">低保户</option>-->
+            </select>
+            </li>
+            <li>脱贫状态：<!--<input type="text" placeholder="" id="con11" readonly/>-->
+                <select name="" id="con11" disabled="disabled">
+                    <option value="未脱贫">未脱贫</option>
+                    <option value="返贫">返贫</option>
+                    <option value="已脱贫(享受政策)">已脱贫(享受政策)</option>
+                    <option value="已脱贫(不再享受政策)">已脱贫(不再享受政策)</option>
+                </select>
+            </li>
+            <li>主要致贫原因：<select name="" id="con12">
+                <option value="因残">因残</option>
+                <option value="因学">因学</option>
+                <option value="因灾">因灾</option>
+                <option value="因病">因病</option>
+                <option value="缺水">缺水</option>
+                <option value="缺资金">缺资金</option>
+                <option value="缺技术">缺技术</option>
+                <option value="缺劳力">缺劳力</option>
+                <option value="缺土地">缺土地</option>
+                <option value="自身发展动力不足">自身发展动力不足</option>
+                <option value="交通条件落后">交通条件落后</option>
+                <option value="其他">其他</option>
+            </select></li>
+            <li>其他致贫原因：<select name="" id="con13">
+                <option value="因残">因残</option>
+                <option value="因婚">因婚</option>
+                <option value="因学">因学</option>
+                <option value="因灾">因灾</option>
+                <option value="因病">因病</option>
+                <option value="缺水">缺水</option>
+                <option value="缺资金">缺资金</option>
+                <option value="缺技术">缺技术</option>
+                <option value="缺劳力">缺劳力</option>
+                <option value="缺土地">缺土地</option>
+                <option value="自身发展动力不足">自身发展动力不足</option>
+                <option value="交通条件落后">交通条件落后</option>
+                <option value="其他">其他</option>
+            </select>
+            </li>
+            <li>返贫原因：<select name="" id="con33">
+                <option value="因残">因残</option>
+                <option value="因婚">因婚</option>
+                <option value="因学">因学</option>
+                <option value="因灾">因灾</option>
+                <option value="因病">因病</option>
+                <option value="缺水">缺水</option>
+                <option value="缺资金">缺资金</option>
+                <option value="缺技术">缺技术</option>
+                <option value="缺劳动力">缺劳力</option>
+                <option value="缺土地">缺土地</option>
+                <option value="自身发展动力不足">自身发展动力不足</option>
+                <option value="交通条件落后">交通条件落后</option>
+                <option value="产业扶贫失败">产业扶贫失败</option>
+            </select>
+            </li>
+            <li id="con15">是否军烈属：
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="1" value="是"><label for="" style="color: #9b9b9b;">是</label>
+                </div>
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="1" value="否"><label for="" style="color: #9b9b9b;">否</label>
+                </div>
+            </li>
+            <li hidden>联系电话：<input type="text" placeholder="" id="con3"/></li>
+            <li>开户银行名称：<input type="text" placeholder="" id="con7"/></li>
+            <li>银行卡号：<input type="text" placeholder="" id="con8"/></li>
+            <!--<li>经度：<input type="text" placeholder="" id="con16"/></li>
+            <li>维度：<input type="text" placeholder="" id="con17"/></li>
+            <li>计划脱贫退出年份：<input type="text" placeholder="" id="con161"/></li>
+            <li>牲畜存栏数(头)：<input type="text" placeholder="" id="con171"/></li>-->
+
+            <li hidden>贫困户编号：<input type="text" placeholder="" id="con4"/></li>
+            <li hidden>贫困村名称：<input type="text" placeholder="" id="con5"/></li>
+            <li hidden>分区年度：<input type="text" placeholder="" id="con6"/></li>
+            <li hidden>帮扶需求：<input type="text" placeholder="" id="con14"/></li>
+            <li hidden>是否独生子女户：<div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                <input type="radio" name="2" value="是"><label for="" style="color: #9b9b9b;">是</label>
+            </div>
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="2" value="否"><label for="" style="color: #9b9b9b;">否</label>
+                </div>
+            </li>
+            <li hidden>是否双女户：<div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                <input type="radio" name="3" value="是"><label for="" style="color: #9b9b9b;">是</label>
+            </div>
+                <div style="display: inline-block;margin-right: 10px;line-height: 46px;vertical-align: middle;">
+                    <input type="radio" name="3" value="否"><label for="" style="color: #9b9b9b;">否</label>
+                </div>
+            </li>
+            <li hidden>是否重点对象：
+                <select name="" id="con18">
+                <option value="一类">一类</option>
+                <option value="二类">二类</option>
+                <option value="否">否</option>
+            </select></li>
+            <li hidden>脱贫巩固标志：<input type="text" placeholder="" id="con20"/></li>
+            <li hidden>自然村名称：<input type="text" placeholder="" id="con22"/></li>
+            <a class="update_btn submit">提交</a>
+        </ul>
+    </form>
+</section>
+<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script>
+    dd.ready(function(){
+        var url=config.url;
+        var object=localStorage.getItem("object");
+        var item=JSON.parse(object);
+        var povertyNumber=item.objnumber;
+        var helpNumber=item.cadnumber;
+        $.ajax({
+            url: url+"/poverty/basic",
+            data: {"povertyNumber": povertyNumber},
+            method: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 2000) {
+                    $("#con1").val(data.data['Ac01Basic']['aac029']);
+                    $("#con2").val(data.data['Ac01Basic']['aac031']);
+                    $("#con3").val(data.data['Ac01Basic']['aar012']);
+                    $("#con4").val(data.data['Ac01Basic']['aac001']);
+                    $("#con5").val(data.data['Ac01Basic']['aad001']);
+                    $("#con6").val(data.data['Ac01Basic']['aar040']);
+                    $("#con7").val(data.data['Ac01Basic']['aaq002']);
+                    $("#con8").val(data.data['Ac01Basic']['aac004']);
+                    $("#con9").val(data.data['Ac01Basic']['aac005']);
+                    $("#con10").val(data.data['Ac01Basic']['aac006']);
+                    $("#con11").val(data.data['Ac01Basic']['aar010']);
+                    $("#con12").val(data.data['Ac01Basic']['aac007']);
+                    $("#con13").val(data.data['Ac01Basic']['aac008']);
+                    $("#con14").val(data.data['Ac01Basic']['aac011']);
+                    // $("#con15").val(data.data['Ac01Basic']['aac012']);//是否军烈属
+                    /*$("#con16").val(data.data['Ac01Basic']['aar101']);
+                    $("#con17").val(data.data['Ac01Basic']['aar102']);
+                    $("#con161").val(data.data['Ac01Basic']['ada007']);
+                    $("#con171").val(data.data['Ac01Basic']['aad026']);*/
+
+                    $("#con18").val(data.data['Ac01Basic']['aac015']);
+                    $("#con19").val(data.data['Ac01Basic']['aac017']);
+                    $("#con20").val(data.data['Ac01Basic']['aac019']);
+                    $("#con21").val(data.data['Ac01Basic']['aar007']);
+                    $("#con22").val(data.data['Ac01Basic']['aad041']);
+                   /* $("#con44").val(data.data['Ac01Basic']['dis']);
+                    $("#con55").val(data.data['Ac01Basic']['town']);
+                    $("#con66").val(data.data['Ac01Basic']['vill']);*/
+                    $("#con33").val(data.data['Ac01Basic']['aac009']);
+                    var box1 = document.getElementsByName("1");
+                    for(var i=0;i<box1.length;i++){
+                        if(box1[i].value == data.data['Ac01Basic']['aac012']){
+                            box1[i].checked = true;
+                            break
+                        }else{
+                            // box1.value="否"
+                        }
+                    }
+                    var box2 = document.getElementsByName("2");
+                    for(var i=0;i<box2.length;i++){
+                        if(box2[i].value == data.data['Ac01Basic']['aac013']){
+                            box2[i].checked = true;
+                            break
+                        }else{
+                            console.log(box2)
+                            // box2[1].checked="否";
+                        }
+                    }
+                    var box3 = document.getElementsByName("3");
+                    for(var i=0;i<box3.length;i++){
+                        if(box3[i].value == data.data['Ac01Basic']['aac014']){
+                            box3[i].checked = true;
+                            break
+                        }else{
+                            console.log(box2)
+                            // box3[1].checked="否";
+                        }
+                    }
+
+                    /*修改状态的渲染*/
+                    var status=data.data.status;
+                    var html1="<span style='width:16px;height:10px;display:inline-block;background: blue;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    var html2="<span style='width:16px;height:10px;display:inline-block;background: yellow;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    var html3="<span style='width:16px;height:10px;display:inline-block;background: red;float: right;position:absolute;top:50%;right:0;transform: translateY(-50%)'></span>";
+                    if(status.aar007==1){
+                        $("#con21").parent().append(html1)
+                    }else if(status.aar007==2){
+                        $("#con21").parent().append(html2)
+                    }else if(status.aar007==3){
+                        $("#con21").parent().append(html3)
+                    }
+                    if(status.aac029==1){
+                        $("#con1").parent().append(html1)
+                    }else if(status.aac029==2){
+                        $("#con1").parent().append(html2)
+                    }else if(status.aac029==3){
+                        $("#con1").parent().append(html3)
+                    }
+                    if(status.aac031==1){
+                        $("#con2").parent().append(html1)
+                    }else if(status.aac031==2){
+                        $("#con2").parent().append(html2)
+                    }else if(status.aac031==3){
+                        $("#con2").parent().append(html3)
+                    }
+                    if(status.aac017==1){
+                        $("#con19").parent().append(html1)
+                    }else if(status.aac017==2){
+                        $("#con19").parent().append(html2)
+                    }else if(status.aac017==3){
+                        $("#con19").parent().append(html3)
+                    }
+                    if(status.aac005==1){
+                        $("#con9").parent().append(html1)
+                    }else if(status.aac005==2){
+                        $("#con9").parent().append(html2)
+                    }else if(status.aac005==3){
+                        $("#con9").parent().append(html3)
+                    }
+                    if(status.aac006==1){
+                        $("#con10").parent().append(html1)
+                    }else if(status.aac006==2){
+                        $("#con10").parent().append(html2)
+                    }else if(status.aac006==3){
+                        $("#con10").parent().append(html3)
+                    }
+                    if(status.aar010==1){
+                        $("#con11").parent().append(html1)
+                    }else if(status.aar010==2){
+                        $("#con11").parent().append(html2)
+                    }else if(status.aar010==3){
+                        $("#con11").parent().append(html3)
+                    }
+                    if(status.aac007==1){
+                        $("#con12").parent().append(html1)
+                    }else if(status.aac007==2){
+                        $("#con12").parent().append(html2)
+                    }else if(status.aac007==3){
+                        $("#con12").parent().append(html3)
+                    }
+                    if(status.aac008==1){
+                        $("#con13").parent().append(html1)
+                    }else if(status.aac008==2){
+                        $("#con13").parent().append(html2)
+                    }else if(status.aac008==3){
+                        $("#con13").parent().append(html3)
+                    }
+                    if(status.aac012==1){
+                        $("#con15").append(html1)
+                    }else if(status.aac012==2){
+                        $("#con15").append(html2)
+                    }else if(status.aac012==3){
+                        $("#con15").append(html3)
+                    }
+                    if(status.aar012==1){
+                        $("#con3").parent().append(html1)
+                    }else if(status.aar012==2){
+                        $("#con3").parent().append(html2)
+                    }else if(status.aar012==3){
+                        $("#con3").parent().append(html3)
+                    }
+                    if(status.aaq002==1){
+                        $("#con7").parent().append(html1)
+                    }else if(status.aaq002==2){
+                        $("#con7").parent().append(html2)
+                    }else if(status.aaq002==3){
+                        $("#con7").parent().append(html3)
+                    }
+                    if(status.aac004==1){
+                        $("#con8").parent().append(html1)
+                    }else if(status.aac004==2){
+                        $("#con8").parent().append(html2)
+                    }else if(status.aac004==3){
+                        $("#con8").parent().append(html3)
+                    }
+                    if(status.aac009==1){
+                        $("#con33").parent().append(html1)
+                    }else if(status.aac009==2){
+                        $("#con33").parent().append(html2)
+                    }else if(status.aac009==3){
+                        $("#con33").parent().append(html3)
+                    }
+                    /*if(status.aar101==1){
+                        $("#con16").parent().append(html1)
+                    }else if(status.aar101==2){
+                        $("#con16").parent().append(html2)
+                    }else if(status.aar101==3){
+                        $("#con16").parent().append(html3)
+                    }
+                    if(status.aar102==1){
+                        $("#con17").parent().append(html1)
+                    }else if(status.aar102==2){
+                        $("#con17").parent().append(html2)
+                    }else if(status.aar102==3){
+                        $("#con17").parent().append(html3)
+                    }
+                    if(status.ada007==1){
+                        $("#con161").parent().append(html1)
+                    }else if(status.ada007==2){
+                        $("#con161").parent().append(html2)
+                    }else if(status.ada007==3){
+                        $("#con161").parent().append(html3)
+                    }
+                    if(status.aad026==1){
+                        $("#con171").parent().append(html1)
+                    }else if(status.aad026==2){
+                        $("#con171").parent().append(html2)
+                    }else if(status.aad026==3){
+                        $("#con171").parent().append(html3)
+                    }*/
+
+                    /*点击提交*/
+                    $(".submit").click(function(){
+                        var aac029=$("#con1").val();
+                        var aac031=$("#con2").val();
+                        var aar012=$("#con3").val();
+                        var aac001=$("#con4").val();
+                        var aad001=$("#con5").val();
+                        var aar040=$("#con6").val();
+                        var aaq002=$("#con7").val();
+                        var aac004=$("#con8").val();
+                        var aac005=$("#con9").val();
+                        var aac006=$("#con10").val();
+                        var aar010=$("#con11").val();
+                        var aac007=$("#con12").val();
+                        var aac008=$("#con13").val();
+                        var aac011=$("#con14").val();
+                        var aac012=$("input[name='1']:checked").val();
+                        var aac013=$("input[name='2']:checked").val();
+                        var aac014=$("input[name='3']:checked").val();
+                        var aac015=$("#con18").val();
+                        var aac017=$("#con19").val();
+                        var aac019=$("#con20").val();
+                        var aar007=$("#con21").val();
+                        var aad041=$("#con22").val();
+                        /*var aar101=$("#con16").val();
+                        var aar102=$("#con17").val();
+                        var ada007=$("#con161").val();
+                        var aad026=$("#con171").val();*/
+                        /* var dis=$("#con44").val();
+                         var town=$("#con55").val();
+                         var vill=$("#con66").val();*/
+                        var aac009=$("#con33").val();
+                        /*验证表单*/
+                        //验证只能为数字
+                        for(var j=0;j<$(".vilidateNum").length;j++){
+                            if(checkNumber($(".vilidateNum").eq(j).val())==false){
+                                $(".vilidateNum").eq(j).trigger("focus").val("").attr("placeholder","只能输入大于0的整数").addClass("inputPla");
+                                return false;
+                            }
+                        }
+                        function checkNumber(obj){
+                            var reg = /^\+?[1-9]\d*$/;
+                            if(obj!=""&&!reg.test(obj)){
+                                return false;
+                            }else{
+                                return true;
+                            }
+                        }
+                        var map={"aac029":aac029,"aac031":aac031,"aar012":aar012,"aac001":aac001,"aad001":aad001,"aar040":aar040,"aaq002":aaq002,"aac004":aac004,"aac005":aac005,"aac006":aac006,"aar010":aar010,"aac007":aac007,"aac008":aac008,"aac011":aac011,"aac012":aac012,"aac013":aac013,"aac014":aac014,"aac015":aac015,"aac017":aac017,"aac019":aac019,"aar007":aar007,"aad041":aad041,"aac009":aac009,"povertyNumber":povertyNumber,"helpNumber":helpNumber};
+                        function qukong(obj){
+                            for(var key in obj){
+                                if(obj[key]==null || obj[key]==''){
+                                    console.log(obj[key]);
+                                    delete obj[key];
+                                }
+                            }
+                            return obj;
+                        }
+                        var newmap=qukong(map);
+                        $.ajax({
+                            url: url+"/update/basic",
+                            data: newmap,
+                            method: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.code == 2000) {
+                                    dd.device.notification.alert({
+                                        message: "修改成功",
+                                        title: "提示",//可传空
+                                        buttonName: "确定",
+                                        onSuccess : function() {
+                                            //onSuccess将在点击button之后回调
+                                            /*回调*/
+                                            location.href="../index.html";
+                                        },
+                                        onFail : function(err) {}
+                                    });
+
+                                }
+                            }
+                        })
+                    })
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>

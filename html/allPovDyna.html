@@ -1,0 +1,540 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>扶贫圈</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="stylesheet" href="../css/common.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+	<link rel="stylesheet" href="../css/font-awesome.min.css" />
+	<link rel="stylesheet" href="../css/personInfo.css" />
+	<link rel="stylesheet" href="../css/povDyna.css" />
+	<link rel="stylesheet" href="../css/photoswipe.css">
+	<link rel="stylesheet" href="../css/default-skin.css">
+	<script type="text/javascript" src="../js/photoswipe.js" ></script>
+	<script type="text/javascript" src="../js/photoswipe-ui-default.min.js"></script>
+</head>
+<style>
+	/*加载动画*/
+	.spinner {
+		position:fixed;
+		margin: 0 auto;
+		width: 36px;
+		height: 36px;
+		background: rgba(0,0,0,0.3);
+		box-shadow: 0 0 40px 1000px rgba(0,0,0,0.3);
+		top:50%;
+		left:50%;
+		transform: translate(-50%,-50%);
+		z-index: 999;
+	}
+
+	.container1 > div, .container2 > div, .container3 > div {
+		width: 8px;
+		height: 8px;
+		background-color: #404040;
+		border-radius: 100%;
+		position: absolute;
+		-webkit-animation: bouncedelay 1.2s infinite ease-in-out;
+		animation: bouncedelay 1.2s infinite ease-in-out;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+	}
+	.spinner .spinner-container {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.container2 {
+		-webkit-transform: rotateZ(45deg);
+		transform: rotateZ(45deg);
+	}
+
+	.container3 {
+		-webkit-transform: rotateZ(90deg);
+		transform: rotateZ(90deg);
+	}
+
+	.circle1 { top: 0; left: 0; }
+	.circle2 { top: 0; right: 0; }
+	.circle3 { right: 0; bottom: 0; }
+	.circle4 { left: 0; bottom: 0; }
+
+	.container2 .circle1 {
+		-webkit-animation-delay: -1.1s;
+		animation-delay: -1.1s;
+	}
+
+	.container3 .circle1 {
+		-webkit-animation-delay: -1.0s;
+		animation-delay: -1.0s;
+	}
+
+	.container1 .circle2 {
+		-webkit-animation-delay: -0.9s;
+		animation-delay: -0.9s;
+	}
+
+	.container2 .circle2 {
+		-webkit-animation-delay: -0.8s;
+		animation-delay: -0.8s;
+	}
+
+	.container3 .circle2 {
+		-webkit-animation-delay: -0.7s;
+		animation-delay: -0.7s;
+	}
+
+	.container1 .circle3 {
+		-webkit-animation-delay: -0.6s;
+		animation-delay: -0.6s;
+	}
+
+	.container2 .circle3 {
+		-webkit-animation-delay: -0.5s;
+		animation-delay: -0.5s;
+	}
+
+	.container3 .circle3 {
+		-webkit-animation-delay: -0.4s;
+		animation-delay: -0.4s;
+	}
+
+	.container1 .circle4 {
+		-webkit-animation-delay: -0.3s;
+		animation-delay: -0.3s;
+	}
+
+	.container2 .circle4 {
+		-webkit-animation-delay: -0.2s;
+		animation-delay: -0.2s;
+	}
+
+	.container3 .circle4 {
+		-webkit-animation-delay: -0.1s;
+		animation-delay: -0.1s;
+	}
+
+	@-webkit-keyframes bouncedelay {
+		0%, 80%, 100% { -webkit-transform: scale(0.0) }
+		40% { -webkit-transform: scale(1.0) }
+	}
+
+	@keyframes bouncedelay {
+		0%, 80%, 100% {
+			transform: scale(0.0);
+			-webkit-transform: scale(0.0);
+		} 40% {
+			  transform: scale(1.0);
+			  -webkit-transform: scale(1.0);
+		  }
+	}
+</style>
+<body>
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="pswp__bg"></div>
+	<div class="pswp__scroll-wrap">
+		<div class="pswp__container">
+			<div class="pswp__item"></div>
+			<div class="pswp__item"></div>
+			<div class="pswp__item"></div>
+		</div>
+
+		<div class="pswp__ui pswp__ui--hidden">
+			<div class="pswp__top-bar">
+				<div class="pswp__counter"></div>
+				<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+				<button class="pswp__button pswp__button--share" title="Share"></button>
+				<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+				<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+				<div class="pswp__preloader">
+					<div class="pswp__preloader__icn">
+						<div class="pswp__preloader__cut">
+							<div class="pswp__preloader__donut"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+				<div class="pswp__share-tooltip"></div>
+			</div>
+			<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+			</button>
+			<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+			</button>
+
+			<div class="pswp__caption">
+				<div class="pswp__caption__center"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="spinner" style="display: none;">
+	<div class="spinner-container container1">
+		<div class="circle1"></div>
+		<div class="circle2"></div>
+		<div class="circle3"></div>
+		<div class="circle4"></div>
+	</div>
+	<div class="spinner-container container2">
+		<div class="circle1"></div>
+		<div class="circle2"></div>
+		<div class="circle3"></div>
+		<div class="circle4"></div>
+	</div>
+	<div class="spinner-container container3">
+		<div class="circle1"></div>
+		<div class="circle2"></div>
+		<div class="circle3"></div>
+		<div class="circle4"></div>
+	</div>
+</div>
+	<!--个人信息背景-->
+	<div class="backImage" style="position:relative;">
+		<div class="perHeadDyna">
+			<!--<img class="perHdImg" src="../img/perHdImg.jpg">
+			<p id="logName">王双全</p>-->
+			<a href="assistLog.html" style="position:absolute;bottom:5px;right:0px;">
+				<i class="fa fa-2x fa-camera-retro" aria-hidden="true"></i>
+			</a>
+		</div>
+	</div>
+	<div class="povDyna">
+		<div class="aPovDyna  lastDyna" id="aPovDyna">
+
+		</div>
+	</div>
+	<!--脚底导航页-->
+	<footer>
+		<ul class="nav clearfix">
+			<li id="li1"><i class="ColoriconG fa fa-2x fa-home" aria-hidden="true"></i><br/><span class="ColoriconG">首页</span></li>
+			<li id="li2"><i class="Coloricon fa fa-2x fa-yelp" aria-hidden="true"></i><br/><span class="Coloricon">帮扶圈</span></li>
+			<!--<li id="li3"><i class="ColoriconG fa fa-2x fa-star" aria-hidden="true"></i><br/><span class="ColoriconG">特色</span></li>-->
+			<li id="li4"><i class="ColoriconG fa-2x fa fa-user" aria-hidden="true"></i><i class="pointIcon fa"></i><br/><span class="ColoriconG">我的</span></li>
+		</ul>
+	</footer>
+	<div class="pagination"></div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/dd.js"></script>
+<script type="text/javascript">
+	$("#li1").click(function(){window.location.href="../index.html";});
+	$("#li2").click(function(){window.location.href="allPovDyna.html";});
+	$("#li3").click(function(){window.location.href="feature.html";});
+	$("#li4").click(function(){window.location.href="personInfo.html";});
+</script>
+<script>
+    dd.ready(function(){
+		var url=config.url;
+		var logObject=$("#aPovDyna");
+        var allstr="";
+        /*document.querySelector('body').onscroll=function(){
+            if( screenHeight + document.body.scrollTop >= document.body.scrollHeight){
+                index++;
+                $.ajax({
+                    url: url+"/help/log",
+                    data: {"pageSize":20,"pageNum":index},
+                    method: "post",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code == 2000) {
+                            var datas=data.data.list;
+                            showLog(logObject,datas)
+                            show();
+                            for(var s=0;s<datas.length;s++){
+                                var comments=$(".comments")[s];
+                                var imgCollect=$(".dynaImgs")[s];
+                                showComments(comments,datas[s].discussList);
+                                showImgs(imgCollect,datas[s].list);
+                            }
+                        }
+                    },
+                })
+            }
+
+        }*/
+		$.ajax({
+			url: url+"/help/log",
+			data: {"pageSize":20,"pageNum":1},
+			method: "post",
+			dataType: "json",
+            beforeSend:function(request){
+                ShowLoading();
+            },
+			success: function (data) {
+				if (data.code == 2000) {
+					var datas=data.data.list;
+					showLog(logObject,datas)
+					show();
+					for(var s=0;s<datas.length;s++){
+						var comments=$(".comments")[s];
+						var imgCollect=$(".dynaImgs")[s];
+						showComments(comments,datas[s].discussList);
+						showImgs(imgCollect,datas[s].list);
+					}
+				}
+			},
+            complete:function(){
+                HideLoading();
+            }
+		})
+        function ShowLoading() {
+            $(".spinner").show();
+        }
+        function HideLoading() {
+            $(".spinner").hide();
+        }
+
+		function showLog(obj,data){
+            var str="";
+			obj.empty();
+			for(var i=0;i<data.length;i++){
+			    if(data[i]['log']=="null" || data[i]['log']==null){
+                    data[i]['log']="";
+				}
+				data[i]['helptime']=data[i]['helptime'].substring(0,4)+"-"+data[i]['helptime'].substring(4,6)+"-"+data[i]['helptime'].substring(6,8)+" "+data[i]['helptime'].substring(8,10)+":"+data[i]['helptime'].substring(10,12)+":"+data[i]['helptime'].substring(12,14);
+				str += '<li><div class="peopleImg"><div style="padding-left:14px;"><p class="logsName">' + data[i]['helpNumber'] + '</p><p class="date" style="font-size:14px;">' + data[i]['helptime'] + '</p></div></div><div class="povDynaDes" class="contents">' + data[i]['log'] + '</div><div class="dynaImgs"></div><div class="thumbComm clearfix"><div class="commIcon" value="' + data[i]['id'] + '"><i class="ColoriconW fa fa-commenting-o" aria-hidden="true"></i></div><div class="thumbIcon" value="' + data[i]['id'] + '"><i class="ColoriconW fa-2x fa fa-heart-o" aria-hidden="true"></i></div></div><div class="dynaComment"><div style="border-bottom: 1px solid #e8e8e8;"><i class="Coloricon fontIcon fa fa-heart-o" aria-hidden="true"></i><span class="number">' + data[i]['numberPraise'] + '</span></div><div class="comments"></div></div></li>';
+			}
+			str+='<div class="moreBox" style="text-align: center;height:15px;"><span class="more" style="display: block;height:15px;width:40px;background: #2fa8ec;color:#fff;line-height: 15px;margin:0 auto;border-radius: 4px;">更多</span></div>';
+			obj.html(str)
+		}
+        function showLog2(obj,data){
+            var str="";
+            for(var i=0;i<data.length;i++){
+                if(data[i]['log']=="null" || data[i]['log']==null){
+                    data[i]['log']="";
+                }
+                data[i]['helptime']=data[i]['helptime'].substring(0,4)+"-"+data[i]['helptime'].substring(4,6)+"-"+data[i]['helptime'].substring(6,8)+" "+data[i]['helptime'].substring(8,10)+":"+data[i]['helptime'].substring(10,12)+":"+data[i]['helptime'].substring(12,14);
+                str += '<li><div class="peopleImg"><div style="padding-left:14px;"><p class="logsName">' + data[i]['helpNumber'] + '</p><p class="date" style="font-size:14px;">' + data[i]['helptime'] + '</p></div></div><div class="povDynaDes" class="contents">' + data[i]['log'] + '</div><div class="dynaImgs"></div><div class="thumbComm clearfix"><div class="commIcon" value="' + data[i]['id'] + '"><i class="ColoriconW fa fa-commenting-o" aria-hidden="true"></i></div><div class="thumbIcon" value="' + data[i]['id'] + '"><i class="ColoriconW fa-2x fa fa-heart-o" aria-hidden="true"></i></div></div><div class="dynaComment"><div style="border-bottom: 1px solid #e8e8e8;"><i class="Coloricon fontIcon fa fa-heart-o" aria-hidden="true"></i><span class="number">' + data[i]['numberPraise'] + '</span></div><div class="comments"></div></div></li>';
+            }
+            str+='<div class="moreBox" style="text-align: center;height:15px;"><span class="more" style="display: block;height:15px;width:40px;background: #2fa8ec;color:#fff;line-height: 15px;margin:0 auto;border-radius: 4px;">更多</span></div>';
+            $("#aPovDyna").append(str)
+        }
+		/*渲染评论*/
+		function showComments(obj,data){
+			var strs="";
+			if(data.length){
+				for(var j=0;j<data.length;j++){
+				    if(data[j]['discussValue']==null || data[j]['discussValue']=="null"){
+                        data[j]['discussValue']="";
+					}
+					strs += '<p>' + data[j]['helpNumber'] + '\uFF1A' + data[j]['discussValue'] + '</p>';
+				}
+				obj.innerHTML=strs;
+			}
+		}
+		/*渲染图片*/
+		function showImgs(obj,data){
+            var strs2="";
+            if(data.length){
+                for(var m=0;m<data.length;m++){
+                    strs2 += "<img src=\"" + data[m] + "\" style=\"margin-right:3px;\">";
+                }
+                obj.innerHTML=strs2;
+            }
+        }
+        function showImgs2(obj,data){
+            var strs2="";
+            if(data.length){
+                for(var m=0;m<data.length;m++){
+                    strs2 += "<img src=\"" + data[m] + "\" style=\"margin-right:3px;\">";
+                }
+                obj.innerHTML=strs2;
+            }
+        }
+		/*点赞和评论功能实现*/
+		function show(){
+			setTimeout(function(){
+				$(".thumbIcon").click(function(){
+					var id=$(this).attr("value");
+					$.ajax({
+						url: url+"/help/addPraise",
+						data: {"id":id},
+						method: "post",
+						dataType: "json",
+						success: function (data) {
+							if (data.code == 2000) {
+
+							}
+						}
+					})
+					var i=$(this).children("i");
+					var span=$(this).parent().next().children("div").children("span");
+					var css=$(i).attr("class");
+					var l=css.indexOf("fa-heart-o");
+					if(l!==-1){
+						var count=$(span).text();
+						$(span).text(Number(count)+1);
+						$(i).removeClass("fa-heart-o");
+						$(i).addClass("fa-heart");
+					}else{
+						var count=$(span).text();
+						$(span).text(Number(count)-1);
+						$(i).removeClass("fa-heart");
+						$(i).addClass("fa-heart-o");
+					}
+				})
+			},1000)
+			setTimeout(function(){
+				$(".commIcon").click(function(){
+					var object=localStorage.getItem("objects");
+					var item=JSON.parse(object);
+					var helpNumber=item.cadreNum;
+					var id=$(this).attr("value");
+					var c=prompt("请输入评论内容");
+					var div=$(this).parent().next();
+					if(c!="" && c!="null" && c!=null){
+                        $.ajax({
+                            url: url+"/help/insertDiscuss",
+                            data: {"logId":id,"helpNumber":helpNumber,"discussValue":c},
+                            method: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.code == 2000) {
+
+                                }
+                            }
+                        })
+                        $.ajax({
+                            url: url+"/help/findName",
+                            data: {"helpNumber":helpNumber},
+                            method: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.code == 2000) {
+									$(div).append("<p><span>"+data.data+"：</span><span>"+c+"</span></p>");
+									dd.device.notification.alert({
+										message: "评论成功",
+										title: "提示",//可传空
+										buttonName: "确定",
+										onSuccess : function() {
+											//onSuccess将在点击button之后回调
+											/*回调*/
+											// location.href="../index.html";
+										},
+										onFail : function(err) {}
+									});
+                                }
+                            }
+                        })
+					}else{
+                        dd.device.notification.alert({
+                            message: "评论内容不能为空",
+                            title: "提示",//可传空
+                            buttonName: "确定",
+                            onSuccess : function() {
+                                //onSuccess将在点击button之后回调
+                                /*回调*/
+                            },
+                            onFail : function(err) {}
+                        });
+					}
+				})
+			},1000)
+		}
+		/*更多*/
+        var index=1;
+        var load_flag=false;
+        $("#aPovDyna").on("click",".more",function(){
+            $("#aPovDyna .moreBox").empty();
+            loadMore();
+		})
+        /*$(window).scroll(function() {
+            //当时滚动条离底部60px时开始加载下一页的内容
+            /!*alert($(window).height())
+            alert($(window).scrollTop())
+            alert($(document).height())*!/
+            /!*window.height:5146  window.scrollTop: 4543  document.height:5146*!/
+			// alert(load_flag)
+			// if(load_flag){
+			// 	return;
+			// }
+			var totalheight = parseFloat(603) + parseFloat($(window).scrollTop());
+			if(totalheight>=$(document).height()){
+				// load_flag=true;
+				loadMore();
+			}
+
+
+            /!*if (($(window).scrollTop() + 603 + 30) >= $(document).height()) {
+                index++;
+                $.ajax({
+                    url: url+"/help/log",
+                    data: {"pageSize":20,"pageNum":index},
+                    method: "post",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code == 2000) {
+                            var datas=data.data.list;
+                            showLog2(logObject,datas)
+                            show();
+                            for(var s=0;s<datas.length;s++){
+                                var ss=0;
+                                ss=(index-1)*20+s;
+                                var comments=$(".comments")[ss];
+                                var imgCollect=$(".dynaImgs")[ss];
+                                showComments(comments,datas[s].discussList);
+                                showImgs2(imgCollect,datas[s].list);
+                            }
+                        }
+                    },
+                })
+            }*!/
+        });*/
+        function loadMore(){
+            // alert('加载更多执行的事件');
+            index++;
+            $.ajax({
+                url: url+"/help/log",
+                data: {"pageSize":20,"pageNum":index},
+                method: "post",
+                dataType: "json",
+                success: function (data) {
+                    if (data.code == 2000) {
+                        var datas=data.data.list;
+                        showLog2(logObject,datas)
+                        // show();
+                        for(var s=0;s<datas.length;s++){
+                            var ss=0;
+                            ss=(index-1)*20+s;
+                            var comments=$(".comments")[ss];
+                            var imgCollect=$(".dynaImgs")[ss];
+                            showComments(comments,datas[s].discussList);
+                            showImgs2(imgCollect,datas[s].list);
+                        }
+                    }
+                },
+            })
+        }
+    })
+</script>
+</body>
+<!--<script>
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    var items = [
+        {
+            src: 'https://placekitten.com/600/400',
+            w: 600,
+            h: 400
+        },
+        {
+            src: 'https://placekitten.com/1200/900',
+            w: 1200,
+            h: 900
+        }
+    ];
+    var options = {
+        index: 0 // start at first slide
+    };
+    var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.init();
+    gallery.close();
+</script>-->
+</html>

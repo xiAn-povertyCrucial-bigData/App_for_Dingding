@@ -1,0 +1,99 @@
+*{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	color:#000;
+}
+body{
+	font-size:0.8rem;
+	font-family:Arial,Verdana,Tahoma,"微软雅黑","黑体";
+	line-height:120%;
+	background:#F2F6F9;
+	margin:0;
+	overflow-x:hidden;
+}
+p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,form,table{
+	margin:0;
+	padding:0;
+}
+a,img{
+	border:none;
+}
+img{
+	vertical-align:middle;
+	border:0;
+}
+li{
+	list-style:none;
+}
+i,em{
+	font-style:normal;
+}
+a{
+	text-decoration:none; 
+	display:block;
+	border:0;
+}
+a:link{
+	text-decoration:none;
+}
+a:visited{
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:none;
+}
+a:active{
+	text-decoration:none;
+}
+.clearfix:before,.clearfix:after{
+	display:table;
+	content:"";
+}
+.clearfix:after{
+	clear:both;
+}
+.clearfix{
+	*zoom:1;
+}
+.ColoriconW{color: #ffffff;}  .ColoriconG{color: #9b9b9b;}
+.button{border: 0;background: #39ACFE;border-radius: 5px;padding: 4px 10px;color: #fff!important;}
+.update_btn{width:90%;height:32px;background: #39ACFE;border-radius: 5px;color: #fff!important;text-align: center;line-height:32px;margin: 14px auto;}
+.add_btn{width:90%;height:32px;background: #39ACFE;border-radius: 5px;color: #fff!important;text-align: center;line-height:32px;margin: 14px auto;}
+input:focus { outline: none; }
+.Coloricon{color: #39ACFE;}
+.fontIcon{font-size: 13px!important;}
+.ColoriconG{color: #9b9b9b;}
+.ColoriconY{color:#F7B55F;}
+.ColoriconR{color: #e56350}
+.ColoriconGreen{color: #15b78b}
+footer,.bgColor{background: #fff;}
+.bgcolor2{background: none;}
+footer{position: fixed;bottom: 0; width: 100%;border-top: 1px solid #f2f6f9;height: 3.4rem;}
+footer ul{display: flex;}
+footer .nav li{flex: 1;text-align: center;padding: 0.5rem 0;}
+.txtLeft{text-align: left;}
+.txtRight{text-align: right;}
+.txtCenter{text-align: center;}
+.left{float: left;}
+.right{float: right;}
+.borderLeft{border-left: 0.2rem solid #F2F6F9;}
+.borderRight{border-right: 0.2rem solid #F2F6F9;}
+.borderTop{border-Top: 0.2rem solid #F2F6F9;}
+.borderBottom{border-bottom: 0.2rem solid #F2F6F9;position:relative}
+.paddingBottom{padding-bottom: 1rem;}
+.paddingTop{padding-top: 1rem;}
+.lastDyna{margin-bottom: 3.9rem!important;}
+.pointIcon{display: block; position: absolute; z-index: 333; color: #FF3B30; right: 1.5rem; bottom:2.5rem}
+input.inputPla::-webkit-input-placeholder { /* WebKit browsers */
+	color: red;
+}
+input.inputPla:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: red;
+}
+input.inputPla:-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: red;
+}
+input.inputPla:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: red;
+}
